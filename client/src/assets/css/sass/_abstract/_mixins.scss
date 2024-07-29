@@ -1,0 +1,71 @@
+@mixin flex-box($justify, $align, $gap) {
+    display: flex;
+    justify-content: #{$justify};
+    align-items: #{$align};
+    gap: $gap;
+}
+
+@mixin hw($height, $width) {
+    height: $height;
+    width: $width;
+    overflow: hidden;
+}
+
+@mixin img($height, $width, $object) {
+    height: $height;
+    width: $width;
+    object-fit: #{$object};
+    transition: all 0.5s ease;
+    display: block;
+}
+
+@mixin ul($padding, $margin) {
+    padding: #{$padding};
+    margin: #{$margin};
+}
+
+@mixin typography($size, $weight) {
+    font-size: #{$size};
+    font-weight: #{$weight};
+}
+
+@mixin positionTL($position, $y-axis, $x-axis) {
+    position: #{$position};
+    top: #{$y-axis};
+    left: #{$x-axis};
+}
+@mixin positionBL($position, $y-axis, $x-axis) {
+    position: #{$position};
+    bottom: #{$y-axis};
+    left: #{$x-axis};
+}
+@mixin positionTR($position, $y-axis, $x-axis) {
+    position: #{$position};
+    top: #{$y-axis};
+    right: #{$x-axis};
+}
+@mixin positionBR($position, $y-axis, $x-axis) {
+    position: #{$position};
+    bottom: #{$y-axis};
+    right: #{$x-axis};
+}
+
+@mixin visibility($visible, $opacity) {
+    visibility: #{$visible};
+    opacity: #{$opacity};
+}
+
+@mixin line-clamp($number) {
+    display: -webkit-box;
+    -webkit-line-clamp: #{$number};
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}

@@ -1,0 +1,57 @@
+.login-register {
+    height: 100vh;
+    padding: 0 20px;
+    @include flex-box(center, center, 0);
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+
+    .signin__error,
+    .signup__error {
+        color: $red;
+        text-align: center;
+        margin: 10px 0;
+    }
+}
+
+.signin {
+    max-width: 500px;
+
+    &__header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .form {
+        &__group {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+
+    &__footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.signup {
+    // width: 100%;
+    // max-width: 600px;
+    // border: 1px solid $grey;
+    // padding: 40px;
+    // border-radius: 10px;
+    display: none;
+
+    &__header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+}

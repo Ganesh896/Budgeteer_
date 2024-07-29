@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard</title>
+
+        <!-- boxicons -->
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="../src/assets/css/style.css" />
+    </head>
+    <body>
+        <main id="content">
+            <aside class="sidebar">
+                <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
+                <div class="container">
+                    <div class="sidebar__header">
+                        <div class="sidebar__header--logo">
+                            <img src="/images/budgetter-logo-light.png" alt="logo" />
+                        </div>
+                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                    </div>
+                    <div class="sidebar__content">
+                        <ul>
+                            <li class="sidebar__item">
+                                <a href="dashboard.html"><i class="bx bx-grid-alt"></i> <span>Dashboard</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="expenses.html"><i class="bx bx-file"></i> <span>Expenses</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="goals.html"><i class="bx bx-podcast"></i> <span>Goals</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
+                            </li>
+                            <li class="sidebar__item active">
+                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="setting.html"><i class="bx bx-cog"></i> <span>Settings</span></a>
+                            </li>
+                        </ul>
+                        <div class="sidebar__bottom">
+                            <button class="logout"><i class="bx bx-log-out"></i><span>Logout</span></button>
+                            <div class="theme__button">
+                                <input type="checkbox" class="checkbox" id="checkbox" />
+                                <label for="checkbox" class="checkbox-label">
+                                    <i class="bx bx-moon"></i>
+                                    <i class="bx bx-sun"></i>
+                                    <span class="ball"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="dashboard" id="dashboard">
+                <div class="header">
+                    <div class="header__welcome">
+                        <h1 class="title" id="welcome__msg">Welcome back, Ganesh!</h1>
+                        <p class="meta__text">It is the best time to manage you finances</p>
+                    </div>
+                    <div class="dashboard__header">
+                        <div class="sidebar__header--logo">
+                            <img src="/images/budgetter-logo-light.png" alt="logo" />
+                        </div>
+                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                    </div>
+                    <div class="header__profile">
+                        <!-- rendering user profile here -->
+                    </div>
+                </div>
+                <div class="money__flow">
+                    <canvas id="money__flow"></canvas>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </main>
+
+        <script src="../src/assets/ts/dashboard.ts" type="module"></script>
+        <script src="../src/assets/ts/userProfile.ts" type="module"></script>
+    </body>
+</html>

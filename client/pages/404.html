@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Page Not found</title>
+    </head>
+    <body>
+        <div class="dashboard-content" id="profile">
+            <div class="profile">
+                <div class="profile__picture">
+                    <img src="/images/default__profile.png" id="profile__picture" alt="img" />
+                    <button class="profile__picture--upload"><i class="bx bx-camera"></i></button>
+                </div>
+                <div class="update__profile--modal">
+                    <div class="close__modal">
+                        <i class="bx bx-x"></i>
+                    </div>
+                    <form id="update__profile--form">
+                        <input type="file" name="profile" />
+                        <button type="submit" class="l__button l__button--primary">Upload</button>
+                    </form>
+                </div>
+                <div class="profile__information">
+                    <div class="profile__information--header">
+                        <h3>My information</h3>
+                        <button class="edit__info--button"><i class="bx bx-edit-alt"></i> Edit</button>
+                    </div>
+                    <form id="updatedetail__form">
+                        <div class="updatedetail__form--container"></div>
+
+                        <button type="submit" class="l__button l__button--primary update__info">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

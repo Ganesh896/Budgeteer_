@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: $black;
+    // overflow-x: hidden;
+    transition: all 0.5s ease;
+    background-color: $white;
+    letter-spacing: 0.3px;
+}
+
+// html {
+//     overflow-x: hidden !important;
+//     width: 100%;
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: $black;
+}
+
+p {
+    color: $black;
+}
+
+.title {
+    @include typography(clamp(24px, 4vw, 32px), 600);
+}
+
+.subtitle {
+    @include typography(clamp(18px, 2vw, 24px), 600);
+}
+
+.small__title {
+    @include typography(clamp(16px, 2vw, 18px), 600);
+}
+
+.large__text {
+    @include typography(clamp(16px, 2vw, 18px), 600);
+}
+
+.normal__text {
+    @include typography(clamp(14px, 2vw, 16px), 600);
+}
+
+.small__text {
+    @include typography(clamp(12px, 1vw, 14px), 600);
+}
+
+.meta__text {
+    @include typography(14px, 500);
+    color: $grey;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+}
+
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none;
+}
+
+body.overflowHidden {
+    overflow: hidden;
+}
+
+input {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+textarea.form-control::placeholder,
+input.form-control::placeholder {
+    color: #797373;
+    font-size: 14px;
+}
+
+.form__modal {
+    border: 2px solid $grey-light;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+}
+
+.form__group {
+    margin-bottom: 16px;
+    @include flex-box(flex-start, center, 10px);
+
+    input,
+    textarea,
+    select {
+        padding: 16px;
+        outline: none;
+        border: 1px solid $grey;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 16px;
+
+        &:focus {
+            border: 2px solid $primary;
+        }
+    }
+
+    textarea {
+        resize: none;
+        height: 100px;
+    }
+}
+
+button {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: none;
+    cursor: pointer;
+}
+
+.l__button {
+    width: 100%;
+    padding: 16px;
+    @include typography(18px, 600);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+
+    &--primary {
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+}

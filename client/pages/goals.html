@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard</title>
+
+        <!-- boxicons -->
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="../src/assets/css/style.css" />
+    </head>
+    <body>
+        <main id="content">
+            <aside class="sidebar">
+                <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
+                <div class="container">
+                    <div class="sidebar__header">
+                        <div class="sidebar__header--logo">
+                            <img src="/images/budgetter-logo-light.png" alt="logo" />
+                        </div>
+                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                    </div>
+                    <div class="sidebar__content">
+                        <ul>
+                            <li class="sidebar__item">
+                                <a href="dashboard.html"><i class="bx bx-grid-alt"></i> <span>Dashboard</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="expenses.html"><i class="bx bx-file"></i> <span>Expense</span></a>
+                            </li>
+                            <li class="sidebar__item active">
+                                <a href="goals.html"><i class="bx bx-podcast"></i> <span>Goals</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="setting.html"><i class="bx bx-cog"></i> <span>Settings</span></a>
+                            </li>
+                        </ul>
+                        <div class="sidebar__bottom">
+                            <button class="logout"><i class="bx bx-log-out"></i><span>Logout</span></button>
+                            <div class="theme__button">
+                                <input type="checkbox" class="checkbox" id="checkbox" />
+                                <label for="checkbox" class="checkbox-label">
+                                    <i class="bx bx-moon"></i>
+                                    <i class="bx bx-sun"></i>
+                                    <span class="ball"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="dashboard" id="dashboard">
+                <div class="header">
+                    <div class="header__welcome">
+                        <h1 class="title" id="welcome__msg">Welcome back, Ganesh!</h1>
+                        <p class="meta__text">It is the best time to manage you finances</p>
+                    </div>
+                    <div class="dashboard__header">
+                        <div class="sidebar__header--logo">
+                            <img src="/images/budgetter-logo-light.png" alt="logo" />
+                        </div>
+                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                    </div>
+                    <div class="header__profile">
+                        <!-- rendering user profile here -->
+                    </div>
+                </div>
+                <div class="addgoal">
+                    <button class="addgoal__btn"><i class="bx bx-plus"></i> Add Goal</button>
+                    <div class="addgoal__modal form__modal">
+                        <div class="addgoal__modal--header">
+                            <h1 class="title">Add Goal</h1>
+                        </div>
+                        <button class="close__modal"><i class="bx bx-x"></i></button>
+                        <form id="addgoal__form">
+                            <div class="form__group">
+                                <label for="goalName">Goal Name</label>
+                                <input type="text" name="goalName" placeholder="Goal Name" id="goalName" required />
+                            </div>
+                            <div class="form__group">
+                                <label for="goalAmount">Goal Amount</label>
+                                <input type="number" name="goalAmount" placeholder="Goal Amount" id="goalAmount" required />
+                            </div>
+
+                            <p class="response__msg"></p>
+                            <button type="submit" class="l__button l__button--primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="saving">
+                    <h3 class="small__title">Saving goals</h3>
+                    <div class="saving__items">
+                        <div class="saving__items--title">
+                            <p>Mustang Trip</p>
+                            <p>$ <span>1,150</span></p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress__bar">
+                                <div class="progress__bar--inner">
+                                    <span>50%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="saving__items">
+                        <div class="saving__items--title">
+                            <p>MacBook Pro</p>
+                            <p>$ <span>1,650</span></p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress__bar">
+                                <div class="progress__bar--inner">
+                                    <span>50%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="saving__items">
+                        <div class="saving__items--title">
+                            <p>Bike</p>
+                            <p>$ <span>4,050</span></p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress__bar">
+                                <div class="progress__bar--inner">
+                                    <span>50%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="saving__items">
+                        <div class="saving__items--title">
+                            <p>Mustang Trip</p>
+                            <p>$ <span>1,150</span></p>
+                        </div>
+                        <div class="progress">
+                            <div class="progress__bar">
+                                <div class="progress__bar--inner">
+                                    <span>50%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </main>
+
+        <script src="../src/assets/ts/goals/goals.ts" type="module"></script>
+    </body>
+</html>

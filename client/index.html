@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>login</title>
+
+        <link rel="stylesheet" href="./src/assets/css/style.css" />
+    </head>
+    <body>
+        <main class="login-register" id="content">
+            <div class="signin form__modal">
+                <div class="signin__header">
+                    <h1 class="title">Login</h1>
+                </div>
+                <form class="form" id="signin">
+                    <div class="form__group">
+                        <input type="email" name="email" placeholder="Enter your email" />
+                    </div>
+                    <div class="form__group">
+                        <input type="password" name="password" placeholder="password" />
+                    </div>
+                    <p class="signin__error"></p>
+                    <button type="submit" class="l__button l__button--primary btn__signin">Login</button>
+                </form>
+                <div class="signin__footer">
+                    <p>Don't have account? <a class="signup__link">Register</a></p>
+                </div>
+            </div>
+
+            <div class="signup form__modal">
+                <div class="signup__header">
+                    <h1 class="title">Register</h1>
+                </div>
+                <form class="form" id="signup">
+                    <div class="form__group">
+                        <input type="text" name="firstName" placeholder="First name" />
+                        <input type="text" name="lastName" placeholder="Last name" />
+                    </div>
+                    <!-- <div class="form__group">
+                    </div> -->
+                    <div class="form__group">
+                        <input type="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="form__group">
+                        <input type="password" name="password" placeholder="password" />
+                    </div>
+                    <div class="form__group">
+                        <input type="number" name="phone" placeholder="Phone" />
+                    </div>
+                    <div class="form__group">
+                        <input type="text" name="address" placeholder="Address" />
+                    </div>
+                    <p class="signup__error"></p>
+                    <button type="submit" class="l__button l__button--primary btn__signup">Register</button>
+                </form>
+                <div class="signup__footer">
+                    <p>Already registered? <a class="signin__link">Login</a></p>
+                </div>
+            </div>
+        </main>
+
+        <script src="./src/main.ts" type="module"></script>
+        <script src="./src/assets/ts/auth.ts" type="module"></script>
+    </body>
+</html>

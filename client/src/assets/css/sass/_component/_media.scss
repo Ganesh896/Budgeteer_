@@ -1,0 +1,193 @@
+@media (max-width: 1300px) {
+}
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 1150px) {
+}
+
+@media all and (max-width: 1024px) {
+    .amount__cards {
+        flex-direction: column;
+
+        .card__grid {
+            width: 100%;
+        }
+    }
+}
+
+@media all and (max-width: 991px) {
+    .sidebar {
+        @include flex-box(center, flex-start, 0);
+        width: 80px;
+
+        &__toggle,
+        span {
+            display: none;
+        }
+
+        &__header {
+            gap: 0;
+        }
+
+        .container,
+        &__bottom,
+        ul {
+            @include flex-box(center, center, 0);
+            flex-direction: column;
+        }
+
+        &__item {
+            &.active {
+                @include hw(50px, 50px);
+            }
+        }
+
+        .theme__button {
+            .checkbox-label {
+                width: 70px;
+
+                .ball {
+                    left: 3px;
+                    display: block;
+                }
+            }
+
+            .bx-moon,
+            .bx-sun {
+                font-size: 20px;
+            }
+
+            .checkbox:checked + .checkbox-label .ball {
+                transform: translateX(32px);
+            }
+        }
+    }
+    // }
+
+    .dashboard {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 850px) {
+}
+
+@media (max-width: 767px) {
+    main {
+        flex-direction: column;
+    }
+
+    .form__modal {
+        padding: 20px;
+    }
+
+    .login-register {
+        .form__group {
+            flex-direction: column;
+        }
+    }
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+
+        &__header {
+            display: none;
+        }
+
+        &__content {
+            @include flex-box(space-between, center, 0);
+            width: 100%;
+        }
+
+        &__bottom,
+        .theme__button {
+            margin: 0;
+        }
+
+        .container,
+        &__bottom,
+        ul {
+            @include flex-box(flex-end, center, 10px);
+            flex-direction: row;
+            width: 100%;
+        }
+    }
+
+    .expenses__group {
+        flex-direction: column;
+
+        .groups__header {
+            input {
+                width: 100%;
+            }
+
+            button {
+                max-width: 100px;
+            }
+        }
+    }
+
+    .savingbudgets {
+        flex-direction: column;
+        .analytics__budget,
+        .saving {
+            width: 100%;
+        }
+    }
+
+    .dashboard {
+        margin-left: 0;
+        .header__welcome {
+            display: none;
+        }
+
+        &__header {
+            display: flex;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+}
+
+@media (max-width: 576px) {
+    .card__grid {
+        flex-direction: column;
+
+        .amount__card {
+            width: 100%;
+        }
+    }
+
+    .sidebar {
+        ul {
+            gap: 0 !important;
+        }
+
+        &__item {
+            padding: 8px !important;
+            &.active {
+                @include hw(40px, 40px);
+            }
+        }
+    }
+
+    .dashboard {
+        &__header span {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 436px) {
+}
+
+@media (max-width: 400px) {
+}
+
+@media (max-width: 350px) {
+}

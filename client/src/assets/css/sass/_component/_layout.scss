@@ -1,0 +1,748 @@
+.dark__theme {
+    color: $white;
+    background: #111;
+
+    button {
+        color: $white;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h4,
+    h5,
+    h6,
+    p {
+        color: $white;
+    }
+
+    .sidebar {
+        background: $black;
+
+        &__toggle {
+            background: #111;
+        }
+
+        &__bottom {
+            a {
+                color: $primary;
+            }
+        }
+
+        ul li a,
+        button {
+            color: $primary;
+        }
+    }
+
+    .dashboard {
+        .categories {
+            ul,
+            span {
+                color: $white;
+            }
+        }
+    }
+}
+img {
+    width: 50px;
+    max-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: $tertiary;
+    width: 280px;
+    height: 100vh;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+
+    &__toggle {
+        position: absolute;
+        cursor: pointer;
+        right: -16px;
+        top: 80px;
+        @include hw(40px, 40px);
+        text-align: center;
+        outline: none;
+        border: none;
+        font-size: 24px;
+        border-radius: 50%;
+        background: $white;
+        transition: all 0.5s ease-in-out;
+        z-index: 2;
+    }
+
+    &.close {
+        @include flex-box(center, flex-start, 0);
+        width: 80px;
+
+        span {
+            display: none;
+        }
+
+        .sidebar__toggle {
+            right: -16px;
+
+            i {
+                transform: rotate(180deg);
+            }
+        }
+
+        .sidebar__header {
+            gap: 0;
+        }
+
+        .container,
+        .sidebar__bottom,
+        ul {
+            @include flex-box(center, center, 0);
+            flex-direction: column;
+        }
+
+        .sidebar__item {
+            &.active {
+                @include hw(50px, 50px);
+            }
+        }
+
+        .theme__button {
+            .checkbox-label {
+                width: 70px;
+
+                .ball {
+                    left: 3px;
+                    display: block;
+                }
+            }
+
+            .bx-moon,
+            .bx-sun {
+                font-size: 20px;
+            }
+
+            .checkbox:checked + .checkbox-label .ball {
+                transform: translateX(32px);
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        overflow: hidden;
+        padding: 40px 20px;
+    }
+
+    &__header {
+        @include flex-box(flex-start, center, 12px);
+        margin-bottom: 20px;
+    }
+
+    &__content {
+        ul {
+            @include ul(0, 0);
+            list-style: none;
+
+            .sidebar__item {
+                padding: 12px;
+
+                &.active {
+                    background: $primary;
+                    border-radius: 30px;
+
+                    a {
+                        color: $white;
+                    }
+                }
+
+                a {
+                    @include flex-box(flex-start, center, 10px);
+                    text-decoration: none;
+                    color: $black-light;
+                    font-size: 16px;
+
+                    i {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        margin-top: 60px;
+        .logout {
+            text-decoration: none;
+            @include flex-box(flex-start, center, 10px);
+
+            i {
+                font-size: 24px;
+            }
+        }
+
+        //theme cahange button
+        .theme__button {
+            margin-top: 20px;
+            .checkbox {
+                opacity: 0;
+                position: absolute;
+            }
+
+            .checkbox-label {
+                @include flex-box(space-between, center, 0);
+                position: relative;
+                width: 85px;
+                height: 38px;
+                border-radius: 30px;
+                border: 1px solid $grey;
+                padding: 8px;
+                cursor: pointer;
+            }
+
+            .bx-moon,
+            .bx-sun {
+                color: $grey;
+                font-size: 24px;
+            }
+
+            .checkbox-label .ball {
+                background-color: $primary;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                left: 5px;
+                top: 3px;
+                border-radius: 50%;
+                transition: transform 0.2s linear;
+                opacity: 0.5;
+            }
+
+            .checkbox:checked + .checkbox-label .ball {
+                transform: translateX(43px);
+            }
+        }
+    }
+}
+
+.dashboard {
+    // @include flex-box(center, center, 0);
+    width: 100%;
+    // height: 100vh;
+    padding: 40px 24px;
+    margin-left: 280px;
+    transition: all 0.5s ease-in-out;
+
+    &.open {
+        margin-left: 80px;
+    }
+
+    .header {
+        @include flex-box(space-between, center, 0);
+        margin-bottom: 40px;
+
+        &__profile {
+            @include flex-box(flex-start, center, 10px);
+
+            img {
+                border: 2.5px solid $primary;
+            }
+        }
+    }
+
+    .addexpense {
+        position: relative;
+        @include clearfix();
+        width: 100%;
+        &__btn {
+            @include flex-box(center, center, 5px);
+            background: $primary;
+            padding: 12px;
+            border-radius: 10px;
+            color: $white;
+            margin-bottom: 16px;
+            float: right;
+        }
+
+        .close__modal {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        &__modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $white;
+            z-index: 10;
+
+            &--header {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .response__msg {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .form__group {
+                flex-direction: column;
+                align-items: flex-start;
+
+                &--category {
+                    width: 100%;
+                    @include flex-box(center, center, 16px);
+
+                    button {
+                        min-width: fit-content;
+                        color: $green;
+                    }
+                }
+
+                label {
+                    font-weight: 600;
+                }
+            }
+            .form__groups {
+                flex-direction: row;
+
+                input,
+                select {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+
+    &__header {
+        @include flex-box(center, center, 10px);
+        display: none;
+    }
+
+    .amount__cards {
+        @include flex-box(flex-start, center, 16px);
+        .card__grid {
+            @include flex-box(space-between, center, 16px);
+            flex-basis: 100%;
+        }
+        .amount__card {
+            border: 2px solid $grey-light;
+            border-radius: 20px;
+            padding: 20px;
+            flex-basis: 100%;
+
+            .amount__card--title {
+                margin-bottom: 32px;
+            }
+
+            .amount__card--body {
+                .comparision {
+                    @include flex-box(flex-start, center, 10px);
+                    margin-top: 12px;
+
+                    .difference {
+                        @include flex-box(flex-start, center, 0);
+                        background: $green-light;
+                        border-radius: 30px;
+                        color: $green;
+                        padding: 6px;
+                        font-size: 14px;
+
+                        &.expense {
+                            background: $red-light;
+                            color: $red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // saving and budgets
+    .savingbudgets {
+        display: flex;
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    // saving goals
+    .addgoal {
+        position: relative;
+        @include clearfix();
+        width: 100%;
+        &__btn {
+            @include flex-box(center, center, 5px);
+            background: $primary;
+            padding: 12px;
+            border-radius: 10px;
+            color: $white;
+            margin-bottom: 16px;
+            float: right;
+        }
+
+        .close__modal {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        &__modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $white;
+            z-index: 10;
+
+            &--header {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .response__msg {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .form__group {
+                flex-direction: column;
+                align-items: flex-start;
+
+                &--category {
+                    width: 100%;
+                    @include flex-box(center, center, 16px);
+
+                    button {
+                        min-width: fit-content;
+                        color: $green;
+                    }
+                }
+
+                label {
+                    font-weight: 600;
+                }
+            }
+            .form__groups {
+                flex-direction: row;
+
+                input,
+                select {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+
+    .saving {
+        flex-basis: 100%;
+        border: 2px solid $grey-light;
+        border-radius: 20px;
+        padding: 20px;
+        h2 {
+            margin-bottom: 16px;
+        }
+
+        &__items {
+            margin-top: 16px;
+            &--title {
+                @include flex-box(space-between, center, 0);
+            }
+            .progress {
+                margin-top: 10px;
+
+                &__bar {
+                    position: relative;
+                    width: 100%;
+                    height: 16px;
+                    border-radius: 16px;
+                    background: #ddd;
+
+                    &--inner {
+                        position: absolute;
+                        content: "";
+                        width: 50%;
+                        height: 16px;
+                        background: $primary;
+                        border-radius: 20px;
+                        text-align: center;
+                        font-size: 14px;
+                        color: $white;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    // budgets
+    .budget {
+        flex-basis: 100%;
+        border: 2px solid $grey-light;
+        padding: 20px;
+        border-radius: 20px;
+
+        &__content {
+            @include flex-box(center, center, 0);
+            canvas {
+                height: 100% !important;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .categories {
+            @include ul(0, 0);
+            list-style: none;
+            margin-top: 20px;
+
+            li {
+                @include flex-box(flex-start, center, 8px);
+                @include typography(16px, 600);
+                margin-bottom: 10px;
+                color: $black-light;
+                i {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &__card {
+            .setbudget {
+                margin-bottom: 16px;
+                button {
+                    width: fit-content;
+                    font-size: 16px;
+                    padding: 16px;
+                }
+
+                input {
+                    padding: 16px;
+                    font-size: 16px;
+                    border: 2px solid $grey-light;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .budget__chart {
+        border: 2px solid $grey-light;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    // monetflow and expenses
+    .expenses__analytics {
+        margin-top: 16px;
+    }
+
+    // expenses
+    .expenses {
+        width: 100%;
+        border: 2px solid $grey-light;
+        border-radius: 20px;
+        padding: 20px;
+        overflow: auto;
+
+        &__search {
+            @include flex-box(space-between, center, 0);
+            border-radius: 30px;
+            background: $tertiary;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            padding: 0 12px;
+            input {
+                width: 100%;
+                border: none;
+                outline: none;
+                background: none;
+                padding: 12px 0;
+            }
+        }
+
+        &__header {
+            @include flex-box(space-between, center, 16px);
+            margin-bottom: 16px;
+
+            button {
+                @include flex-box(flex-start, center, 5px);
+                font-size: 16px;
+                border: 1px solid $grey-light;
+                background: none;
+                padding: 8px 12px;
+                border-radius: 30px;
+            }
+        }
+
+        &__list {
+            border-collapse: collapse;
+            width: 100%;
+            border-radius: 8px;
+
+            thead {
+                background: #f6f4ff;
+            }
+
+            th {
+                padding: 16px;
+                font-size: 14px;
+                text-align: center;
+                text-align: left;
+                color: $primary;
+                text-transform: uppercase;
+                font-weight: 500;
+
+                &:first-child {
+                    border-radius: 30px 0 0 30px;
+                }
+
+                &:last-child {
+                    border-radius: 0 30px 30px 0;
+                }
+            }
+
+            tr {
+                border-bottom: 1px solid #eee;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            td {
+                padding: 20px 16px;
+            }
+        }
+
+        &__pagination {
+            @include clearfix();
+            margin-top: 16px;
+            &--buttons {
+                @include flex-box(flex-start, center, 16px);
+                float: right;
+
+                button {
+                    background: $primary;
+                    padding: 8px;
+                    border-radius: 5px;
+                    color: $white;
+                }
+            }
+        }
+
+        &__group {
+            display: flex;
+            gap: 16px;
+
+            .groups {
+                flex-basis: 30%;
+
+                &__header {
+                    margin-bottom: 16px;
+                    @include flex-box(flex-start, center, 10px);
+
+                    input {
+                        padding: 16px;
+                        border: 2px solid $grey-light;
+                        border-radius: 5px;
+                        outline: none;
+                        font-size: 16px;
+                    }
+
+                    button {
+                        padding: 16px;
+                        min-width: fit-content;
+                        font-size: 14px;
+                    }
+                }
+                &__card {
+                    border: 2px solid $grey-light;
+                    border-radius: 10px;
+                    padding: 20px;
+
+                    .group__name {
+                        @include flex-box(flex-start, center, 12px);
+                        background: $tertiary;
+                        padding: 16px;
+                        border-radius: 8px;
+                        width: 100%;
+                        margin-bottom: 16px;
+
+                        i {
+                            font-size: 28px;
+                        }
+                    }
+
+                    &--invite {
+                        input {
+                            padding: 16px;
+                            border: 2px solid $grey-light;
+                            border-radius: 5px;
+                            outline: none;
+                            font-size: 16px;
+                        }
+
+                        button {
+                            padding: 16px;
+                            min-width: fit-content;
+                            max-width: 50px;
+                            font-size: 14px;
+                        }
+                    }
+
+                    &--users {
+                        img {
+                            @include hw(40px, 40px);
+                        }
+                        .groups__card--user {
+                            @include flex-box(flex-start, center, 16px);
+                            margin-top: 16px;
+                        }
+                    }
+                }
+            }
+
+            .expenses {
+                flex-basis: 70%;
+            }
+        }
+    }
+
+    // moneyflow graph
+    .money__flow {
+        border: 2px solid $grey-light;
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 16px;
+        max-height: 350px;
+        height: 100%;
+
+        #money__flow {
+            width: 100% !important;
+            // height: 100% !important;
+        }
+    }
+}

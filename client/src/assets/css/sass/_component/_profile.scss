@@ -1,0 +1,105 @@
+#profile {
+    @include flex-box(center, center, 0);
+    @include hw(100vh, 100%);
+}
+.profile {
+    width: 100%;
+    max-width: 600px;
+
+    .update__profile--modal {
+        position: absolute;
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -5%);
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        border: 2px solid $primary;
+        background: $white;
+        border-radius: 10px;
+        z-index: 5;
+
+        .close__modal {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #update__profile--form {
+            @include flex-box(center, center, 16px);
+            flex-direction: column;
+        }
+
+        button {
+            width: fit-content;
+            font-size: 14px;
+            padding: 12px 16px;
+        }
+
+        input {
+            cursor: pointer;
+        }
+    }
+
+    &__picture {
+        position: relative;
+        text-align: center;
+        margin-bottom: 32px;
+
+        img {
+            width: 100%;
+            max-width: 120px;
+            height: 120px;
+            border: 4px solid $primary;
+        }
+
+        &--upload {
+            @include hw(30px, 30px);
+            @include flex-box(center, center, 0);
+            position: absolute;
+            left: 55%;
+            bottom: 20px;
+            background: $secondary;
+            border-radius: 50%;
+        }
+    }
+    &__information {
+        &--header {
+            @include flex-box(space-between, center, 0);
+            margin-bottom: 16px;
+
+            button,
+            i {
+                font-weight: 600;
+            }
+        }
+        .form__groups {
+            @include flex-box(center, center, 32px);
+        }
+
+        .form__group {
+            flex-direction: column;
+            align-items: flex-start;
+            flex-basis: 100%;
+
+            input {
+                border: none;
+                border-bottom: 2px solid $grey-light;
+                background: none;
+                border-radius: 0;
+                padding: 10px 0;
+
+                &:focus {
+                    border-bottom: 2px solid $primary;
+                }
+            }
+        }
+
+        .update__info {
+            display: none;
+        }
+    }
+}
