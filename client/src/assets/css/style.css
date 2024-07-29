@@ -64,6 +64,11 @@ p {
   color: #82828c;
 }
 
+#response__message {
+  text-align: center;
+  margin: 12px 0;
+}
+
 .overlay {
   display: none;
   position: fixed;
@@ -684,7 +689,7 @@ main {
 .dashboard .saving__items .progress__bar--inner {
   position: absolute;
   content: "";
-  width: 50%;
+  width: 0%;
   height: 16px;
   background: #8370fe;
   border-radius: 20px;

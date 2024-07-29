@@ -1,7 +1,10 @@
-import Chart from "chart.js/auto";
 import { renderUserExpenses } from "./expenses/expenses";
 import { getExpenses } from "./expenses/axios";
 import { OpenAddExpenseModal } from "./utils/openAddExpenseModal";
+import { renderBudget } from "./utils/renderBudget";
+import { renderDoughnutChart } from "./utils/doughnutChart";
+import { renderBarChart } from "./utils/barChart";
+import { renderSavingGoal } from "./utils/renderSavingGoal";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // rednering expenses on dashboard
@@ -20,97 +23,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     //addexpense modal
     OpenAddExpenseModal();
 
-    // categories chart
-    const categoryChartEle = document.getElementById("categories__chart") as HTMLCanvasElement;
-    // const categoryItemsEle = document.querySelector(".categories") as HTMLUListElement;
+    //budget card
+    renderBudget();
 
-    (async function () {
-        interface CategoryData {
-            category: string;
-            amount: number;
-        }
+    // render saving goals
+    renderSavingGoal();
 
-        const data: CategoryData[] = [
-            { category: "Cafe & Restaurants", amount: 10 },
-            { category: "Entertainment", amount: 20 },
-            { category: "Investments", amount: 15 },
-            { category: "Foods & Groceries", amount: 25 },
-            { category: "Health & Beauty", amount: 22 },
-            { category: "Travelling", amount: 30 },
-        ];
+    // expense budget doughnut chart
+    renderDoughnutChart();
 
-        new Chart(categoryChartEle, {
-            type: "doughnut",
-
-            data: {
-                labels: data.map((category) => category.category),
-                datasets: [
-                    {
-                        label: "My First Dataset",
-                        data: data.map((amount) => amount.amount),
-                        backgroundColor: ["#8370fe", "#bfb7ff", "#f6f4ff", "#46454b", "#82828c"],
-                        hoverOffset: 4,
-                    },
-                ],
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: "bottom",
-                    },
-                },
-            },
-        });
-
-        // data.forEach((item) => {
-        //     const li = document.createElement("li");
-        //     li.innerHTML = `<i class="bx bxs-circle"></i><span>${item.category}</span>`;
-        //     categoryItemsEle.appendChild(li);
-        // });
-    })();
-
-    // money flow chart
-    const moneyFlowChartEle = document.getElementById("money__flow") as HTMLCanvasElement;
-
-    (async function () {
-        interface MonthData {
-            month: string;
-            amount: number;
-        }
-
-        const data: MonthData[] = [
-            { month: "Jan", amount: 10 },
-            { month: "Feb", amount: 20 },
-            { month: "March", amount: 15 },
-            { month: "April", amount: 25 },
-            { month: "May", amount: 22 },
-            { month: "June", amount: 30 },
-        ];
-
-        new Chart(moneyFlowChartEle, {
-            type: "bar",
-            data: {
-                labels: data.map((row) => row.month),
-                datasets: [
-                    {
-                        label: "Current month",
-                        backgroundColor: "#8370fe",
-                        barThickness: 15,
-                        borderRadius: 30,
-                        data: data.map((row) => row.amount),
-                    },
-                    {
-                        label: "Previous month",
-                        backgroundColor: "#bfb7ff",
-                        barThickness: 15,
-                        borderRadius: 30,
-                        data: data.map((row) => row.amount - 5),
-                    },
-                ],
-            },
-        });
-    })();
+    // render bar chart
+    renderBarChart();
 
     //changing theme
     const themeCheckbox = document.getElementById("checkbox") as HTMLInputElement;

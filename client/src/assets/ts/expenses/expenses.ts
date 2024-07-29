@@ -1,9 +1,6 @@
 import { ExpenseCard } from "../card/expense";
-import { UserProfile } from "../card/userProfile";
-import { WelcomeMessageCard } from "../card/welcomeMessageCard";
 import { Expense } from "../interface/expense";
-import { getUserDetails } from "../utils/getUser";
-import { renderUserProfile } from "../utils/headerProfile";
+import { renderUserProfile } from "../utils/renderHeaderProfile";
 import { OpenAddExpenseModal } from "../utils/openAddExpenseModal";
 import { getExpenseCategory, getExpenses } from "./axios";
 
@@ -30,7 +27,7 @@ export function renderUserExpenses(expenses: Expense[]) {
     const expenseListEle = document.getElementById("expenses__list")!;
 
     expenseListEle.innerHTML = "";
-    expenses.forEach((expense: any) => {
+    expenses.forEach((expense: Expense) => {
         let tableRow = document.createElement("tr");
         tableRow.innerHTML = ExpenseCard(expense);
         expenseListEle.appendChild(tableRow);

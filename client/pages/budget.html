@@ -37,7 +37,7 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                                <a href="analytics.html"><i class='bx bx-line-chart'></i> <span>Analytics</span></a>
                             </li>
                             <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
@@ -79,23 +79,15 @@
                 <div class="amount__cards">
                     <div class="budget__card">
                         <div class="setbudget">
-                            <input type="number" placeholder="Enter amount" />
-                            <button class="l__button l__button--primary">+ Set Budget</button>
+                            <input type="number" placeholder="Enter amount" id="budget__amount" />
+                            <button class="l__button l__button--primary" id="set__budget--btn">+ Set Budget</button>
                         </div>
+                        <p id="response__message"></p>
                         <div class="amount__card">
                             <div class="amount__card--title">
                                 <h3 class="small__title">Budget</h3>
                             </div>
-                            <div class="amount__card--body">
-                                <h2 class="subtitle">$ <span>15,600</span></h2>
-                                <div class="comparision">
-                                    <div class="difference">
-                                        <i class="bx bx-up-arrow-alt"></i>
-                                        <span>12.1%</span>
-                                    </div>
-                                    <p class="meta__text">vs last month</p>
-                                </div>
-                            </div>
+                            <div class="amount__card--body" id="budgetCardContainer"></div>
                         </div>
                     </div>
                     <div class="budget__chart">
@@ -110,7 +102,6 @@
             <div class="overlay"></div>
         </main>
 
-        <script src="../src/assets/ts/dashboard.ts" type="module"></script>
-        <script src="../src/assets/ts/userProfile.ts" type="module"></script>
+        <script src="../src/assets/ts/budget/budget.ts" type="module"></script>
     </body>
 </html>

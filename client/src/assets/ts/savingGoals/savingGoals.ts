@@ -1,4 +1,6 @@
-import { renderUserProfile } from "../utils/headerProfile";
+import { renderUserProfile } from "../utils/renderHeaderProfile";
+import { renderSavingGoal } from "../utils/renderSavingGoal";
+import { addSavingGoal } from "./axios";
 
 document.addEventListener("DOMContentLoaded", () => {
     // open-close add expense modal form
@@ -22,4 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
         addgoalModal.classList.remove("show");
         htmlBodyEle.classList.remove("overflowHidden");
     });
+
+    // add saving goals
+    addSavingGoal();
+
+    // render saving goal
+    renderSavingGoal();
 });

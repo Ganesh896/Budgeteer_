@@ -36,7 +36,7 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
                             </li>
                             <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
@@ -92,70 +92,21 @@
                                 <input type="number" name="goalAmount" placeholder="Goal Amount" id="goalAmount" required />
                             </div>
 
-                            <p class="response__msg"></p>
+                            <p id="response__message"></p>
                             <button type="submit" class="l__button l__button--primary">Submit</button>
                         </form>
                     </div>
                 </div>
                 <div class="saving">
                     <h3 class="small__title">Saving goals</h3>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>Mustang Trip</p>
-                            <p>$ <span>1,150</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>MacBook Pro</p>
-                            <p>$ <span>1,650</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>Bike</p>
-                            <p>$ <span>4,050</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>Mustang Trip</p>
-                            <p>$ <span>1,150</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="saving__items" id="saving__item--container">
+                        
                     </div>
                 </div>
             </div>
             <div class="overlay"></div>
         </main>
 
-        <script src="../src/assets/ts/goals/goals.ts" type="module"></script>
+        <script src="../src/assets/ts/savingGoals/savingGoals.ts" type="module"></script>
     </body>
 </html>

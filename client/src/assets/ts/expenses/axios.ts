@@ -46,13 +46,7 @@ export function addExpense() {
     const responseMsg = document.querySelector(".response__msg") as HTMLParagraphElement;
     const addExpenseFormEle = document.getElementById("addexpense__form") as HTMLFormElement;
 
-    // Check if the form already has a submit event listener
-    if (addExpenseFormEle) {
-        addExpenseFormEle.removeEventListener("submit", handleFormSubmit);
-        addExpenseFormEle.addEventListener("submit", handleFormSubmit);
-    }
-
-    function handleFormSubmit(event: Event) {
+    addExpenseFormEle.addEventListener("submit", (event: Event) => {
         event.preventDefault();
         console.log("Form submitted");
         let formData = new FormData(addExpenseFormEle);
@@ -92,8 +86,8 @@ export function addExpense() {
             .catch(function (error) {
                 console.error(error.response.data);
                 // showing error message
-                responseMsg.innerText = error.response;
+                responseMsg.innerText = error.response.data.message;
                 responseMsg.style.color = "red";
             });
-    }
+    });
 }
