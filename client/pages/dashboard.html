@@ -12,7 +12,7 @@
     </head>
     <body>
         <main id="content">
-            <aside class="sidebar">
+            <aside class="sidebar" id="sidebar">
                 <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
                 <div class="container">
                     <div class="sidebar__header">
@@ -83,59 +83,12 @@
 
                 <div class="amount__cards">
                     <div class="card__grid">
-                        <div class="amount__card">
-                            <div class="amount__card--title">
-                                <h3 class="small__title">Budget</h3>
-                            </div>
-                            <div class="amount__card--body" id="budgetCardContainer"></div>
-                        </div>
-                        <div class="amount__card">
-                            <div class="amount__card--title">
-                                <h3 class="small__title">Expense</h3>
-                            </div>
-                            <div class="amount__card--body">
-                                <h2 class="subtitle">$ <span>15,600</span></h2>
-                                <div class="comparision">
-                                    <div class="difference expense">
-                                        <i class="bx bx-up-arrow-alt"></i>
-                                        <span>12.1%</span>
-                                    </div>
-                                    <p class="meta__text">vs last month</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="amount__card" id="budgetCardContainer"></div>
+                        <div class="amount__card" id="expenseCardContainer"></div>
                     </div>
                     <div class="card__grid">
-                        <div class="amount__card">
-                            <div class="amount__card--title">
-                                <h3 class="small__title">Remaining</h3>
-                            </div>
-                            <div class="amount__card--body">
-                                <h2 class="subtitle">$ <span>15,600</span></h2>
-                                <div class="comparision">
-                                    <div class="difference">
-                                        <i class="bx bx-up-arrow-alt"></i>
-                                        <span>12.1%</span>
-                                    </div>
-                                    <p class="meta__text">vs last month</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="amount__card">
-                            <div class="amount__card--title">
-                                <h3 class="small__title">Total savings</h3>
-                            </div>
-                            <div class="amount__card--body">
-                                <h2 class="subtitle">$ <span>15,600</span></h2>
-                                <div class="comparision">
-                                    <div class="difference">
-                                        <i class="bx bx-up-arrow-alt"></i>
-                                        <span>12.1%</span>
-                                    </div>
-                                    <p class="meta__text">vs last month</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="amount__card" id="remainingCardContainer"></div>
+                        <div class="amount__card" id="savingCardContainer"></div>
                     </div>
                 </div>
 

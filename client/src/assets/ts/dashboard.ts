@@ -1,14 +1,18 @@
 import { renderUserExpenses } from "./expenses/expenses";
 import { getExpenses } from "./expenses/axios";
 import { OpenAddExpenseModal } from "./utils/openAddExpenseModal";
-import { renderBudget } from "./utils/renderBudget";
+import { renderAmountCard } from "./utils/renderAmountCardt";
 import { renderDoughnutChart } from "./utils/doughnutChart";
 import { renderBarChart } from "./utils/barChart";
 import { renderSavingGoal } from "./utils/renderSavingGoal";
+import { getBudget } from "./budget/axios";
+import { Expense } from "./interface/expense";
+import { getSavingGoal } from "./savingGoals/axios";
+import { SavingGoal } from "./interface/savingGoal";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // rednering expenses on dashboard
-    const expenses = await getExpenses();
+    const expenses = await getExpenses(4, 1);
     renderUserExpenses(expenses.data);
 
     const sidebarToggleEle = document.querySelector(".sidebar__toggle") as HTMLButtonElement;
@@ -24,7 +28,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     OpenAddExpenseModal();
 
     //budget card
-    renderBudget();
+    const budgetContainerEle = document.getElementById("budgetCardContainer") as HTMLDivElement;
+    const amount = await getBudget();
+    const budgetAmount = amount[0].amount;
+
+    renderAmountCard(budgetContainerEle, "Budget", budgetAmount, 12.1);
+
+    // expese card
+    const expenseContainerEle = document.getElementById("expenseCardContainer") as HTMLDivElement;
+    const allExpenses = await getExpenses(0, 0);
+    let totalExpense: number = 0;
+    allExpenses.data.forEach((expense: Expense) => {
+        totalExpense += Number(expense.amount);
+    });
+
+    renderAmountCard(expenseContainerEle, "Expense", totalExpense, 12.1);
+
+    // remaining card
+    const remainginContainerEle = document.getElementById("remainingCardContainer") as HTMLDivElement;
+    renderAmountCard(remainginContainerEle, "Remaining", budgetAmount - totalExpense, 12.1);
+
+    // total saving card
+    const savingContainerEle = document.getElementById("savingCardContainer") as HTMLDivElement;
+    const savingGoals: SavingGoal[] = await getSavingGoal();
+    let totalSavingAmount: number = 0;
+    savingGoals.forEach((saving) => {
+        totalSavingAmount += Number(saving.currentAmount);
+    });
+    renderAmountCard(savingContainerEle, "Total Saving", totalSavingAmount, 12.1);
 
     // render saving goals
     renderSavingGoal();

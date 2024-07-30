@@ -13,14 +13,8 @@ export const OpenAddExpenseModal = () => {
         const response = await fetch("addExpenseForm.html");
         const formContent = await response.text();
 
-        // Create a temporary DOM element to parse the fetched HTML
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = formContent;
 
-        // Extract the body content from the parsed HTML
-        const bodyContent = tempDiv.querySelector(".form__modal")?.innerHTML || "";
-
-        addExpenseModalEle.innerHTML = bodyContent;
+        addExpenseModalEle.innerHTML = formContent;
 
         // add category
         const addCategoryBtn = document.querySelector(".addcategory__btn") as HTMLButtonElement;

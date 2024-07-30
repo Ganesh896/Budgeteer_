@@ -2,11 +2,12 @@ import axios from "axios";
 import { baseUrl } from "../../../main";
 
 // get expenses
-export const getExpenses = async (size: number = 4, page: number = 1) => {
+export const getExpenses = async (size: number, page: number) => {
+    const url = size===0 && page===0 ? `${baseUrl}expense` : `${baseUrl}expense?size=${size}&&page=${page}`;
     const token = localStorage.getItem("authToken");
     if (token) {
         try {
-            const response = await axios.get(`${baseUrl}expense?size=${size}&&page=${page}`, {
+            const response = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "json",
