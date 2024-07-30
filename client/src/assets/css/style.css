@@ -860,6 +860,16 @@ main {
 .dashboard .expenses__group .groups {
   flex-basis: 30%;
 }
+.dashboard .expenses__group .groups .groupContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+.dashboard .expenses__group .groups .groupContent.show {
+  max-height: 500px;
+  height: 100%;
+  overflow: auto;
+}
 .dashboard .expenses__group .groups__header {
   margin-bottom: 16px;
   display: flex;
@@ -899,14 +909,14 @@ main {
   font-size: 28px;
 }
 .dashboard .expenses__group .groups__card--invite input {
-  padding: 16px;
+  padding: 10px;
   border: 2px solid #cfced2;
   border-radius: 5px;
   outline: none;
-  font-size: 16px;
+  font-size: 14px;
 }
 .dashboard .expenses__group .groups__card--invite button {
-  padding: 16px;
+  padding: 10px;
   min-width: fit-content;
   max-width: 50px;
   font-size: 14px;

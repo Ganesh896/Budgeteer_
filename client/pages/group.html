@@ -36,7 +36,7 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class='bx bx-line-chart'></i> <span>Analytics</span></a>
+                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
                             </li>
                             <li class="sidebar__item active">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
@@ -78,27 +78,11 @@
                 <div class="expenses__group">
                     <div class="groups">
                         <div class="groups__header">
-                            <input type="text" placeholder="Group name" />
-                            <button class="l__button l__button--primary">+ Add</button>
+                            <input type="text" placeholder="Group name" id="groupName" />
+                            <button class="l__button l__button--primary" id="addGroupButton">+ Add</button>
                         </div>
-                        <div class="groups__card">
-                            <div class="group__card--outer">
-                                <button class="group__name">
-                                    <i class="bx bx-group"></i>
-                                    <p>Family</p>
-                                </button>
-                                <div class="groups__card--invite">
-                                    <input type="text" placeholder="example@gmail.com" />
-                                    <button class="l__button l__button--primary">Invite</button>
-                                </div>
-                                <div class="groups__card--users">
-                                    <div class="groups__card--user">
-                                        <img src="/images/budgetter-logo-light.png" alt="img" />
-                                        <h4>Ganesh Saud</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p id="response__message"></p>
+                        <div class="groups__card" id="groupCard"></div>
                     </div>
                     <div class="expenses">
                         <div class="expenses__header">
@@ -148,6 +132,6 @@
 
         <!-- <script src="../src/assets/ts/dashboard.ts" type="module"></script> -->
         <!-- <script src="../src//assets/ts/expenses/expenses.ts" type="module"></script> -->
-        <!-- <script src="../src/assets/ts/userProfile.ts" type="module"></script> -->
+        <script src="../src/assets/ts/group/group.ts" type="module"></script>
     </body>
 </html>

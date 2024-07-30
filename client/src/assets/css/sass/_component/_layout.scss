@@ -652,82 +652,95 @@ main {
                 }
             }
         }
+    }
 
-        &__group {
-            display: flex;
-            gap: 16px;
+    //expnse group
+    .expenses__group {
+        display: flex;
+        gap: 16px;
 
-            .groups {
-                flex-basis: 30%;
+        .groups {
+            flex-basis: 30%;
 
-                &__header {
+            .groupContent {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-in-out;
+
+                &.show {
+                    max-height: 500px;
+                    height: 100%;
+                    overflow: auto;
+                }
+            }
+
+            &__header {
+                margin-bottom: 16px;
+                @include flex-box(flex-start, center, 10px);
+
+                input {
+                    padding: 16px;
+                    border: 2px solid $grey-light;
+                    border-radius: 5px;
+                    outline: none;
+                    font-size: 16px;
+                }
+
+                button {
+                    padding: 16px;
+                    min-width: fit-content;
+                    font-size: 14px;
+                }
+            }
+            &__card {
+                border: 2px solid $grey-light;
+                border-radius: 10px;
+                padding: 20px;
+
+                .group__name {
+                    @include flex-box(flex-start, center, 12px);
+                    background: $tertiary;
+                    padding: 16px;
+                    border-radius: 8px;
+                    width: 100%;
                     margin-bottom: 16px;
-                    @include flex-box(flex-start, center, 10px);
 
+                    i {
+                        font-size: 28px;
+                    }
+                }
+
+                &--invite {
                     input {
-                        padding: 16px;
+                        padding: 10px;
                         border: 2px solid $grey-light;
                         border-radius: 5px;
                         outline: none;
-                        font-size: 16px;
+                        font-size: 14px;
                     }
 
                     button {
-                        padding: 16px;
+                        padding: 10px;
                         min-width: fit-content;
+                        max-width: 50px;
                         font-size: 14px;
                     }
                 }
-                &__card {
-                    border: 2px solid $grey-light;
-                    border-radius: 10px;
-                    padding: 20px;
 
-                    .group__name {
-                        @include flex-box(flex-start, center, 12px);
-                        background: $tertiary;
-                        padding: 16px;
-                        border-radius: 8px;
-                        width: 100%;
-                        margin-bottom: 16px;
-
-                        i {
-                            font-size: 28px;
-                        }
+                &--users {
+                    img {
+                        @include hw(40px, 40px);
                     }
-
-                    &--invite {
-                        input {
-                            padding: 16px;
-                            border: 2px solid $grey-light;
-                            border-radius: 5px;
-                            outline: none;
-                            font-size: 16px;
-                        }
-
-                        button {
-                            padding: 16px;
-                            min-width: fit-content;
-                            max-width: 50px;
-                            font-size: 14px;
-                        }
-                    }
-
-                    &--users {
-                        img {
-                            @include hw(40px, 40px);
-                        }
-                        .groups__card--user {
-                            @include flex-box(flex-start, center, 16px);
-                            margin-top: 16px;
-                        }
+                    .groups__card--user {
+                        @include flex-box(flex-start, center, 16px);
+                        margin-top: 16px;
                     }
                 }
             }
+        }
 
-            .expenses {
-                flex-basis: 70%;
-            }
+        .expenses {
+            flex-basis: 70%;
         }
     }
 

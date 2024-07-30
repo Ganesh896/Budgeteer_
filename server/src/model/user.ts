@@ -51,4 +51,9 @@ export class UserModel extends BaseModel {
     static getUserByEmail(email: string) {
         return this.queryBuilder().select("*").table("users").where({ email }).first();
     }
+
+    // get user by Id
+    static getUserById(id: string) {
+        return this.queryBuilder().select("*").table("users").where({ id }).first();
+    }
 }
