@@ -3,9 +3,13 @@ import { Group } from "../interface/group";
 import { GroupUser } from "../interface/groupUser";
 import { User } from "../interface/user";
 import { getUserById } from "../utils/getUser";
+import { renderNotification } from "../utils/notification";
 import { addGroup, getGroups, getGroupUsers, sendInvite } from "./axios";
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // render notification
+    renderNotification();
+
     // adding group
     const addGroupBtnEle = document.getElementById("addGroupButton") as HTMLButtonElement;
     addGroupBtnEle?.addEventListener("click", function () {
@@ -52,6 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             // group users
             const groupUsersContainer = document.getElementById(`groupUsers${group.id}`) as HTMLDivElement;
+            groupUsersContainer.innerHTML = "";
 
             const groupUsers: GroupUser[] = await getGroupUsers(group.id);
             groupUsers.forEach(async (user) => {

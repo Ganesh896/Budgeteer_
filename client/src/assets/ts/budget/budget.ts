@@ -2,8 +2,12 @@ import { addBudget, getBudget } from "./axios";
 import { renderAmountCard } from "../utils/renderAmountCardt";
 import { renderDoughnutChart } from "../utils/doughnutChart";
 import { renderUserProfile } from "../utils/renderHeaderProfile";
+import { renderNotification } from "../utils/notification";
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // render notification
+    renderNotification();
+    
     // header profile
     renderUserProfile();
 

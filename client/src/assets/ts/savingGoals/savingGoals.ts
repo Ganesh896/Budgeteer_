@@ -1,8 +1,12 @@
+import { renderNotification } from "../utils/notification";
 import { renderUserProfile } from "../utils/renderHeaderProfile";
 import { renderSavingGoal } from "../utils/renderSavingGoal";
 import { addSavingGoal } from "./axios";
 
 document.addEventListener("DOMContentLoaded", () => {
+    // render notification
+    renderNotification();
+
     // open-close add expense modal form
     const openModal = document.querySelector(".addgoal__btn") as HTMLButtonElement;
     const closeModal = document.querySelector(".close__modal") as HTMLButtonElement;

@@ -3,6 +3,7 @@ import { Expense } from "../interface/expense";
 import { renderUserProfile } from "../utils/renderHeaderProfile";
 import { OpenAddExpenseModal } from "../utils/openAddExpenseModal";
 import { getExpenseCategory, getExpenses } from "./axios";
+import { renderNotification } from "../utils/notification";
 
 // render categories on addexpense form for select
 export async function renderCategory() {
@@ -40,6 +41,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const nextButton = document.querySelector(".expenses__next--btn") as HTMLButtonElement;
     const currentPageEle = document.querySelector(".current__page") as HTMLSpanElement;
     const totalPageEle = document.querySelector(".total__pages") as HTMLSpanElement;
+
+    // render notification
+    renderNotification();
 
     // header profile
     renderUserProfile();

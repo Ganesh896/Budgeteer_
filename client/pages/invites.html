@@ -12,7 +12,7 @@
     </head>
     <body>
         <main id="content">
-            <aside class="sidebar" id="sidebar">
+            <aside class="sidebar">
                 <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
                 <div class="container">
                     <div class="sidebar__header">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="sidebar__content">
                         <ul>
-                            <li class="sidebar__item active">
+                            <li class="sidebar__item">
                                 <a href="dashboard.html"><i class="bx bx-grid-alt"></i> <span>Dashboard</span></a>
                             </li>
                             <li class="sidebar__item">
@@ -41,7 +41,7 @@
                             <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
                             </li>
-                            <li class="sidebar__item">
+                            <li class="sidebar__item active">
                                 <a href="invites.html"><i class="bx bx-user-plus"></i> <span>Invites</span></a>
                             </li>
                             <li class="sidebar__item">
@@ -81,67 +81,28 @@
                         <!-- rendering user profile here -->
                     </div>
                 </div>
-
-                <div class="addexpense">
-                    <button class="addexpense__btn" id="addexpense__button"><i class="bx bx-plus"></i> Add Expense</button>
-                    <div class="addexpense__modal form__modal" id="addExpenseModal"></div>
-                </div>
-
-                <div class="amount__cards">
-                    <div class="card__grid">
-                        <div class="amount__card" id="budgetCardContainer"></div>
-                        <div class="amount__card" id="expenseCardContainer"></div>
-                    </div>
-                    <div class="card__grid">
-                        <div class="amount__card" id="remainingCardContainer"></div>
-                        <div class="amount__card" id="savingCardContainer"></div>
-                    </div>
-                </div>
-
-                <div class="savingbudgets">
-                    <div class="budget">
-                        <h3 class="small__title">Budget</h3>
-                        <div class="budget__content">
-                            <!-- <ul class="categories"></ul> -->
-                            <canvas id="categories__chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="saving">
-                        <h3 class="small__title">Saving goals</h3>
-                        <div class="saving__items" id="saving__item--container"></div>
-                    </div>
-                </div>
-
-                <div class="expenses__analytics">
-                    <div class="expenses">
-                        <div class="expenses__header">
-                            <h3 class="small__title">Recent expenses</h3>
-                            <button>
-                                <a href="expenses.html">See all <i class="bx bx-chevron-right"></i></a>
-                            </button>
-                        </div>
-                        <table class="expenses__list">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Title</th>
-                                    <th>Method</th>
-                                    <th>Category</th>
-                                </tr>
-                            </thead>
-                            <tbody id="expenses__list"></tbody>
-                        </table>
-                    </div>
-                    <div class="money__flow">
-                        <canvas id="money__flow"></canvas>
-                    </div>
+                <div class="dashboard-content" id="invites">
+                    <table class="expenses__list invite__list">
+                        <thead>
+                            <tr>
+                                <th>Sender</th>
+                                <th>Group</th>
+                                <th>Accept</th>
+                                <th>Reject</th>
+                            </tr>
+                        </thead>
+                        <tbody id="groupInvites">
+                            <!-- rendering group invites -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="overlay"></div>
         </main>
-
+        <!-- 
+        <script src="../src/assets/ts/index.ts" type="module"></script>
         <script src="../src/assets/ts/dashboard.ts" type="module"></script>
-        <!-- <script src="../src/assets/ts/userProfile.ts" type="module"></script> -->
+        <script src="../src/assets/ts/index.ts" type="module"></script> -->
+        <script src="../src/assets/ts/invites/invites.ts" type="module"></script>
     </body>
 </html>

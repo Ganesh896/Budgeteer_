@@ -462,6 +462,28 @@ main {
 .dashboard .header__profile img {
   border: 2.5px solid #8370fe;
 }
+.dashboard .header__notification {
+  position: relative;
+}
+.dashboard .header__notification i {
+  font-size: 34px;
+}
+.dashboard .header__notification span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: #e72b2b;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 14px;
+}
 .dashboard .addexpense {
   position: relative;
   width: 100%;
@@ -946,6 +968,24 @@ main {
 }
 .dashboard .money__flow #money__flow {
   width: 100% !important;
+}
+.dashboard .invite__list--user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+.dashboard .invite__list .invite__button {
+  padding: 8px 14px;
+  border-radius: 30px;
+}
+.dashboard .invite__list .invite__button--accept {
+  background: #e4f9e6;
+  color: #46454b;
+}
+.dashboard .invite__list .invite__button--reject {
+  background: #ffebec;
+  color: #46454b;
 }
 
 #profile {

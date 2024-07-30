@@ -26,4 +26,25 @@ export class GroupExpenseModel extends BaseModel {
     static getGroupUsers(groupId: number) {
         return this.queryBuilder().select("*").from("invites").where({ groupId });
     }
+
+    // get group invites
+    static getGroupInvites(receiverId: string) {
+        return this.queryBuilder()
+            .select("firstName", "lastName", "profile", "groupId", "groupName")
+            .from("invites as i")
+            .join("groups as g", "i.groupId", "g.id")
+            .join("users as u", "u.id", "senderId")
+            .where({ receiverId })
+            .andWhere({ isAccepted: false });
+    }
+
+    // update group invites
+    static updateGroupInvites(groupId: number, receiverId: string) {
+        return this.queryBuilder().update({ isAccepted: true }).table("invites").where({ groupId }).andWhere({ receiverId });
+    }
+
+    // update group invites
+    static deleteGroupInvites(groupId: number, receiverId: string) {
+        return this.queryBuilder().delete().table("invites").where({ groupId }).andWhere({ receiverId });
+    }
 }

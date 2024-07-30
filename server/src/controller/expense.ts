@@ -40,14 +40,14 @@ export const deleteExpense = asyncHandler(async (req: Request, res: Response) =>
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
 });
 
-// delete expense
+// get category
 export const getCategory = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.user!;
     const data = await expenseService.getCategory(id);
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 });
 
-// delete expense
+// add category
 export const addCategory = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.user!;
     const { categoryName, categoryId } = req.body;

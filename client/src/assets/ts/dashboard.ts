@@ -9,8 +9,12 @@ import { getBudget } from "./budget/axios";
 import { Expense } from "./interface/expense";
 import { getSavingGoal } from "./savingGoals/axios";
 import { SavingGoal } from "./interface/savingGoal";
+import { renderNotification } from "./utils/notification";
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // render notification
+    renderNotification();
+
     // rednering expenses on dashboard
     const expenses = await getExpenses(4, 1);
     renderUserExpenses(expenses.data);

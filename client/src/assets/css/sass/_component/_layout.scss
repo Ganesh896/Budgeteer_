@@ -61,6 +61,7 @@ main {
     display: flex;
 }
 
+// siderbar
 .sidebar {
     position: fixed;
     bottom: 0;
@@ -238,6 +239,7 @@ main {
     }
 }
 
+// dashboard
 .dashboard {
     // @include flex-box(center, center, 0);
     width: 100%;
@@ -259,6 +261,28 @@ main {
 
             img {
                 border: 2.5px solid $primary;
+            }
+        }
+
+        &__notification {
+            position: relative;
+
+            i {
+                font-size: 34px;
+            }
+
+            span {
+                @include flex-box(center, center, 0);
+                position: absolute;
+                top: -5px;
+                right: 0;
+                width: 20px;
+                height: 20px;
+                min-width: 20px;
+                background: $red;
+                border-radius: 50%;
+                color: $white;
+                font-size: 14px;
             }
         }
     }
@@ -455,6 +479,7 @@ main {
         }
     }
 
+    // saving goals
     .saving {
         flex-basis: 100%;
         border: 2px solid $grey-light;
@@ -547,6 +572,7 @@ main {
         }
     }
 
+    // budget doughnut chart
     .budget__chart {
         border: 2px solid $grey-light;
         border-radius: 10px;
@@ -756,6 +782,26 @@ main {
         #money__flow {
             width: 100% !important;
             // height: 100% !important;
+        }
+    }
+
+    // invites
+    .invite__list {
+        &--user {
+            @include flex-box(flex-start, center, 8px);
+        }
+
+        .invite__button {
+            padding: 8px 14px;
+            border-radius: 30px;
+            &--accept {
+                background: $green-light;
+                color: $black-light;
+            }
+            &--reject {
+                background: $red-light;
+                color: $black-light;
+            }
         }
     }
 }

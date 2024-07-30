@@ -4,6 +4,7 @@ import { getUserDetails } from "./utils/getUser";
 import { WelcomeMessageCard } from "./card/welcomeMessageCard";
 import { UserProfile } from "./card/userProfile";
 import { UserDetails } from "./card/userDetails";
+import { renderNotification } from "./utils/notification";
 
 // render user details
 function renderUserDetails(user: any) {
@@ -54,6 +55,9 @@ function updateUserDetails() {
 
 // load the content
 document.addEventListener("DOMContentLoaded", async function () {
+    // render notification
+    renderNotification();
+
     const token = localStorage.getItem("authToken");
     if (token) {
         // gettting current loggedin user from database
