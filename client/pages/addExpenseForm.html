@@ -11,7 +11,7 @@
         <label for="category">Select category</label>
         <div class="form__group--category">
             <select name="categoryId" id="category">
-                <option value="">--- Select Category ---</option>
+                <!-- expense categories here -->
             </select>
             <input type="text" placeholder="Add category" name="categoryName" class="addcategory__input hide" />
             <button type="button" class="addcategory__btn">+ Add Category</button>
@@ -25,6 +25,7 @@
         <div>
             <label for="paymentmethod">Payment Method</label>
             <select name="paymentMethod" id="paymentmethod" required>
+                <option value="">--- Select Payment Method ---</option>
                 <option value="E-Sewa">E-sewa</option>
                 <option value="Phonepe">Phonepe</option>
                 <option value="Cash">Cash</option>
@@ -32,8 +33,10 @@
         </div>
     </div>
     <div class="form__group">
-        <label for="description">Description</label>
-        <textarea name="description" placeholder="description" id="description"></textarea>
+        <select name="groupId" id="expenseGroup">
+            <option value="">--- Select Group ---</option>
+            <!-- expense groups here -->
+        </select>
     </div>
     <p class="response__msg"></p>
     <button type="submit" class="l__button l__button--primary">Submit</button>

@@ -16,10 +16,12 @@
                 <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
                 <div class="container">
                     <div class="sidebar__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle">
+                            <a href="dashboard.html"><span>Budgetter</span></a>
+                        </h2>
                     </div>
                     <div class="sidebar__content">
                         <ul>
@@ -69,14 +71,14 @@
                         <p class="meta__text">It is the best time to manage you finances</p>
                     </div>
                     <div class="dashboard__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle"><a href="dashboard.html">Budgetter</a></h2>
                     </div>
-                    <div class="header__notification" id="header__notification">
+                    <a href="invites.html" class="header__notification" id="header__notification">
                         <!-- rendering notification -->
-                    </div>
+                    </a>
                     <div class="header__profile">
                         <!-- rendering user profile here -->
                     </div>
@@ -110,23 +112,14 @@
                                     <th>Category</th>
                                 </tr>
                             </thead>
-                            <tbody id="expenses__list">
-                                <tr>
-                                    <td>
-                                        <img src="/images/budgetter-logo-dark.png" alt="img" />
-                                    </td>
-                                    <td>21 jul</td>
-                                    <td>Rs.200</td>
-                                    <td>Futsal</td>
-                                    <td>E-sewa</td>
-                                    <td>Cafe & Restaurants</td>
-                                </tr>
+                            <tbody id="groupExpenseList">
+                                <!-- group expenses here -->
                             </tbody>
                         </table>
                         <div class="expenses__pagination">
                             <div class="expenses__pagination--buttons">
                                 <button class="expenses__prev--btn">Prev</button>
-                                <p><span class="current__page">1</span> of <span class="total__pages">10</span></p>
+                                <p><span class="current__page">0</span> of <span class="total__pages">0</span></p>
                                 <button class="expenses__next--btn">Next</button>
                             </div>
                         </div>

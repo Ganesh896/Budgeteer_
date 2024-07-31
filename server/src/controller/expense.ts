@@ -46,11 +46,3 @@ export const getCategory = asyncHandler(async (req: Request, res: Response) => {
     const data = await expenseService.getCategory(id);
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 });
-
-// add category
-export const addCategory = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.user!;
-    const { categoryName, categoryId } = req.body;
-    await expenseService.addCategory(id, categoryId, categoryName);
-    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK));
-});

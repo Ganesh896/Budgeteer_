@@ -1,5 +1,3 @@
-import { renderUserExpenses } from "./expenses/expenses";
-import { getExpenses } from "./expenses/axios";
 import { OpenAddExpenseModal } from "./utils/openAddExpenseModal";
 import { renderAmountCard } from "./utils/renderAmountCardt";
 import { renderDoughnutChart } from "./utils/doughnutChart";
@@ -10,23 +8,25 @@ import { Expense } from "./interface/expense";
 import { getSavingGoal } from "./savingGoals/axios";
 import { SavingGoal } from "./interface/savingGoal";
 import { renderNotification } from "./utils/notification";
+import { logoutHandler } from "./utils/logout";
+import { toggleSidebarHandler } from "./utils/toggleSidebar";
+import { toggleThemeHandler } from "./utils/toggleTheme";
+import { renderUserExpenses } from "./expenses/helper";
+import { getExpenses } from "./expenses/axios";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // render notification
     renderNotification();
 
+    // toggle sidebar
+    toggleSidebarHandler();
+
+    // toogle theme
+    toggleThemeHandler();
+
     // rednering expenses on dashboard
     const expenses = await getExpenses(4, 1);
     renderUserExpenses(expenses.data);
-
-    const sidebarToggleEle = document.querySelector(".sidebar__toggle") as HTMLButtonElement;
-    const sidebarEle = document.querySelector(".sidebar") as HTMLDivElement;
-    const dashboardEle = document.querySelector(".dashboard") as HTMLDivElement;
-
-    sidebarToggleEle.addEventListener("click", function () {
-        sidebarEle.classList.toggle("close");
-        dashboardEle.classList.toggle("open");
-    });
 
     //addexpense modal
     OpenAddExpenseModal();
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //budget card
     const budgetContainerEle = document.getElementById("budgetCardContainer") as HTMLDivElement;
     const amount = await getBudget();
-    const budgetAmount = amount[0].amount;
+    const budgetAmount = amount.length > 0 ? amount[0].amount : 0;
 
     renderAmountCard(budgetContainerEle, "Budget", budgetAmount, 12.1);
 
@@ -70,41 +70,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // render bar chart
     renderBarChart();
 
-    //changing theme
-    const themeCheckbox = document.getElementById("checkbox") as HTMLInputElement;
-    const themeButton = document.querySelector(".theme__button") as HTMLDivElement;
-
-    // saving theme on localStorage
-    const setTheme = function (): void {
-        localStorage.removeItem("theme");
-        if (themeCheckbox.checked) {
-            localStorage.setItem("theme", "dark__theme");
-        } else {
-            localStorage.setItem("theme", "light__theme");
-        }
-    };
-
-    // adding theme from localStorage
-    const changeTheme = function (): void {
-        setTheme();
-        const theme = localStorage.getItem("theme") || "light__theme";
-        document.body.classList.toggle(theme);
-    };
-
-    // setting default theme
-    document.body.classList.toggle(localStorage.getItem("theme") || "light__theme");
-    themeButton.addEventListener("click", changeTheme); //changing theme on nav toggle button
-
-    // retaining the toggle button state on refresh
-    themeCheckbox.checked = localStorage.getItem("theme") === "dark__theme";
-
-    // LOGOUT
-    const logoutBtnEle = document.querySelector(".logout") as HTMLButtonElement;
-
-    logoutBtnEle.addEventListener("click", function () {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("userDetails");
-        localStorage.removeItem("maxCategoryId");
-        window.location.href = "/";
-    });
+    // logout
+    logoutHandler();
 });

@@ -8,9 +8,21 @@ import { ApiResponse } from "../utils/response";
 
 // add group
 export const addGroup = asyncHandler(async (req: Request, res: Response) => {
+    let { id } = req.user!;
+    const { userId, groupName } = req.body;
+
+    id = userId ? userId : id;
+    // console.log(id);
+    const message = await expenseGroupService.addGroup(id, groupName);
+
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
+});
+
+// add group
+export const addGroupUser = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.user!;
-    const { body } = req;
-    const message = await expenseGroupService.addGroup(id, body.groupName);
+    const { groupId } = req.body;
+    const message = await expenseGroupService.addGroupUser(id, groupId);
 
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
 });
@@ -36,7 +48,8 @@ export const inviteUser = asyncHandler(async (req: Request, res: Response) => {
 // get group users
 export const getGroupUsers = async (req: Request, res: Response) => {
     const { groupId } = req.params;
-    const data = await expenseGroupService.getGroupUsers(groupId);
+    const { id } = req.user!;
+    const data = await expenseGroupService.getGroupUsers(id, groupId);
 
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 };
@@ -49,15 +62,6 @@ export const getGroupInvites = async (req: Request, res: Response) => {
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 };
 
-// update group invite
-export const updateGroupInvites = asyncHandler(async (req: Request, res: Response) => {
-    const { groupId } = req.params;
-    const { id } = req.user!;
-    const message = await expenseGroupService.updateGroupInvites(groupId, id);
-
-    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
-});
-
 // delete group invite
 export const deleteGroupInvites = asyncHandler(async (req: Request, res: Response) => {
     const { groupId } = req.params;
@@ -65,3 +69,13 @@ export const deleteGroupInvites = asyncHandler(async (req: Request, res: Respons
     const message = await expenseGroupService.deleteGroupInvites(groupId, id);
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
 });
+
+// get group expenses
+export const getGroupExpenses = async (req: Request, res: Response) => {
+    const { query } = req;
+    const { groupId } = req.params;
+
+    const data = await expenseGroupService.getGroupExpenses(groupId, query);
+
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
+};

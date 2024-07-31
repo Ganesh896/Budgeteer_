@@ -63,13 +63,3 @@ export async function deleteExpense(expenseId: string) {
 export function getCategory(userId: string) {
     return ExpenseModel.getCategory(userId);
 }
-
-// get category
-export async function addCategory(userId: string, id:number, categoryName: string) {
-    try {
-        await ExpenseModel.addCategory(userId, id, categoryName);
-    } catch (error) {
-        console.log(error);
-        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Insertion fail!");
-    }
-}

@@ -1,37 +1,10 @@
 import { Expense } from "../interface/expense";
-import { renderUserProfile } from "../utils/renderHeaderProfile";
-import { OpenAddExpenseModal } from "../utils/openAddExpenseModal";
-import { renderNotification } from "../utils/notification";
-import { logoutHandler } from "../utils/logout";
-import { toggleSidebarHandler } from "../utils/toggleSidebar";
-import { toggleThemeHandler } from "../utils/toggleTheme";
-import { renderUserExpenses } from "./helper";
-import { getExpenses } from "./axios";
 
-// load all content
-document.addEventListener("DOMContentLoaded", async function () {
+export async function paginate(fetchData: (page: number, size: number) => Promise<any>, renderData: (data: any) => void, size: number) {
     const prevButton = document.querySelector(".expenses__prev--btn") as HTMLButtonElement;
     const nextButton = document.querySelector(".expenses__next--btn") as HTMLButtonElement;
     const currentPageEle = document.querySelector(".current__page") as HTMLSpanElement;
     const totalPageEle = document.querySelector(".total__pages") as HTMLSpanElement;
-
-    // render notification
-    renderNotification();
-
-    // toggle sidebar
-    toggleSidebarHandler();
-
-    // toggle theme
-    toggleThemeHandler();
-
-    // header profile
-    renderUserProfile();
-
-    // open addexpense modal
-    OpenAddExpenseModal();
-
-    // expenses pagination
-    const size = 3;
     let page = 1;
     let sorted = false; // Flag to check if sorting is applied
 
@@ -49,20 +22,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    async function loadExpenses(page: number, size: number) {
-        const expenses = await getExpenses(size, page);
-        let expensesData = expenses.data;
+    async function loadPageData(page: number, size: number) {
+        const response = await fetchData(page, size);
+        let data = response.data;
 
         if (sorted) {
-            expensesData = expensesData.sort((a: Expense, b: Expense) => b.amount - a.amount);
+            data = data.sort((a: Expense, b: Expense) => b.amount - a.amount);
         }
 
-        renderUserExpenses(expensesData);
-        return expenses.meta.total.count;
+        renderData(data); // Call the passed render function
+        return response.meta.total.count;
     }
 
     async function initPagination() {
-        const total = await loadExpenses(page, size);
+        const total = await loadPageData(page, size);
         const totalPages = Math.ceil(total / size);
 
         totalPageEle.innerText = totalPages + "";
@@ -74,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     prevButton.addEventListener("click", async function () {
         if (page > 1) {
             page--;
-            const total = await loadExpenses(page, size);
+            const total = await loadPageData(page, size);
             const totalPages = Math.ceil(total / size);
             currentPageEle.innerText = page + "";
             updatePageButtons(totalPages);
@@ -82,25 +55,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     nextButton.addEventListener("click", async function () {
-        const total = await loadExpenses(page, size);
+        const total = await loadPageData(page, size);
         const totalPages = Math.ceil(total / size);
         if (page < totalPages) {
             page++;
-            await loadExpenses(page, size);
+            await loadPageData(page, size);
             currentPageEle.innerText = page + "";
             updatePageButtons(totalPages);
         }
     });
 
-    initPagination();
-
-    // Sorting expenses by amount
-    const sortExpensesBtn = document.querySelector(".expenses__sort--btn") as HTMLButtonElement;
-    sortExpensesBtn?.addEventListener("click", async function () {
+    // Sorting data by amount
+    const sortBtn = document.querySelector(".expenses__sort--btn") as HTMLButtonElement;
+    sortBtn?.addEventListener("click", async function () {
         sorted = !sorted; // Toggle sorting flag
-        await loadExpenses(page, size); // Reload expenses with sorting
+        await loadPageData(page, size); // Reload data with sorting
     });
 
-    // logout
-    logoutHandler();
-});
+    initPagination();
+}

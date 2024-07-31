@@ -3,5 +3,8 @@ export interface GroupUser {
     senderId: string;
     receiverId: string;
     groupId: string;
-    isAccepted: boolean;
+    groupName: string;
+    firstName: string;
+    lastName: string;
+    profile: string;
 }

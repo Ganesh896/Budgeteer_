@@ -1,11 +1,20 @@
+import { logoutHandler } from "../utils/logout";
 import { renderNotification } from "../utils/notification";
 import { renderUserProfile } from "../utils/renderHeaderProfile";
 import { renderSavingGoal } from "../utils/renderSavingGoal";
+import { toggleSidebarHandler } from "../utils/toggleSidebar";
+import { toggleThemeHandler } from "../utils/toggleTheme";
 import { addSavingGoal } from "./axios";
 
 document.addEventListener("DOMContentLoaded", () => {
     // render notification
     renderNotification();
+
+    // toggle sidebar
+    toggleSidebarHandler();
+
+    // toggle theme
+    toggleThemeHandler();
 
     // open-close add expense modal form
     const openModal = document.querySelector(".addgoal__btn") as HTMLButtonElement;
@@ -34,4 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // render saving goal
     renderSavingGoal();
+
+    // logout
+    logoutHandler();
 });

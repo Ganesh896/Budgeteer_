@@ -3,17 +3,16 @@ import { baseUrl } from "../../../main";
 
 // get expenses
 export const getExpenses = async (size: number, page: number) => {
-    const url = size===0 && page===0 ? `${baseUrl}expense` : `${baseUrl}expense?size=${size}&&page=${page}`;
+    const url = size === 0 && page === 0 ? `${baseUrl}expense` : `${baseUrl}expense?size=${size}&page=${page}`;
     const token = localStorage.getItem("authToken");
     if (token) {
         try {
             const response = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    "Content-Type": "json",
                 },
             });
-
+            console.log(response.data.data);
             return response.data.data;
         } catch (error) {
             console.log(error);
@@ -49,31 +48,22 @@ export function addExpense() {
 
     addExpenseFormEle.addEventListener("submit", (event: Event) => {
         event.preventDefault();
-        console.log("Form submitted");
+
         let formData = new FormData(addExpenseFormEle);
         let data = Object.fromEntries(formData.entries());
 
         // getting max category id from localstorage
         const nextCategoryId = Number(localStorage.getItem("maxCategoryId")) + 1;
 
-        // adding our own expense category
-        if (!addCategoryInput.classList.contains("hide")) {
-            axios
-                .post(`${baseUrl}expense/category`, { categoryId: nextCategoryId, categoryName: data.categoryName }, { headers: { Authorization: "Bearer " + token } })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.error(error.response);
-                });
-        }
-
         // sending new category id to expense table
-        if (data.categoryId === "") {
+        if (!addCategoryInput.classList.contains("hide")) {
             data.categoryId = "" + nextCategoryId;
-            delete data.categoryName; //deleting categoryName used for adding category
+        } else {
+            delete data.categoryName;
         }
-
+        if (data.groupId === "") {
+            delete data.groupId;
+        }
         axios
             .post(`${baseUrl}expense/add`, data, { headers: { Authorization: "Bearer " + token } })
             .then(function (response) {

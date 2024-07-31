@@ -5,12 +5,16 @@ const title = Joi.string().required().messages({
     "any.required": "Title name is required!",
 });
 
-const description = Joi.string().allow("").optional().messages({
-    "string.empty": "Description cannot be an empty string!",
-});
-
 const categoryId = Joi.number().required().messages({
     "any.required": "Category Id is required!",
+});
+
+const categoryName = Joi.string().optional().messages({
+    "string.empty": "Category Name cannot be an empty string!",
+});
+
+const groupId = Joi.number().optional().messages({
+    "number.base": "group id must be a number",
 });
 
 const paymentMethod = Joi.string().required().messages({
@@ -24,8 +28,9 @@ const amount = Joi.number().required().messages({
 // Schema for user registration
 export const expenseBodySchema = Joi.object({
     title,
-    description,
+    categoryName,
     categoryId,
+    groupId,
     paymentMethod,
     amount,
 }).options({

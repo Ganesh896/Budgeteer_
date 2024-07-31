@@ -6,4 +6,5 @@ export interface Expense {
     categoryId: number;
     createdAt: string;
     categoryName: string;
+    profile: string;
 }

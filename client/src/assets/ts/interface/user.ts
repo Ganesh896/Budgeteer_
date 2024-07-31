@@ -7,5 +7,4 @@ export interface User {
     phone: string;
     address: string;
     profile: string;
-    groupName: string;
 }

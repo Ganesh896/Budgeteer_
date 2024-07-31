@@ -1,23 +1,39 @@
 import { Expense } from "../interface/expense";
 import { Group } from "../interface/group";
 import { GroupUser } from "../interface/groupUser";
-import { User } from "../interface/user";
-import { getUserById } from "../utils/getUser";
+import { logoutHandler } from "../utils/logout";
 import { renderNotification } from "../utils/notification";
-import { addGroup, getGroups, getGroupUsers, sendInvite } from "./axios";
+import { renderUserProfile } from "../utils/renderHeaderProfile";
+import { toggleSidebarHandler } from "../utils/toggleSidebar";
+import { toggleThemeHandler } from "../utils/toggleTheme";
+import { addGroup, getGroupExpenses, getGroups, getGroupUsers, sendInvite } from "./axios";
+import { renderGroupExpenses } from "./helper";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // render notification
     renderNotification();
 
+    // toggle sidebar
+    toggleSidebarHandler();
+
+    // toggle theme
+    toggleThemeHandler();
+
+    // render header profile
+    renderUserProfile();
+
     // adding group
     const addGroupBtnEle = document.getElementById("addGroupButton") as HTMLButtonElement;
     addGroupBtnEle?.addEventListener("click", function () {
+        const addGroupInput = document.getElementById("groupName") as HTMLInputElement;
+        const groupName = addGroupInput.value;
         console.log("click");
-        addGroup();
+        addGroup("", groupName);
+        // const
+        addGroupInput.value = "";
     });
 
-    // groups
+    // display groups
     const groupContainer = document.getElementById("groupCard") as HTMLDivElement;
 
     const groups: Group[] = await getGroups();
@@ -60,19 +76,114 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const groupUsers: GroupUser[] = await getGroupUsers(group.id);
             groupUsers.forEach(async (user) => {
-                if (user.isAccepted) {
-                    const groupMember: User = await getUserById(user.receiverId);
-                    const div = document.createElement("div");
-                    div.setAttribute("class", "groups__card--user");
-                    div.innerHTML = `
-                            <img src="${groupMember.profile}" alt="img" />
-                            <h4>${groupMember.firstName} ${groupMember.lastName}</h4>
+                const div = document.createElement("div");
+                div.setAttribute("class", "groups__card--user");
+                div.innerHTML = `
+                            <img src="${user.profile}" alt="img" />
+                            <h4>${user.firstName} ${user.lastName}</h4>
                             `;
-                    groupUsersContainer.appendChild(div);
+                groupUsersContainer.appendChild(div);
+            });
+
+            // expenses pagination
+            const prevButton = document.querySelector(".expenses__prev--btn") as HTMLButtonElement;
+            const nextButton = document.querySelector(".expenses__next--btn") as HTMLButtonElement;
+            const currentPageEle = document.querySelector(".current__page") as HTMLSpanElement;
+            const totalPageEle = document.querySelector(".total__pages") as HTMLSpanElement;
+
+            const size = 3;
+            let page = 1;
+            let sorted = false; // Flag to check if sorting is applied
+
+            async function updatePageButtons(totalPages: number) {
+                if (totalPages === 0 || page <= 1) {
+                    prevButton.setAttribute("disabled", "true");
+                } else {
+                    prevButton.removeAttribute("disabled");
+                }
+
+                if (totalPages === 0 || page >= totalPages) {
+                    nextButton.setAttribute("disabled", "true");
+                } else {
+                    nextButton.removeAttribute("disabled");
+                }
+            }
+
+            async function loadExpenses(page: number, size: number) {
+                const expenses = await getGroupExpenses(group.id, size, page);
+                let expensesData = expenses.data;
+
+                if (sorted) {
+                    expensesData = expensesData.sort((a: Expense, b: Expense) => b.amount - a.amount);
+                }
+
+                renderGroupExpenses(expensesData);
+                return expenses.meta.total.count;
+            }
+
+            async function initPagination() {
+                const total = await loadExpenses(page, size);
+                const totalPages = Math.ceil(total / size);
+
+                totalPageEle.innerText = totalPages + "";
+                currentPageEle.innerText = totalPages === 0 ? "0" : page + "";
+
+                updatePageButtons(totalPages);
+            }
+
+            prevButton.addEventListener("click", async function () {
+                if (page > 1) {
+                    page--;
+                    const total = await loadExpenses(page, size);
+                    const totalPages = Math.ceil(total / size);
+                    currentPageEle.innerText = page + "";
+                    updatePageButtons(totalPages);
                 }
             });
+
+            nextButton.addEventListener("click", async function () {
+                const total = await loadExpenses(page, size);
+                const totalPages = Math.ceil(total / size);
+                if (page < totalPages) {
+                    page++;
+                    await loadExpenses(page, size);
+                    currentPageEle.innerText = page + "";
+                    updatePageButtons(totalPages);
+                }
+            });
+
+            initPagination();
+
+            // Sorting expenses by amount
+            const sortExpensesBtn = document.querySelector(".expenses__sort--btn") as HTMLButtonElement;
+            sortExpensesBtn?.addEventListener("click", async function () {
+                sorted = !sorted; // Toggle sorting flag
+                await loadExpenses(page, size); // Reload expenses with sorting
+            });
+
+            // render group expenses
+            // const groupExpensesContainerEle = document.getElementById("groupExpenseList")!;
+            // const expenseData = await getGroupExpenses(group.id, 2, 1);
+            // const groupExpenses: Expense[] = expenseData.data;
+
+            // groupExpensesContainerEle.innerHTML = "";
+            // groupExpenses.forEach((expense) => {
+            //     let tableRow = document.createElement("tr");
+            //     tableRow.innerHTML = `
+            //         <td>
+            //             <img src="${expense.profile}" alt="img" />
+            //         </td>
+            //         <td>${expense.createdAt}</td>
+            //         <td>Rs ${expense.amount}</td>
+            //         <td>${expense.title}</td>
+            //         <td>${expense.paymentMethod}</td>
+            //         <td>${expense.categoryName}</td>
+            //     `;
+            //     groupExpensesContainerEle.appendChild(tableRow);
+            // });
         });
 
+        // send invite
         const sendInviteButtonEle = document.getElementById(`inviteUserButton${group.id}`);
         sendInviteButtonEle?.addEventListener("click", function () {
             sendInvite(group.id, `inviteUser${group.id}`);
@@ -91,4 +202,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         //     expenseListEle.appendChild(tableRow);
         // });
     }
+
+    // logout
+    logoutHandler();
 });

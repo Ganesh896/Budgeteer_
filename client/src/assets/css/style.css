@@ -69,6 +69,19 @@ p {
   margin: 12px 0;
 }
 
+.empty__message {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+  color: #82828c;
+}
+.empty__message h2 {
+  color: #82828c;
+}
+
 .overlay {
   display: none;
   position: fixed;
@@ -553,6 +566,7 @@ main {
 .dashboard .addexpense__modal .form__groups input,
 .dashboard .addexpense__modal .form__groups select {
   margin-top: 8px;
+  cursor: pointer;
 }
 .dashboard__header {
   display: flex;
@@ -885,6 +899,7 @@ main {
 .dashboard .expenses__group .groups .groupContent {
   max-height: 0;
   overflow: hidden;
+  margin-bottom: 16px;
   transition: max-height 0.5s ease-in-out;
 }
 .dashboard .expenses__group .groups .groupContent.show {

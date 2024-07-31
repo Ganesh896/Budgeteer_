@@ -4,25 +4,30 @@ import { BaseModel } from "./base";
 
 export class ExpenseModel extends BaseModel {
     // add expense
-    static addExpense(userId: string, expense: Expense) {
+    static async addExpense(userId: string, expense: Expense) {
+        if (expense.categoryName) {
+            await this.queryBuilder().insert({ id: expense.categoryId, userId, categoryName: expense.categoryName }).table("categories");
+        }
+        delete expense.categoryName; // remove categoryName while adding in expense instead storing catId
         const id = crypto.randomUUID();
         const newExpense = {
             id,
             userId,
             ...expense,
         };
-        return this.queryBuilder().insert(newExpense).table("expenses");
+        const response = await this.queryBuilder().insert(newExpense).table("expenses");
+        return response;
     }
 
     // update expense
     static updateExpense(id: string, expense: Expense) {
-        const { title, description, categoryId, paymentMethod, amount } = expense;
+        const { title, categoryId, paymentMethod, amount, groupId } = expense;
         const expenseToUpdate = {
             title,
-            description,
             categoryId,
             paymentMethod,
             amount,
+            groupId,
         };
 
         return this.queryBuilder().update(expenseToUpdate).table("expenses").where({ id });
@@ -33,12 +38,15 @@ export class ExpenseModel extends BaseModel {
         const { q } = filter;
 
         const query = await this.queryBuilder()
-            .select("e.createdAt", "title", "description", "paymentMethod", "amount", "c.categoryName")
+            .select("e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
             .from("expenses as e")
             .join("categories as c", "c.id", "e.category_id")
             .limit(filter.size!)
             .offset((filter.page! - 1) * filter.size!)
-            .where("e.userId", userId);
+            .where("e.userId", userId)
+            .andWhere(function () {
+                this.whereNull("e.groupId");
+            });
 
         // if (q) {
         //     query;
@@ -51,7 +59,15 @@ export class ExpenseModel extends BaseModel {
     static async count(userId: string, filter: GetQuery) {
         const { q } = filter;
 
-        const query = await this.queryBuilder().count("*").table("expenses").where({ userId }).limit(filter.size!).first();
+        const query = await this.queryBuilder()
+            .count("*")
+            .table("expenses")
+            .where({ userId })
+            .andWhere(function () {
+                this.whereNull("groupId");
+            })
+            .limit(filter.size!)
+            .first();
 
         // if (q) {
         //     query.where({ userId });
@@ -68,10 +84,5 @@ export class ExpenseModel extends BaseModel {
     // get expense category
     static async getCategory(userId: string) {
         return this.queryBuilder().select("id", "categoryName").from("categories").where({ userId }).orWhereNull("userId");
-    }
-
-    // get expense category
-    static async addCategory(userId: string, id: number, categoryName: string) {
-        return this.queryBuilder().insert({ id, userId, categoryName }).table("categories");
     }
 }

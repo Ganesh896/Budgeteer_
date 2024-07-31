@@ -68,6 +68,17 @@ p {
     margin: 12px 0;
 }
 
+.empty__message {
+    width: 100%;
+    @include flex-box(center, center, 0);
+    text-align: center;
+    color: $grey;
+
+    h2 {
+        color: $grey;
+    }
+}
+
 .overlay {
     display: none;
     position: fixed;

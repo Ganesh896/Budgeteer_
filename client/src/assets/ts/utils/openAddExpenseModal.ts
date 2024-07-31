@@ -1,5 +1,5 @@
 import { addExpense } from "../expenses/axios";
-import { renderCategory } from "../expenses/expenses";
+import { renderCategory, renderGroups } from "../expenses/helper";
 
 export const OpenAddExpenseModal = () => {
     // open addexpense form
@@ -12,7 +12,6 @@ export const OpenAddExpenseModal = () => {
     addExpenseButtonEle.addEventListener("click", async function () {
         const response = await fetch("addExpenseForm.html");
         const formContent = await response.text();
-
 
         addExpenseModalEle.innerHTML = formContent;
 
@@ -35,7 +34,12 @@ export const OpenAddExpenseModal = () => {
         overlay.classList.add("show");
         addExpenseModalEle.classList.add("show");
         htmlBodyEle.classList.add("overflowHidden");
+
+        // show categories on select dropdown
         renderCategory();
+
+        // show groups on select dropdown
+        renderGroups();
 
         // adding expense
         addExpense();

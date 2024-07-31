@@ -352,6 +352,7 @@ main {
                 input,
                 select {
                     margin-top: 8px;
+                    cursor: pointer;
                 }
             }
         }
@@ -691,6 +692,7 @@ main {
             .groupContent {
                 max-height: 0;
                 overflow: hidden;
+                margin-bottom: 16px;
                 transition: max-height 0.5s ease-in-out;
 
                 &.show {
