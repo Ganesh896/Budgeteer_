@@ -34,10 +34,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </div>
             </td>
             <td>${user.groupName}</td>
-            <td>
+            <td class="user__actions">
                 <button class="invite__button invite__button--accept" id="inviteAccept${index}">Accept</button>
-            </td>
-            <td>
                 <button class="invite__button invite__button--reject" id="inviteReject${index}">Reject</button>
             </td>
         `;

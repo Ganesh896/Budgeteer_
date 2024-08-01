@@ -593,6 +593,49 @@ main {
         padding: 20px;
         overflow: auto;
 
+        .deletePopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 5;
+
+            &__header {
+                i {
+                    font-size: 40px;
+                    color: $red;
+                }
+            }
+
+            &__body {
+                margin: 16px 0;
+
+                p {
+                    color: $grey;
+                    margin-top: 8px;
+                }
+            }
+
+            &__footer {
+                button {
+                    padding: 10px 16px;
+                    color: $white;
+                    border-radius: 5px;
+                }
+                &--cancel {
+                    background: $primary;
+                }
+                &--delete {
+                    background: $red;
+                }
+            }
+        }
+
         &__search {
             @include flex-box(space-between, center, 0);
             border-radius: 30px;
@@ -628,6 +671,26 @@ main {
             border-collapse: collapse;
             width: 100%;
             border-radius: 8px;
+            .expense {
+                &__action {
+                    @include flex-box(flex-start, center, 10px);
+
+                    button {
+                        @include flex-box(flex-start, center, 8px);
+                        padding: 8px 16px;
+                        color: $white;
+                        border-radius: 10px;
+                    }
+
+                    &--edit {
+                        background: $primary;
+                    }
+
+                    &--delete {
+                        background: $red;
+                    }
+                }
+            }
 
             thead {
                 background: #f6f4ff;
@@ -635,11 +698,10 @@ main {
 
             th {
                 padding: 16px;
-                font-size: 14px;
-                text-align: center;
+                font-size: 16px;
                 text-align: left;
                 color: $primary;
-                text-transform: uppercase;
+                text-transform: capitalize;
                 font-weight: 500;
 
                 &:first-child {
@@ -648,6 +710,7 @@ main {
 
                 &:last-child {
                     border-radius: 0 30px 30px 0;
+                    text-align: center;
                 }
             }
 
@@ -661,6 +724,10 @@ main {
 
             td {
                 padding: 20px 16px;
+
+                &:last-child {
+                    text-align: center;
+                }
             }
         }
 

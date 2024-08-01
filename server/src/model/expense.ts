@@ -38,7 +38,7 @@ export class ExpenseModel extends BaseModel {
         const { q } = filter;
 
         const query = await this.queryBuilder()
-            .select("e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
+            .select("e.id", "e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
             .from("expenses as e")
             .join("categories as c", "c.id", "e.category_id")
             .limit(filter.size!)

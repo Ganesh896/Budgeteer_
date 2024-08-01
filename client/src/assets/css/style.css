@@ -799,6 +799,40 @@ main {
   padding: 20px;
   overflow: auto;
 }
+.dashboard .expenses .deletePopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 5;
+}
+.dashboard .expenses .deletePopup__header i {
+  font-size: 40px;
+  color: #e72b2b;
+}
+.dashboard .expenses .deletePopup__body {
+  margin: 16px 0;
+}
+.dashboard .expenses .deletePopup__body p {
+  color: #82828c;
+  margin-top: 8px;
+}
+.dashboard .expenses .deletePopup__footer button {
+  padding: 10px 16px;
+  color: #fff;
+  border-radius: 5px;
+}
+.dashboard .expenses .deletePopup__footer--cancel {
+  background: #8370fe;
+}
+.dashboard .expenses .deletePopup__footer--delete {
+  background: #e72b2b;
+}
 .dashboard .expenses__search {
   display: flex;
   justify-content: space-between;
@@ -841,16 +875,36 @@ main {
   width: 100%;
   border-radius: 8px;
 }
+.dashboard .expenses__list .expense__action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.dashboard .expenses__list .expense__action button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 10px;
+}
+.dashboard .expenses__list .expense__action--edit {
+  background: #8370fe;
+}
+.dashboard .expenses__list .expense__action--delete {
+  background: #e72b2b;
+}
 .dashboard .expenses__list thead {
   background: #f6f4ff;
 }
 .dashboard .expenses__list th {
   padding: 16px;
-  font-size: 14px;
-  text-align: center;
+  font-size: 16px;
   text-align: left;
   color: #8370fe;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 500;
 }
 .dashboard .expenses__list th:first-child {
@@ -858,6 +912,7 @@ main {
 }
 .dashboard .expenses__list th:last-child {
   border-radius: 0 30px 30px 0;
+  text-align: center;
 }
 .dashboard .expenses__list tr {
   border-bottom: 1px solid #eee;
@@ -867,6 +922,9 @@ main {
 }
 .dashboard .expenses__list td {
   padding: 20px 16px;
+}
+.dashboard .expenses__list td:last-child {
+  text-align: center;
 }
 .dashboard .expenses__pagination {
   margin-top: 16px;

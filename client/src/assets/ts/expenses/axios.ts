@@ -82,3 +82,21 @@ export function addExpense() {
             });
     });
 }
+
+// delete expense
+export const deleteExpense = async (expenseId: string) => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+        try {
+            const response = await axios.delete(`${baseUrl}expense/delete/${expenseId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data.data);
+            return response.data.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};

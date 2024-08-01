@@ -13,10 +13,14 @@ import { toggleSidebarHandler } from "./utils/toggleSidebar";
 import { toggleThemeHandler } from "./utils/toggleTheme";
 import { renderUserExpenses } from "./expenses/helper";
 import { getExpenses } from "./expenses/axios";
+import { renderUserProfile } from "./utils/renderHeaderProfile";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // render notification
     renderNotification();
+
+    // render header profile
+    renderUserProfile();
 
     // toggle sidebar
     toggleSidebarHandler();
@@ -38,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderAmountCard(budgetContainerEle, "Budget", budgetAmount, 12.1);
 
-    // expese card
+    // expese amount card
     const expenseContainerEle = document.getElementById("expenseCardContainer") as HTMLDivElement;
     const allExpenses = await getExpenses(0, 0);
     let totalExpense: number = 0;
@@ -48,11 +52,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderAmountCard(expenseContainerEle, "Expense", totalExpense, 12.1);
 
-    // remaining card
+    // remaining amount card
     const remainginContainerEle = document.getElementById("remainingCardContainer") as HTMLDivElement;
     renderAmountCard(remainginContainerEle, "Remaining", budgetAmount - totalExpense, 12.1);
 
-    // total saving card
+    // total saving amount card
     const savingContainerEle = document.getElementById("savingCardContainer") as HTMLDivElement;
     const savingGoals: SavingGoal[] = await getSavingGoal();
     let totalSavingAmount: number = 0;

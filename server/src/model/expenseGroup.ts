@@ -57,7 +57,7 @@ export class GroupExpenseModel extends BaseModel {
         const { q } = filter;
 
         const query = await this.queryBuilder()
-            .select("profile", "e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
+            .select("e.id","profile", "e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
             .from("expenses as e")
             .join("categories as c", "c.id", "e.category_id")
             .join("users as u", "e.user_id", "u.id")
