@@ -210,3 +210,31 @@ Note: All endpoints are prefixed with `/api/expense`. Authentication is handled 
     -   Authentication: Required
 
 Note: All endpoints are prefixed with `/api/group`. Authentication is required for all endpoints and is handled by the `authenticate` middleware.
+
+### Budget
+
+-   POST `/api/budget/add`
+
+    -   Description: Add budget
+    -   Authentication: Required
+
+-   GET `/api/budget`
+
+    -   Description: Get budget
+    -   Authentication: Required
+
+    Note: All endpoints are prefixed with `/api/budget`. Authentication is required for all endpoints and is handled by the `authenticate` middleware.
+
+### Saving Goals
+
+-   POST `/api/saving-goal/add`
+
+    -   Description: Add saving Goal
+    -   Authentication: Required
+
+-   GET `/api/saving-goal`
+
+    -   Description: Get saving Goal
+    -   Authentication: Required
+
+    Note: All endpoints are prefixed with `/api/saving-goal`. Authentication is required for all endpoints and is handled by the `authenticate` middleware.
