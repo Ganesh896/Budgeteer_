@@ -19,7 +19,9 @@
                         <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
                         </a>
-                        <h2 class="subtitle"><a href="dashboard.html"><span>Budgetter</span></a></h2>
+                        <h2 class="subtitle">
+                            <a href="dashboard.html"><span>Budgetter</span></a>
+                        </h2>
                     </div>
                     <div class="sidebar__content">
                         <ul>
@@ -104,8 +106,33 @@
                     </div>
                 </div>
                 <div class="saving">
-                    <h3 class="small__title">Saving goals</h3>
-                    <div class="saving__items" id="saving__item--container"></div>
+                    <div class="saving__header">
+                        <h3 class="small__title">Saving goals</h3>
+                        <button class="addgoal__btn" id="addGoalAmount"><i class="bx bx-plus"></i> Add Amount</button>
+                    </div>
+                    <div class="addgoal__modal form__modal" id="addAmountModal">
+                        <div class="addgoal__modal--header">
+                            <h1 class="title">Add Amount</h1>
+                        </div>
+                        <button class="close__modal"><i class="bx bx-x"></i></button>
+                        <form id="addamount__form">
+                            <div class="form__group">
+                                <label for="goalName">Select Goal</label>
+                                <select name="id" id="goalNameSelect" required>
+                                    <!-- saving goal name -->
+                                </select>
+                            </div>
+                            <div class="form__group">
+                                <label for="currentAmount">Amount</label>
+                                <input type="number" name="currentAmount" placeholder="Amount" id="currentAmount" required />
+                            </div>
+
+                            <button type="submit" class="l__button l__button--primary">Add</button>
+                        </form>
+                    </div>
+                    <div class="saving__items" id="saving__item--container">
+                        <!-- saving items here -->
+                    </div>
                 </div>
             </div>
             <div class="overlay"></div>

@@ -33,6 +33,17 @@ export const getExpenses = async (req: Request, res: Response) => {
 
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 };
+
+// get expenses by id
+export const getExpenseById = async (req: Request, res: Response) => {
+    const { id } = req.user!;
+    const { expenseId } = req.params;
+
+    const data = await expenseService.getExpenseById(id, expenseId);
+
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
+};
+
 // delete expense
 export const deleteExpense = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.params;

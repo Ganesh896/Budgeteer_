@@ -190,19 +190,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
 
-    // group expenses
-    // rendering expense of current user on dashboard
-    function renderUserExpenses(expenses: Expense[]) {
-        const expenseListEle = document.getElementById("expenses__list")!;
-
-        expenseListEle.innerHTML = "";
-        // expenses.forEach((expense: Expense) => {
-        //     let tableRow = document.createElement("tr");
-        //     tableRow.innerHTML = ExpenseCard(expense);
-        //     expenseListEle.appendChild(tableRow);
-        // });
-    }
-
     // logout
     logoutHandler();
 });

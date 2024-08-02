@@ -54,10 +54,9 @@ export class GroupExpenseModel extends BaseModel {
 
     // get group expense
     static async getGroupExpenses(groupId: string, filter: GetQuery) {
-        const { q } = filter;
 
-        const query = await this.queryBuilder()
-            .select("e.id","profile", "e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
+        const query = this.queryBuilder()
+            .select("e.id", "profile", "e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
             .from("expenses as e")
             .join("categories as c", "c.id", "e.category_id")
             .join("users as u", "e.user_id", "u.id")
@@ -65,22 +64,14 @@ export class GroupExpenseModel extends BaseModel {
             .offset((filter.page! - 1) * filter.size!)
             .where({ groupId });
 
-        // if (q) {
-        //     query;
-        // }
-
         return query;
     }
 
     // group expense count
     static async count(groupId: string, filter: GetQuery) {
-        const { q } = filter;
 
         const query = await this.queryBuilder().count("*").table("expenses").where({ groupId }).limit(filter.size!).first();
 
-        // if (q) {
-        //     query.where({ userId });
-        // }
 
         return query;
     }

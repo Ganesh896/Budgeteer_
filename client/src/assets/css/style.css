@@ -456,6 +456,13 @@ main {
   margin-left: 280px;
   transition: all 0.5s ease-in-out;
 }
+.dashboard .close__modal {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 32px;
+  cursor: pointer;
+}
 .dashboard.open {
   margin-left: 80px;
 }
@@ -517,13 +524,6 @@ main {
   color: #fff;
   margin-bottom: 16px;
   float: right;
-}
-.dashboard .addexpense .close__modal {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  font-size: 32px;
-  cursor: pointer;
 }
 .dashboard .addexpense__modal {
   display: none;
@@ -645,13 +645,6 @@ main {
   margin-bottom: 16px;
   float: right;
 }
-.dashboard .addgoal .close__modal {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  font-size: 32px;
-  cursor: pointer;
-}
 .dashboard .addgoal__modal {
   display: none;
   position: fixed;
@@ -700,11 +693,14 @@ main {
   border-radius: 20px;
   padding: 20px;
 }
-.dashboard .saving h2 {
-  margin-bottom: 16px;
+.dashboard .saving__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
 }
-.dashboard .saving__items {
-  margin-top: 16px;
+.dashboard .saving__items .saving__item {
+  margin-top: 30px;
 }
 .dashboard .saving__items--title {
   display: flex;

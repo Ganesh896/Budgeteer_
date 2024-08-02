@@ -36,3 +36,14 @@ export const expenseBodySchema = Joi.object({
 }).options({
     stripUnknown: true,
 });
+
+// Schema for user registration
+export const updateExpenseBodySchema = Joi.object({
+    title,
+    categoryId,
+    amount,
+    groupId,
+    paymentMethod,
+}).options({
+    stripUnknown: true,
+});

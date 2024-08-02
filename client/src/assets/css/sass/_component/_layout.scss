@@ -248,6 +248,15 @@ main {
     margin-left: 280px;
     transition: all 0.5s ease-in-out;
 
+    // close modal button for all modal
+    .close__modal {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
     &.open {
         margin-left: 80px;
     }
@@ -299,14 +308,6 @@ main {
             color: $white;
             margin-bottom: 16px;
             float: right;
-        }
-
-        .close__modal {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            font-size: 32px;
-            cursor: pointer;
         }
 
         &__modal {
@@ -424,14 +425,6 @@ main {
             float: right;
         }
 
-        .close__modal {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            font-size: 32px;
-            cursor: pointer;
-        }
-
         &__modal {
             display: none;
             position: fixed;
@@ -486,12 +479,16 @@ main {
         border: 2px solid $grey-light;
         border-radius: 20px;
         padding: 20px;
-        h2 {
-            margin-bottom: 16px;
+
+        &__header {
+            @include flex-box(space-between, center, 0);
         }
 
         &__items {
-            margin-top: 16px;
+            .saving__item {
+                margin-top: 30px;
+            }
+
             &--title {
                 @include flex-box(space-between, center, 0);
             }

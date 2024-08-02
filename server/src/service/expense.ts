@@ -48,6 +48,14 @@ export async function getExpenses(userId: string, query: GetQuery) {
     return { data, meta };
 }
 
+// getting expenses
+export async function getExpenseById(userId: string, expenseId: string) {
+    
+    let data = await ExpenseModel.getExpenseById(userId, expenseId)
+
+    return data;
+}
+
 // delete expense
 export async function deleteExpense(expenseId: string) {
     try {

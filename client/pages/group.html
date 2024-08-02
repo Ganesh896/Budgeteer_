@@ -83,6 +83,10 @@
                         <!-- rendering user profile here -->
                     </div>
                 </div>
+                <div class="addexpense">
+                    <button class="addexpense__btn" id="addexpense__button"><i class="bx bx-plus"></i> Add Expense</button>
+                    <div class="addexpense__modal form__modal" id="addExpenseModal"></div>
+                </div>
                 <div class="expenses__group">
                     <div class="groups">
                         <div class="groups__header">
@@ -95,11 +99,10 @@
                     <div class="expenses">
                         <div class="expenses__header">
                             <h3 class="small__title">Recent expenses</h3>
-                            <div class="expenses__search">
-                                <input type="search" placeholder="Search" id="expenses__search" />
-                                <i class="bx bx-search"></i>
-                            </div>
                             <button class="expenses__sort--btn">Sort<i class="bx bx-sort"></i></button>
+                        </div>
+                        <div class="deletePopup" id="deletePopup">
+                            <!-- delete popup card -->
                         </div>
                         <table class="expenses__list">
                             <thead>
@@ -110,6 +113,7 @@
                                     <th>Title</th>
                                     <th>Method</th>
                                     <th>Category</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody id="groupExpenseList">

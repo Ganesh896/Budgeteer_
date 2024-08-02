@@ -5,7 +5,6 @@ export const OpenAddExpenseModal = () => {
     // open addexpense form
     const addExpenseButtonEle = document.getElementById("addexpense__button") as HTMLButtonElement;
     const addExpenseModalEle = document.getElementById("addExpenseModal") as HTMLDivElement;
-
     const overlay = document.querySelector(".overlay") as HTMLDivElement;
     const htmlBodyEle = document.querySelector("body") as HTMLBodyElement;
 
@@ -14,6 +13,19 @@ export const OpenAddExpenseModal = () => {
         const formContent = await response.text();
 
         addExpenseModalEle.innerHTML = formContent;
+
+        // show modal
+        overlay.classList.add("show");
+        addExpenseModalEle.classList.add("show");
+        htmlBodyEle.classList.add("overflowHidden");
+
+        // close modal
+        const closeModal = document.querySelector(".close__modal") as HTMLButtonElement;
+        closeModal?.addEventListener("click", () => {
+            overlay.classList.remove("show");
+            addExpenseModalEle.classList.remove("show");
+            htmlBodyEle.classList.remove("overflowHidden");
+        });
 
         // add category
         const addCategoryBtn = document.querySelector(".addcategory__btn") as HTMLButtonElement;
@@ -30,11 +42,6 @@ export const OpenAddExpenseModal = () => {
             }
         });
 
-        // show modal
-        overlay.classList.add("show");
-        addExpenseModalEle.classList.add("show");
-        htmlBodyEle.classList.add("overflowHidden");
-
         // show categories on select dropdown
         renderCategory();
 
@@ -43,13 +50,5 @@ export const OpenAddExpenseModal = () => {
 
         // adding expense
         addExpense();
-
-        // close modal
-        const closeModal = document.querySelector(".close__modal") as HTMLButtonElement;
-        closeModal?.addEventListener("click", () => {
-            overlay.classList.remove("show");
-            addExpenseModalEle.classList.remove("show");
-            htmlBodyEle.classList.remove("overflowHidden");
-        });
     });
 };

@@ -30,6 +30,10 @@ export class ExpenseModel extends BaseModel {
             groupId,
         };
 
+        if (!groupId) {
+            delete expenseToUpdate.groupId;
+        }
+
         return this.queryBuilder().update(expenseToUpdate).table("expenses").where({ id });
     }
 
@@ -37,7 +41,7 @@ export class ExpenseModel extends BaseModel {
     static async getExpenses(userId: string, filter: GetQuery) {
         const { q } = filter;
 
-        const query = await this.queryBuilder()
+        const query = this.queryBuilder()
             .select("e.id", "e.createdAt", "title", "paymentMethod", "amount", "c.categoryName")
             .from("expenses as e")
             .join("categories as c", "c.id", "e.category_id")
@@ -48,9 +52,9 @@ export class ExpenseModel extends BaseModel {
                 this.whereNull("e.groupId");
             });
 
-        // if (q) {
-        //     query;
-        // }
+        if (q) {
+            query.whereLike("title", `%${q}%`);
+        }
 
         return query;
     }
@@ -59,7 +63,7 @@ export class ExpenseModel extends BaseModel {
     static async count(userId: string, filter: GetQuery) {
         const { q } = filter;
 
-        const query = await this.queryBuilder()
+        const query = this.queryBuilder()
             .count("*")
             .table("expenses")
             .where({ userId })
@@ -69,11 +73,16 @@ export class ExpenseModel extends BaseModel {
             .limit(filter.size!)
             .first();
 
-        // if (q) {
-        //     query.where({ userId });
-        // }
+        if (q) {
+            query.whereLike("title", `%${q}%`);
+        }
 
         return query;
+    }
+
+    // get expenses by id
+    static getExpenseById(userId: string, id: string) {
+        return this.queryBuilder().select("*").from("expenses").where({ id }).andWhere({ userId }).first();
     }
 
     // update expense
