@@ -16,10 +16,12 @@
                 <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
                 <div class="container">
                     <div class="sidebar__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle">
+                            <a href="dashboard.html"><span>Budgetter</span></a>
+                        </h2>
                     </div>
                     <div class="sidebar__content">
                         <ul>
@@ -36,10 +38,13 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
                             </li>
                             <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="invites.html"><i class="bx bx-user-plus"></i> <span>Invites</span></a>
                             </li>
                             <li class="sidebar__item">
                                 <a href="setting.html"><i class="bx bx-cog"></i> <span>Settings</span></a>
@@ -66,11 +71,14 @@
                         <p class="meta__text">It is the best time to manage you finances</p>
                     </div>
                     <div class="dashboard__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle"><a href="dashboard.html">Budgetter</a></h2>
                     </div>
+                    <a href="invites.html" class="header__notification" id="header__notification">
+                        <!-- rendering notification -->
+                    </a>
                     <div class="header__profile">
                         <!-- rendering user profile here -->
                     </div>
@@ -92,70 +100,44 @@
                                 <input type="number" name="goalAmount" placeholder="Goal Amount" id="goalAmount" required />
                             </div>
 
-                            <p class="response__msg"></p>
+                            <p id="response__message"></p>
                             <button type="submit" class="l__button l__button--primary">Submit</button>
                         </form>
                     </div>
                 </div>
                 <div class="saving">
-                    <h3 class="small__title">Saving goals</h3>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>Mustang Trip</p>
-                            <p>$ <span>1,150</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="saving__header">
+                        <h3 class="small__title">Saving goals</h3>
+                        <button class="addgoal__btn" id="addGoalAmount"><i class="bx bx-plus"></i> Add Amount</button>
                     </div>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>MacBook Pro</p>
-                            <p>$ <span>1,650</span></p>
+                    <div class="addgoal__modal form__modal" id="addAmountModal">
+                        <div class="addgoal__modal--header">
+                            <h1 class="title">Add Amount</h1>
                         </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
+                        <button class="close__modal"><i class="bx bx-x"></i></button>
+                        <form id="addamount__form">
+                            <div class="form__group">
+                                <label for="goalName">Select Goal</label>
+                                <select name="id" id="goalNameSelect" required>
+                                    <!-- saving goal name -->
+                                </select>
                             </div>
-                        </div>
+                            <div class="form__group">
+                                <label for="currentAmount">Amount</label>
+                                <input type="number" name="currentAmount" placeholder="Amount" id="currentAmount" required />
+                            </div>
+
+                            <button type="submit" class="l__button l__button--primary">Add</button>
+                        </form>
                     </div>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>Bike</p>
-                            <p>$ <span>4,050</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="saving__items">
-                        <div class="saving__items--title">
-                            <p>Mustang Trip</p>
-                            <p>$ <span>1,150</span></p>
-                        </div>
-                        <div class="progress">
-                            <div class="progress__bar">
-                                <div class="progress__bar--inner">
-                                    <span>50%</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="saving__items" id="saving__item--container">
+                        <!-- saving items here -->
                     </div>
                 </div>
             </div>
             <div class="overlay"></div>
         </main>
 
-        <script src="../src/assets/ts/goals/goals.ts" type="module"></script>
+        <script src="../src/assets/ts/savingGoals/savingGoals.ts" type="module"></script>
     </body>
 </html>

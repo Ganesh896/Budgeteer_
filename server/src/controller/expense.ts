@@ -33,6 +33,17 @@ export const getExpenses = async (req: Request, res: Response) => {
 
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 };
+
+// get expenses by id
+export const getExpenseById = async (req: Request, res: Response) => {
+    const { id } = req.user!;
+    const { expenseId } = req.params;
+
+    const data = await expenseService.getExpenseById(id, expenseId);
+
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
+};
+
 // delete expense
 export const deleteExpense = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.params;
@@ -40,17 +51,9 @@ export const deleteExpense = asyncHandler(async (req: Request, res: Response) =>
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
 });
 
-// delete expense
+// get category
 export const getCategory = asyncHandler(async (req: Request, res: Response) => {
     const { id } = req.user!;
     const data = await expenseService.getCategory(id);
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
-});
-
-// delete expense
-export const addCategory = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.user!;
-    const { categoryName, categoryId } = req.body;
-    await expenseService.addCategory(id, categoryId, categoryName);
-    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK));
 });

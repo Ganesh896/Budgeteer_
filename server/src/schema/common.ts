@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 export const querySchema = Joi.object({
-    q: Joi.string().optional(),
+    q: Joi.string().allow("").optional(),
 
     page: Joi.number()
         .min(1)

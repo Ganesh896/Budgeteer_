@@ -1,41 +1,12 @@
-import { ExpenseCard } from "../card/expense";
-import { UserProfile } from "../card/userProfile";
-import { WelcomeMessageCard } from "../card/welcomeMessageCard";
 import { Expense } from "../interface/expense";
-import { getUserDetails } from "../utils/getUser";
-import { renderUserProfile } from "../utils/headerProfile";
+import { renderUserProfile } from "../utils/renderHeaderProfile";
 import { OpenAddExpenseModal } from "../utils/openAddExpenseModal";
-import { getExpenseCategory, getExpenses } from "./axios";
-
-// render categories on addexpense form for select
-export async function renderCategory() {
-    const categoryList = document.getElementById("category")!;
-    const categories = await getExpenseCategory();
-    categoryList.innerHTML = "";
-    let maxCategoryId = 0;
-    categories.forEach((category: any) => {
-        let optionEle = document.createElement("option");
-        optionEle.setAttribute("value", `${category.id}`);
-        optionEle.innerHTML = `${category.categoryName}`;
-        categoryList.appendChild(optionEle);
-
-        // finding max id of category to add next category if needed
-        maxCategoryId = Math.max(maxCategoryId, category.id);
-        localStorage.setItem("maxCategoryId", "" + maxCategoryId);
-    });
-}
-
-// rendering expense of current user on dashboard
-export function renderUserExpenses(expenses: Expense[]) {
-    const expenseListEle = document.getElementById("expenses__list")!;
-
-    expenseListEle.innerHTML = "";
-    expenses.forEach((expense: any) => {
-        let tableRow = document.createElement("tr");
-        tableRow.innerHTML = ExpenseCard(expense);
-        expenseListEle.appendChild(tableRow);
-    });
-}
+import { renderNotification } from "../utils/notification";
+import { logoutHandler } from "../utils/logout";
+import { toggleSidebarHandler } from "../utils/toggleSidebar";
+import { toggleThemeHandler } from "../utils/toggleTheme";
+import { renderUserExpenses } from "./helper";
+import { getExpenses } from "./axios";
 
 // load all content
 document.addEventListener("DOMContentLoaded", async function () {
@@ -43,6 +14,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     const nextButton = document.querySelector(".expenses__next--btn") as HTMLButtonElement;
     const currentPageEle = document.querySelector(".current__page") as HTMLSpanElement;
     const totalPageEle = document.querySelector(".total__pages") as HTMLSpanElement;
+
+    // render notification
+    renderNotification();
+
+    // toggle sidebar
+    toggleSidebarHandler();
+
+    // toggle theme
+    toggleThemeHandler();
 
     // header profile
     renderUserProfile();
@@ -53,47 +33,74 @@ document.addEventListener("DOMContentLoaded", async function () {
     // expenses pagination
     const size = 3;
     let page = 1;
-    const expenses = await getExpenses(size, 1);
-    const total = expenses.meta.total.count;
-    totalPageEle.innerText = Math.ceil(total / size) + "";
-    if (page === 1) {
-        prevButton.setAttribute("disabled", "true");
-    }
+    let sorted = false; // Flag to check if sorting is applied
 
-    prevButton.addEventListener("click", async function () {
-        nextButton.removeAttribute("disabled");
-
-        page--;
-        currentPageEle.innerText = page + "";
-        const prevPage = await getExpenses(size, page);
-        renderUserExpenses(prevPage.data);
-
-        if (page === 1) {
+    async function updatePageButtons(totalPages: number) {
+        if (totalPages === 0 || page <= 1) {
             prevButton.setAttribute("disabled", "true");
         } else {
             prevButton.removeAttribute("disabled");
         }
-    });
 
-    nextButton.addEventListener("click", async function () {
-        prevButton.removeAttribute("disabled");
-        page++;
-        currentPageEle.innerText = page + "";
-        const prevPage = await getExpenses(size, page);
-        renderUserExpenses(prevPage.data);
-
-        if (page === Math.ceil(total / size)) {
+        if (totalPages === 0 || page >= totalPages) {
             nextButton.setAttribute("disabled", "true");
         } else {
             nextButton.removeAttribute("disabled");
         }
+    }
+
+    async function loadExpenses(page: number, size: number) {
+        const expenses = await getExpenses(size, page);
+        let expensesData = expenses.data;
+
+        if (sorted) {
+            expensesData = expensesData.sort((a: Expense, b: Expense) => b.amount - a.amount);
+        }
+
+        renderUserExpenses(expensesData);
+        return expenses.meta.total.count;
+    }
+
+    async function initPagination() {
+        const total = await loadExpenses(page, size);
+        const totalPages = Math.ceil(total / size);
+
+        totalPageEle.innerText = totalPages + "";
+        currentPageEle.innerText = totalPages === 0 ? "0" : page + "";
+
+        updatePageButtons(totalPages);
+    }
+
+    prevButton.addEventListener("click", async function () {
+        if (page > 1) {
+            page--;
+            const total = await loadExpenses(page, size);
+            const totalPages = Math.ceil(total / size);
+            currentPageEle.innerText = page + "";
+            updatePageButtons(totalPages);
+        }
     });
 
-    // sorting expenses by amount
-    const sortExpensesBtn = document.querySelector(".expenses__sort--btn") as HTMLButtonElement;
-    sortExpensesBtn?.addEventListener("click", function () {
-        const sortedExpenses = expenses.data.sort((a: Expense, b: Expense) => b.amount - a.amount);
-        renderUserExpenses(sortedExpenses);
+    nextButton.addEventListener("click", async function () {
+        const total = await loadExpenses(page, size);
+        const totalPages = Math.ceil(total / size);
+        if (page < totalPages) {
+            page++;
+            await loadExpenses(page, size);
+            currentPageEle.innerText = page + "";
+            updatePageButtons(totalPages);
+        }
     });
-    renderUserExpenses(expenses.data);
+
+    initPagination();
+
+    // Sorting expenses by amount
+    const sortExpensesBtn = document.querySelector(".expenses__sort--btn") as HTMLButtonElement;
+    sortExpensesBtn?.addEventListener("click", async function () {
+        sorted = !sorted; // Toggle sorting flag
+        await loadExpenses(page, size); // Reload expenses with sorting
+    });
+
+    // logout
+    logoutHandler();
 });

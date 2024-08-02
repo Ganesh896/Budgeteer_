@@ -1,4 +1,5 @@
 export interface Expense {
+    id: string;
     title: string;
     description: string;
     paymentMethod: string;
@@ -6,4 +7,6 @@ export interface Expense {
     categoryId: number;
     createdAt: string;
     categoryName: string;
+    profile: string;
+    groupId: number;
 }

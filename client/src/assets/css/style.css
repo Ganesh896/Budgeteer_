@@ -64,6 +64,24 @@ p {
   color: #82828c;
 }
 
+#response__message {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.empty__message {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+  color: #82828c;
+}
+.empty__message h2 {
+  color: #82828c;
+}
+
 .overlay {
   display: none;
   position: fixed;
@@ -438,6 +456,13 @@ main {
   margin-left: 280px;
   transition: all 0.5s ease-in-out;
 }
+.dashboard .close__modal {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 32px;
+  cursor: pointer;
+}
 .dashboard.open {
   margin-left: 80px;
 }
@@ -456,6 +481,28 @@ main {
 }
 .dashboard .header__profile img {
   border: 2.5px solid #8370fe;
+}
+.dashboard .header__notification {
+  position: relative;
+}
+.dashboard .header__notification i {
+  font-size: 34px;
+}
+.dashboard .header__notification span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background: #e72b2b;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 14px;
 }
 .dashboard .addexpense {
   position: relative;
@@ -477,13 +524,6 @@ main {
   color: #fff;
   margin-bottom: 16px;
   float: right;
-}
-.dashboard .addexpense .close__modal {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  font-size: 32px;
-  cursor: pointer;
 }
 .dashboard .addexpense__modal {
   display: none;
@@ -526,6 +566,7 @@ main {
 .dashboard .addexpense__modal .form__groups input,
 .dashboard .addexpense__modal .form__groups select {
   margin-top: 8px;
+  cursor: pointer;
 }
 .dashboard__header {
   display: flex;
@@ -604,13 +645,6 @@ main {
   margin-bottom: 16px;
   float: right;
 }
-.dashboard .addgoal .close__modal {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  font-size: 32px;
-  cursor: pointer;
-}
 .dashboard .addgoal__modal {
   display: none;
   position: fixed;
@@ -659,11 +693,14 @@ main {
   border-radius: 20px;
   padding: 20px;
 }
-.dashboard .saving h2 {
-  margin-bottom: 16px;
+.dashboard .saving__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
 }
-.dashboard .saving__items {
-  margin-top: 16px;
+.dashboard .saving__items .saving__item {
+  margin-top: 30px;
 }
 .dashboard .saving__items--title {
   display: flex;
@@ -684,7 +721,7 @@ main {
 .dashboard .saving__items .progress__bar--inner {
   position: absolute;
   content: "";
-  width: 50%;
+  width: 0%;
   height: 16px;
   background: #8370fe;
   border-radius: 20px;
@@ -758,6 +795,40 @@ main {
   padding: 20px;
   overflow: auto;
 }
+.dashboard .expenses .deletePopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 5;
+}
+.dashboard .expenses .deletePopup__header i {
+  font-size: 40px;
+  color: #e72b2b;
+}
+.dashboard .expenses .deletePopup__body {
+  margin: 16px 0;
+}
+.dashboard .expenses .deletePopup__body p {
+  color: #82828c;
+  margin-top: 8px;
+}
+.dashboard .expenses .deletePopup__footer button {
+  padding: 10px 16px;
+  color: #fff;
+  border-radius: 5px;
+}
+.dashboard .expenses .deletePopup__footer--cancel {
+  background: #8370fe;
+}
+.dashboard .expenses .deletePopup__footer--delete {
+  background: #e72b2b;
+}
 .dashboard .expenses__search {
   display: flex;
   justify-content: space-between;
@@ -800,16 +871,36 @@ main {
   width: 100%;
   border-radius: 8px;
 }
+.dashboard .expenses__list .expense__action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.dashboard .expenses__list .expense__action button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 10px;
+}
+.dashboard .expenses__list .expense__action--edit {
+  background: #8370fe;
+}
+.dashboard .expenses__list .expense__action--delete {
+  background: #e72b2b;
+}
 .dashboard .expenses__list thead {
   background: #f6f4ff;
 }
 .dashboard .expenses__list th {
   padding: 16px;
-  font-size: 14px;
-  text-align: center;
+  font-size: 16px;
   text-align: left;
   color: #8370fe;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 500;
 }
 .dashboard .expenses__list th:first-child {
@@ -817,6 +908,7 @@ main {
 }
 .dashboard .expenses__list th:last-child {
   border-radius: 0 30px 30px 0;
+  text-align: center;
 }
 .dashboard .expenses__list tr {
   border-bottom: 1px solid #eee;
@@ -826,6 +918,9 @@ main {
 }
 .dashboard .expenses__list td {
   padding: 20px 16px;
+}
+.dashboard .expenses__list td:last-child {
+  text-align: center;
 }
 .dashboard .expenses__pagination {
   margin-top: 16px;
@@ -854,6 +949,17 @@ main {
 }
 .dashboard .expenses__group .groups {
   flex-basis: 30%;
+}
+.dashboard .expenses__group .groups .groupContent {
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: max-height 0.5s ease-in-out;
+}
+.dashboard .expenses__group .groups .groupContent.show {
+  max-height: 500px;
+  height: 100%;
+  overflow: auto;
 }
 .dashboard .expenses__group .groups__header {
   margin-bottom: 16px;
@@ -894,14 +1000,14 @@ main {
   font-size: 28px;
 }
 .dashboard .expenses__group .groups__card--invite input {
-  padding: 16px;
+  padding: 10px;
   border: 2px solid #cfced2;
   border-radius: 5px;
   outline: none;
-  font-size: 16px;
+  font-size: 14px;
 }
 .dashboard .expenses__group .groups__card--invite button {
-  padding: 16px;
+  padding: 10px;
   min-width: fit-content;
   max-width: 50px;
   font-size: 14px;
@@ -931,6 +1037,24 @@ main {
 }
 .dashboard .money__flow #money__flow {
   width: 100% !important;
+}
+.dashboard .invite__list--user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+.dashboard .invite__list .invite__button {
+  padding: 8px 14px;
+  border-radius: 30px;
+}
+.dashboard .invite__list .invite__button--accept {
+  background: #e4f9e6;
+  color: #46454b;
+}
+.dashboard .invite__list .invite__button--reject {
+  background: #ffebec;
+  color: #46454b;
 }
 
 #profile {

@@ -52,6 +52,15 @@ export function getUserByEmail(email: string) {
     }
 }
 
+// get user by Id
+export function getUserById(id: string) {
+    try {
+        return UserModel.getUserById(id);
+    } catch (error) {
+        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database Error!");
+    }
+}
+
 // update user
 export async function updateUser(user: User) {
     const existingUser = await UserModel.getUserByEmail(user.email);

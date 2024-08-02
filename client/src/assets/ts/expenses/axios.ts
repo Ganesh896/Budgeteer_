@@ -2,17 +2,35 @@ import axios from "axios";
 import { baseUrl } from "../../../main";
 
 // get expenses
-export const getExpenses = async (size: number = 4, page: number = 1) => {
+export const getExpenses = async (size: number = 0, page: number = 0, title: string = "") => {
+    const url = size === 0 && page === 0 ? `${baseUrl}expense` : `${baseUrl}expense?q=${title}&size=${size}&page=${page}`;
     const token = localStorage.getItem("authToken");
     if (token) {
         try {
-            const response = await axios.get(`${baseUrl}expense?size=${size}&&page=${page}`, {
+            const response = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    "Content-Type": "json",
                 },
             });
+            console.log(response.data.data);
+            return response.data.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};
 
+// get expenses by id
+export const getExpenseById = async (expenseId: string) => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+        try {
+            const response = await axios.get(`${baseUrl}expense/get/${expenseId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data.data);
             return response.data.data;
         } catch (error) {
             console.log(error);
@@ -46,39 +64,24 @@ export function addExpense() {
     const responseMsg = document.querySelector(".response__msg") as HTMLParagraphElement;
     const addExpenseFormEle = document.getElementById("addexpense__form") as HTMLFormElement;
 
-    // Check if the form already has a submit event listener
-    if (addExpenseFormEle) {
-        addExpenseFormEle.removeEventListener("submit", handleFormSubmit);
-        addExpenseFormEle.addEventListener("submit", handleFormSubmit);
-    }
-
-    function handleFormSubmit(event: Event) {
+    addExpenseFormEle.addEventListener("submit", (event: Event) => {
         event.preventDefault();
-        console.log("Form submitted");
+
         let formData = new FormData(addExpenseFormEle);
         let data = Object.fromEntries(formData.entries());
 
         // getting max category id from localstorage
         const nextCategoryId = Number(localStorage.getItem("maxCategoryId")) + 1;
 
-        // adding our own expense category
-        if (!addCategoryInput.classList.contains("hide")) {
-            axios
-                .post(`${baseUrl}expense/category`, { categoryId: nextCategoryId, categoryName: data.categoryName }, { headers: { Authorization: "Bearer " + token } })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.error(error.response);
-                });
-        }
-
         // sending new category id to expense table
-        if (data.categoryId === "") {
+        if (!addCategoryInput.classList.contains("hide")) {
             data.categoryId = "" + nextCategoryId;
-            delete data.categoryName; //deleting categoryName used for adding category
+        } else {
+            delete data.categoryName;
         }
-
+        if (data.groupId === "") {
+            delete data.groupId;
+        }
         axios
             .post(`${baseUrl}expense/add`, data, { headers: { Authorization: "Bearer " + token } })
             .then(function (response) {
@@ -92,8 +95,61 @@ export function addExpense() {
             .catch(function (error) {
                 console.error(error.response.data);
                 // showing error message
-                responseMsg.innerText = error.response;
+                responseMsg.innerText = error.response.data.message;
                 responseMsg.style.color = "red";
             });
-    }
+    });
 }
+
+// udpate expense
+export function updateExpense(expenseId: string) {
+    const token = localStorage.getItem("authToken");
+
+    const responseMsg = document.querySelector(".response__msg") as HTMLParagraphElement;
+    const updateExpenseFormEle = document.getElementById("updateEpense__form") as HTMLFormElement;
+
+    updateExpenseFormEle.addEventListener("submit", (event: Event) => {
+        event.preventDefault();
+
+        let formData = new FormData(updateExpenseFormEle);
+        let data = Object.fromEntries(formData.entries());
+
+        if (data.groupId === "") {
+            delete data.groupId;
+        }
+
+        axios
+            .put(`${baseUrl}expense/update/${expenseId}`, data, { headers: { Authorization: "Bearer " + token } })
+            .then(function (response) {
+                // showing success message
+                responseMsg.innerText = response.data.data.message;
+                responseMsg.style.color = "green";
+
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.error(error.response.data);
+                // showing error message
+                responseMsg.innerText = error.response.data.message;
+                responseMsg.style.color = "red";
+            });
+    });
+}
+
+// delete expense
+export const deleteExpense = async (expenseId: string) => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+        try {
+            const response = await axios.delete(`${baseUrl}expense/delete/${expenseId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data.data);
+            return response.data.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};

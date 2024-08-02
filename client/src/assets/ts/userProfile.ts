@@ -4,56 +4,69 @@ import { getUserDetails } from "./utils/getUser";
 import { WelcomeMessageCard } from "./card/welcomeMessageCard";
 import { UserProfile } from "./card/userProfile";
 import { UserDetails } from "./card/userDetails";
-
-// render user details
-function renderUserDetails(user: any) {
-    // profile on dashboard header
-    const headerProfileElement = document.querySelector(".header__profile") as HTMLDivElement;
-    const welcomeMsgElement = document.getElementById("welcome__msg") as HTMLHeadElement;
-
-    welcomeMsgElement.innerHTML = WelcomeMessageCard(user.firstName);
-
-    if (headerProfileElement) {
-        headerProfileElement.innerHTML = UserProfile(user);
-    }
-
-    // profile on profile section
-    const profileDetailContainer = document.querySelector(".updatedetail__form--container") as HTMLDivElement;
-    const profileImage = document.getElementById("profile__picture") as HTMLImageElement;
-    profileImage.src = user.profile || "/images/default-profile.png";
-
-    if (profileDetailContainer) {
-        profileDetailContainer.innerHTML = UserDetails(user);
-    }
-}
-
-// update user details call
-function updateUserDetails() {
-    const userDetailUpdateForm = document.getElementById("updatedetail__form") as HTMLFormElement;
-    userDetailUpdateForm?.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        let formData = new FormData(userDetailUpdateForm);
-        let data = Object.fromEntries(formData.entries());
-
-        axios
-            .put(`${baseUrl}user/update`, data, {
-                headers: {
-                    Authorization: "Bearer " + localStorage.getItem("authToken"),
-                },
-            })
-            .then(function (response) {
-                // location.reload
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.error(error.response);
-            });
-    });
-}
+import { renderNotification } from "./utils/notification";
+import { logoutHandler } from "./utils/logout";
+import { toggleSidebarHandler } from "./utils/toggleSidebar";
+import { toggleThemeHandler } from "./utils/toggleTheme";
 
 // load the content
 document.addEventListener("DOMContentLoaded", async function () {
+    // render notification
+    renderNotification();
+
+    // toggle sidebar
+    toggleSidebarHandler();
+
+    // toggle theme
+    toggleThemeHandler();
+
+    // render user details
+    function renderUserDetails(user: any) {
+        // profile on dashboard header
+        const headerProfileElement = document.querySelector(".header__profile") as HTMLDivElement;
+        const welcomeMsgElement = document.getElementById("welcome__msg") as HTMLHeadElement;
+
+        welcomeMsgElement.innerHTML = WelcomeMessageCard(user.firstName);
+
+        if (headerProfileElement) {
+            headerProfileElement.innerHTML = UserProfile(user);
+        }
+
+        // profile on profile section
+        const profileDetailContainer = document.querySelector(".updatedetail__form--container") as HTMLDivElement;
+        const profileImage = document.getElementById("profile__picture") as HTMLImageElement;
+        profileImage.src = user.profile || "/images/default-profile.png";
+
+        if (profileDetailContainer) {
+            profileDetailContainer.innerHTML = UserDetails(user);
+        }
+    }
+
+    // update user details call
+    function updateUserDetails() {
+        const userDetailUpdateForm = document.getElementById("updatedetail__form") as HTMLFormElement;
+        userDetailUpdateForm?.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let formData = new FormData(userDetailUpdateForm);
+            let data = Object.fromEntries(formData.entries());
+
+            axios
+                .put(`${baseUrl}user/update`, data, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("authToken"),
+                    },
+                })
+                .then(function (response) {
+                    // location.reload
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.error(error.response);
+                });
+        });
+    }
+
     const token = localStorage.getItem("authToken");
     if (token) {
         // gettting current loggedin user from database
@@ -118,4 +131,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 console.error(error.response ? error.response.data : error.message);
             });
     });
+
+    // logout
+    logoutHandler();
 });

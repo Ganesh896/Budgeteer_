@@ -48,6 +48,14 @@ export async function getExpenses(userId: string, query: GetQuery) {
     return { data, meta };
 }
 
+// getting expenses
+export async function getExpenseById(userId: string, expenseId: string) {
+    
+    let data = await ExpenseModel.getExpenseById(userId, expenseId)
+
+    return data;
+}
+
 // delete expense
 export async function deleteExpense(expenseId: string) {
     try {
@@ -62,14 +70,4 @@ export async function deleteExpense(expenseId: string) {
 // get category
 export function getCategory(userId: string) {
     return ExpenseModel.getCategory(userId);
-}
-
-// get category
-export async function addCategory(userId: string, id:number, categoryName: string) {
-    try {
-        await ExpenseModel.addCategory(userId, id, categoryName);
-    } catch (error) {
-        console.log(error);
-        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Insertion fail!");
-    }
 }

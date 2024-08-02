@@ -16,10 +16,12 @@
                 <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
                 <div class="container">
                     <div class="sidebar__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle">
+                            <a href="dashboard.html"><span>Budgetter</span></a>
+                        </h2>
                     </div>
                     <div class="sidebar__content">
                         <ul>
@@ -36,10 +38,13 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
                             </li>
                             <li class="sidebar__item active">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
+                            </li>
+                            <li class="sidebar__item">
+                                <a href="invites.html"><i class="bx bx-user-plus"></i> <span>Invites</span></a>
                             </li>
                             <li class="sidebar__item">
                                 <a href="setting.html"><i class="bx bx-cog"></i> <span>Settings</span></a>
@@ -66,48 +71,38 @@
                         <p class="meta__text">It is the best time to manage you finances</p>
                     </div>
                     <div class="dashboard__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle"><a href="dashboard.html">Budgetter</a></h2>
                     </div>
+                    <a href="invites.html" class="header__notification" id="header__notification">
+                        <!-- rendering notification -->
+                    </a>
                     <div class="header__profile">
                         <!-- rendering user profile here -->
                     </div>
                 </div>
+                <div class="addexpense">
+                    <button class="addexpense__btn" id="addexpense__button"><i class="bx bx-plus"></i> Add Expense</button>
+                    <div class="addexpense__modal form__modal" id="addExpenseModal"></div>
+                </div>
                 <div class="expenses__group">
                     <div class="groups">
                         <div class="groups__header">
-                            <input type="text" placeholder="Group name" />
-                            <button class="l__button l__button--primary">+ Add</button>
+                            <input type="text" placeholder="Group name" id="groupName" />
+                            <button class="l__button l__button--primary" id="addGroupButton">+ Add</button>
                         </div>
-                        <div class="groups__card">
-                            <div class="group__card--outer">
-                                <button class="group__name">
-                                    <i class="bx bx-group"></i>
-                                    <p>Family</p>
-                                </button>
-                                <div class="groups__card--invite">
-                                    <input type="text" placeholder="example@gmail.com" />
-                                    <button class="l__button l__button--primary">Invite</button>
-                                </div>
-                                <div class="groups__card--users">
-                                    <div class="groups__card--user">
-                                        <img src="/images/budgetter-logo-light.png" alt="img" />
-                                        <h4>Ganesh Saud</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p id="response__message"></p>
+                        <div class="groups__card" id="groupCard"></div>
                     </div>
                     <div class="expenses">
                         <div class="expenses__header">
                             <h3 class="small__title">Recent expenses</h3>
-                            <div class="expenses__search">
-                                <input type="search" placeholder="Search" id="expenses__search" />
-                                <i class="bx bx-search"></i>
-                            </div>
                             <button class="expenses__sort--btn">Sort<i class="bx bx-sort"></i></button>
+                        </div>
+                        <div class="deletePopup" id="deletePopup">
+                            <!-- delete popup card -->
                         </div>
                         <table class="expenses__list">
                             <thead>
@@ -118,25 +113,17 @@
                                     <th>Title</th>
                                     <th>Method</th>
                                     <th>Category</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody id="expenses__list">
-                                <tr>
-                                    <td>
-                                        <img src="/images/budgetter-logo-dark.png" alt="img" />
-                                    </td>
-                                    <td>21 jul</td>
-                                    <td>Rs.200</td>
-                                    <td>Futsal</td>
-                                    <td>E-sewa</td>
-                                    <td>Cafe & Restaurants</td>
-                                </tr>
+                            <tbody id="groupExpenseList">
+                                <!-- group expenses here -->
                             </tbody>
                         </table>
                         <div class="expenses__pagination">
                             <div class="expenses__pagination--buttons">
                                 <button class="expenses__prev--btn">Prev</button>
-                                <p><span class="current__page">1</span> of <span class="total__pages">10</span></p>
+                                <p><span class="current__page">0</span> of <span class="total__pages">0</span></p>
                                 <button class="expenses__next--btn">Next</button>
                             </div>
                         </div>
@@ -148,6 +135,6 @@
 
         <!-- <script src="../src/assets/ts/dashboard.ts" type="module"></script> -->
         <!-- <script src="../src//assets/ts/expenses/expenses.ts" type="module"></script> -->
-        <!-- <script src="../src/assets/ts/userProfile.ts" type="module"></script> -->
+        <script src="../src/assets/ts/group/group.ts" type="module"></script>
     </body>
 </html>

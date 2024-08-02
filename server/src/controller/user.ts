@@ -22,10 +22,24 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 });
 
-// login user
+// get user email
 export const getUserByEmail = asyncHandler(async (req: Request, res: Response) => {
     const { email } = req.user!;
     const data = await userService.getUserByEmail(email);
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
+});
+
+// get user email
+export const getUser = asyncHandler(async (req: Request, res: Response) => {
+    const { email } = req.params;
+    const data = await userService.getUserByEmail(email);
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
+});
+
+// get user Id
+export const getUserById = asyncHandler(async (req: Request, res: Response) => {
+    const { userId } = req.params;
+    const data = await userService.getUserById(userId);
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 });
 

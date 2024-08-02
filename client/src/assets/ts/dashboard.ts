@@ -1,152 +1,79 @@
-import Chart from "chart.js/auto";
-import { renderUserExpenses } from "./expenses/expenses";
-import { getExpenses } from "./expenses/axios";
 import { OpenAddExpenseModal } from "./utils/openAddExpenseModal";
+import { renderAmountCard } from "./utils/renderAmountCardt";
+import { renderDoughnutChart } from "./utils/doughnutChart";
+import { renderBarChart } from "./utils/barChart";
+import { renderSavingGoal } from "./utils/renderSavingGoal";
+import { getBudget } from "./budget/axios";
+import { Expense } from "./interface/expense";
+import { getSavingGoal } from "./savingGoals/axios";
+import { SavingGoal } from "./interface/savingGoal";
+import { renderNotification } from "./utils/notification";
+import { logoutHandler } from "./utils/logout";
+import { toggleSidebarHandler } from "./utils/toggleSidebar";
+import { toggleThemeHandler } from "./utils/toggleTheme";
+import { renderUserExpenses } from "./expenses/helper";
+import { getExpenses } from "./expenses/axios";
+import { renderUserProfile } from "./utils/renderHeaderProfile";
 
 document.addEventListener("DOMContentLoaded", async () => {
+    // render notification
+    renderNotification();
+
+    // render header profile
+    renderUserProfile();
+
+    // toggle sidebar
+    toggleSidebarHandler();
+
+    // toogle theme
+    toggleThemeHandler();
+
     // rednering expenses on dashboard
-    const expenses = await getExpenses();
+    const expenses = await getExpenses(4, 1);
     renderUserExpenses(expenses.data);
-
-    const sidebarToggleEle = document.querySelector(".sidebar__toggle") as HTMLButtonElement;
-    const sidebarEle = document.querySelector(".sidebar") as HTMLDivElement;
-    const dashboardEle = document.querySelector(".dashboard") as HTMLDivElement;
-
-    sidebarToggleEle.addEventListener("click", function () {
-        sidebarEle.classList.toggle("close");
-        dashboardEle.classList.toggle("open");
-    });
 
     //addexpense modal
     OpenAddExpenseModal();
 
-    // categories chart
-    const categoryChartEle = document.getElementById("categories__chart") as HTMLCanvasElement;
-    // const categoryItemsEle = document.querySelector(".categories") as HTMLUListElement;
+    //budget card
+    const budgetContainerEle = document.getElementById("budgetCardContainer") as HTMLDivElement;
+    const amount = await getBudget();
+    const budgetAmount = amount.length > 0 ? amount[0].amount : 0;
 
-    (async function () {
-        interface CategoryData {
-            category: string;
-            amount: number;
-        }
+    renderAmountCard(budgetContainerEle, "Budget", budgetAmount, 12.1);
 
-        const data: CategoryData[] = [
-            { category: "Cafe & Restaurants", amount: 10 },
-            { category: "Entertainment", amount: 20 },
-            { category: "Investments", amount: 15 },
-            { category: "Foods & Groceries", amount: 25 },
-            { category: "Health & Beauty", amount: 22 },
-            { category: "Travelling", amount: 30 },
-        ];
-
-        new Chart(categoryChartEle, {
-            type: "doughnut",
-
-            data: {
-                labels: data.map((category) => category.category),
-                datasets: [
-                    {
-                        label: "My First Dataset",
-                        data: data.map((amount) => amount.amount),
-                        backgroundColor: ["#8370fe", "#bfb7ff", "#f6f4ff", "#46454b", "#82828c"],
-                        hoverOffset: 4,
-                    },
-                ],
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: "bottom",
-                    },
-                },
-            },
-        });
-
-        // data.forEach((item) => {
-        //     const li = document.createElement("li");
-        //     li.innerHTML = `<i class="bx bxs-circle"></i><span>${item.category}</span>`;
-        //     categoryItemsEle.appendChild(li);
-        // });
-    })();
-
-    // money flow chart
-    const moneyFlowChartEle = document.getElementById("money__flow") as HTMLCanvasElement;
-
-    (async function () {
-        interface MonthData {
-            month: string;
-            amount: number;
-        }
-
-        const data: MonthData[] = [
-            { month: "Jan", amount: 10 },
-            { month: "Feb", amount: 20 },
-            { month: "March", amount: 15 },
-            { month: "April", amount: 25 },
-            { month: "May", amount: 22 },
-            { month: "June", amount: 30 },
-        ];
-
-        new Chart(moneyFlowChartEle, {
-            type: "bar",
-            data: {
-                labels: data.map((row) => row.month),
-                datasets: [
-                    {
-                        label: "Current month",
-                        backgroundColor: "#8370fe",
-                        barThickness: 15,
-                        borderRadius: 30,
-                        data: data.map((row) => row.amount),
-                    },
-                    {
-                        label: "Previous month",
-                        backgroundColor: "#bfb7ff",
-                        barThickness: 15,
-                        borderRadius: 30,
-                        data: data.map((row) => row.amount - 5),
-                    },
-                ],
-            },
-        });
-    })();
-
-    //changing theme
-    const themeCheckbox = document.getElementById("checkbox") as HTMLInputElement;
-    const themeButton = document.querySelector(".theme__button") as HTMLDivElement;
-
-    // saving theme on localStorage
-    const setTheme = function (): void {
-        localStorage.removeItem("theme");
-        if (themeCheckbox.checked) {
-            localStorage.setItem("theme", "dark__theme");
-        } else {
-            localStorage.setItem("theme", "light__theme");
-        }
-    };
-
-    // adding theme from localStorage
-    const changeTheme = function (): void {
-        setTheme();
-        const theme = localStorage.getItem("theme") || "light__theme";
-        document.body.classList.toggle(theme);
-    };
-
-    // setting default theme
-    document.body.classList.toggle(localStorage.getItem("theme") || "light__theme");
-    themeButton.addEventListener("click", changeTheme); //changing theme on nav toggle button
-
-    // retaining the toggle button state on refresh
-    themeCheckbox.checked = localStorage.getItem("theme") === "dark__theme";
-
-    // LOGOUT
-    const logoutBtnEle = document.querySelector(".logout") as HTMLButtonElement;
-
-    logoutBtnEle.addEventListener("click", function () {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("userDetails");
-        localStorage.removeItem("maxCategoryId");
-        window.location.href = "/";
+    // expese amount card
+    const expenseContainerEle = document.getElementById("expenseCardContainer") as HTMLDivElement;
+    const allExpenses = await getExpenses(0, 0);
+    let totalExpense: number = 0;
+    allExpenses.data.forEach((expense: Expense) => {
+        totalExpense += Number(expense.amount);
     });
+
+    renderAmountCard(expenseContainerEle, "Expense", totalExpense, 12.1);
+
+    // remaining amount card
+    const remainginContainerEle = document.getElementById("remainingCardContainer") as HTMLDivElement;
+    renderAmountCard(remainginContainerEle, "Remaining", budgetAmount - totalExpense, 12.1);
+
+    // total saving amount card
+    const savingContainerEle = document.getElementById("savingCardContainer") as HTMLDivElement;
+    const savingGoals: SavingGoal[] = await getSavingGoal();
+    let totalSavingAmount: number = 0;
+    savingGoals.forEach((saving) => {
+        totalSavingAmount += Number(saving.currentAmount);
+    });
+    renderAmountCard(savingContainerEle, "Total Saving", totalSavingAmount, 12.1);
+
+    // render saving goals
+    renderSavingGoal();
+
+    // expense budget doughnut chart
+    renderDoughnutChart();
+
+    // render bar chart
+    renderBarChart();
+
+    // logout
+    logoutHandler();
 });

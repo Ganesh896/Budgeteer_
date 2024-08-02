@@ -16,10 +16,12 @@
                 <button class="sidebar__toggle"><i class="bx bx-chevron-left"></i></button>
                 <div class="container">
                     <div class="sidebar__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle">
+                            <a href="dashboard.html"><span>Budgetter</span></a>
+                        </h2>
                     </div>
                     <div class="sidebar__content">
                         <ul>
@@ -36,12 +38,15 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-money"></i> <span>Analytics</span></a>
+                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
                             </li>
-                            <li class="sidebar__item active">
+                            <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
                             </li>
                             <li class="sidebar__item">
+                                <a href="invites.html"><i class="bx bx-user-plus"></i> <span>Invites</span></a>
+                            </li>
+                            <li class="sidebar__item active">
                                 <a href="setting.html"><i class="bx bx-cog"></i> <span>Settings</span></a>
                             </li>
                         </ul>
@@ -66,10 +71,13 @@
                         <p class="meta__text">It is the best time to manage you finances</p>
                     </div>
                     <div class="dashboard__header">
-                        <div class="sidebar__header--logo">
+                        <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
-                        </div>
-                        <h2 class="subtitle"><span>Budgetter</span></h2>
+                        </a>
+                        <h2 class="subtitle"><a href="dashboard.html">Budgetter</a></h2>
+                    </div>
+                    <div class="header__notification" id="header__notification">
+                        <!-- rendering notification -->
                     </div>
                     <div class="header__profile">
                         <!-- rendering user profile here -->
