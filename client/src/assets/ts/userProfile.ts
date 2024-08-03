@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     console.log(response);
                 })
                 .catch(function (error) {
-                    console.error(error.response);
+                    console.log(error.response);
                 });
         });
     }

@@ -1,25 +1,31 @@
 import Chart from "chart.js/auto";
 
-export const renderDoughnutChart = () => {
+import { getExpenseByCategores } from "../expenses/axios";
+import { CategoryData } from "../interface/categories";
+
+// Function to generate a list of colors
+const generateColors = (count: number): string[] => {
+    const colors = ["#8370fe", "#bfb7ff", "#f6f4ff", "#46454b", "#82828c"];
+    const colorGenerator = (index: number) => {
+        const hue = (index * 360) / count;
+        return `hsl(${hue}, 70%, 70%)`;
+    };
+    for (let i = 0; i < count; i++) {
+        colors.push(colorGenerator(i));
+    }
+    return colors;
+};
+
+export const renderDoughnutChart = async () => {
     // categories chart
     const categoryChartEle = document.getElementById("categories__chart") as HTMLCanvasElement;
     // const categoryItemsEle = document.querySelector(".categories") as HTMLUListElement;
 
+    const data: CategoryData[] = await getExpenseByCategores();
+
+    const colors = generateColors(data.length);
+
     (async function () {
-        interface CategoryData {
-            category: string;
-            amount: number;
-        }
-
-        const data: CategoryData[] = [
-            { category: "Cafe & Restaurants", amount: 10 },
-            { category: "Entertainment", amount: 20 },
-            { category: "Investments", amount: 15 },
-            { category: "Foods & Groceries", amount: 25 },
-            { category: "Health & Beauty", amount: 22 },
-            { category: "Travelling", amount: 30 },
-        ];
-
         new Chart(categoryChartEle, {
             type: "doughnut",
 
@@ -29,7 +35,7 @@ export const renderDoughnutChart = () => {
                     {
                         label: "My First Dataset",
                         data: data.map((amount) => amount.amount),
-                        backgroundColor: ["#8370fe", "#bfb7ff", "#f6f4ff", "#46454b", "#82828c"],
+                        backgroundColor: colors,
                         hoverOffset: 4,
                     },
                 ],
@@ -43,11 +49,5 @@ export const renderDoughnutChart = () => {
                 },
             },
         });
-
-        // data.forEach((item) => {
-        //     const li = document.createElement("li");
-        //     li.innerHTML = `<i class="bx bxs-circle"></i><span>${item.category}</span>`;
-        //     categoryItemsEle.appendChild(li);
-        // });
     })();
 };

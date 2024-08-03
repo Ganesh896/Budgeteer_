@@ -6,8 +6,11 @@ export class ExpenseModel extends BaseModel {
     // add expense
     static async addExpense(userId: string, expense: Expense) {
         if (expense.categoryName) {
-            await this.queryBuilder().insert({ id: expense.categoryId, userId, categoryName: expense.categoryName }).table("categories");
+            await this.queryBuilder().insert({ userId, categoryName: expense.categoryName }).table("categories");
+            const categoryId = await this.queryBuilder().table("categories").select("id").orderBy("createdAt", "desc").limit(1).first();
+            expense.categoryId = categoryId.id;
         }
+
         delete expense.categoryName; // remove categoryName while adding in expense instead storing catId
         const id = crypto.randomUUID();
         const newExpense = {
@@ -55,6 +58,21 @@ export class ExpenseModel extends BaseModel {
         if (q) {
             query.whereLike("title", `%${q}%`);
         }
+
+        return query;
+    }
+
+    // get expense by categories
+    static async getExpenseByCategories(userId: string) {
+        const query = this.queryBuilder()
+            .select("c.categoryName as category")
+            .sum("e.amount as amount")
+            .from("categories as c")
+            .join("expenses as e", "c.id", "e.category_id")
+            .join("users as u", "u.id", "e.user_id")
+            .where("u.id", userId)
+            .groupBy("c.category_name")
+            .orderBy("amount", "desc");
 
         return query;
     }

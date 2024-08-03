@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@types/chart.js": "^2.9.41",
+        "@types/tinycolor2": "^1.4.6",
         "typescript": "^5.2.2",
         "vite": "^5.3.4"
     },

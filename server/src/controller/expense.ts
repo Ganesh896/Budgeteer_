@@ -34,6 +34,15 @@ export const getExpenses = async (req: Request, res: Response) => {
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 };
 
+// get expense by categories
+export const getExpenseByCategories = async (req: Request, res: Response) => {
+    const { id } = req.user!;
+
+    const data = await expenseService.getExpenseByCategories(id);
+
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
+};
+
 // get expenses by id
 export const getExpenseById = async (req: Request, res: Response) => {
     const { id } = req.user!;

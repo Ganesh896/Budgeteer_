@@ -46,36 +46,47 @@ signupFormEle.addEventListener("submit", (event) => {
 });
 
 // CHECKING LOGIN STATUS
-// document.addEventListener("DOMContentLoaded", () => {
-//     const token = localStorage.getItem("authToken");
-//     const currentPath = window.location.pathname;
+document.addEventListener("DOMContentLoaded", () => {
+    const token = localStorage.getItem("authToken");
+    const currentPath = window.location.pathname;
 
-//     if (currentPath === "/") {
-//         if (token) {
-//             // Redirect to dashboard if already logged in
-//             window.location.href = "/pages/dashboard";
-//         }
-//     } else if (currentPath === "/pages/dashboard") {
-//         if (!token) {
-//             // Redirect to login if not logged in
-//             window.location.href = "/";
-//         } else {
-//             // Verify token with server
-//             axios
-//                 .get(`${baseUrl}auth/verifyToken`, { headers: { Authorization: "Bearer " + token } })
-//                 .then((response) => {
-//                     if (!response.data.valid) {
-//                         localStorage.removeItem("authToken");
-//                         window.location.href = "/";
-//                     }
-//                 })
-//                 .catch((error) => {
-//                     localStorage.removeItem("authToken");
-//                     window.location.href = "/";
-//                     console.log(error);
-//                 });
-//         }
-//     } else {
-//         window.location.href = "/pages/404";
-//     }
-// });
+    const redirectToLogin = () => {
+        window.location.href = "/";
+    };
+
+    const checkTokenValidity = () => {
+        if (token) {
+            // Verify token with server
+            axios
+                .get(`${baseUrl}auth/verifyToken`, { headers: { Authorization: "Bearer " + token } })
+                .then((response) => {
+                    if (!response.data.valid) {
+                        localStorage.removeItem("authToken");
+                        redirectToLogin();
+                    }
+                })
+                .catch((error) => {
+                    localStorage.removeItem("authToken");
+                    redirectToLogin();
+                    console.log(error);
+                });
+        } else {
+            redirectToLogin();
+        }
+    };
+
+    const protectedPaths = ["/pages/dashboard", "/pages/profile", "/pages/expenses", "/pages/analytics", "/pages/budget", "/pages/goals", "/pages/group", "/pages/invites", "/pages/setting"];
+
+    if (currentPath === "/" || currentPath === "/login") {
+        if (token) {
+            // Redirect to dashboard if already logged in
+            window.location.href = "/pages/dashboard";
+        }
+    } else if (protectedPaths.includes(currentPath)) {
+        // Check token validity for protected paths
+        checkTokenValidity();
+    } else {
+        // Handle other paths
+        window.location.href = "/pages/404";
+    }
+});

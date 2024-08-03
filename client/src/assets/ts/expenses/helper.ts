@@ -8,8 +8,7 @@ import { expenseActions } from "../utils/expenseActions";
 export async function renderCategory(categoryId: number = 0) {
     const categoryList = document.getElementById("category")!;
     const categories = await getExpenseCategory();
-    console.log(categories);
-    let maxCategoryId = 0;
+
     categories.forEach((category: any) => {
         let optionEle = document.createElement("option");
         optionEle.setAttribute("value", `${category.id}`);
@@ -18,10 +17,6 @@ export async function renderCategory(categoryId: number = 0) {
         }
         optionEle.innerHTML = `${category.categoryName}`;
         categoryList.appendChild(optionEle);
-
-        // finding max id of category to add next category if needed
-        maxCategoryId = Math.max(maxCategoryId, category.id);
-        localStorage.setItem("maxCategoryId", "" + maxCategoryId);
     });
 }
 

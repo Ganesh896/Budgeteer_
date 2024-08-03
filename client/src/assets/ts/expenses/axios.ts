@@ -56,6 +56,25 @@ export const getExpenseCategory = async () => {
     }
 };
 
+// get total expense by categories
+// get expenses by id
+export const getExpenseByCategores = async () => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+        try {
+            const response = await axios.get(`${baseUrl}expense/categories/amount`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data.data);
+            return response.data.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};
+
 // adding expense
 export function addExpense() {
     const token = localStorage.getItem("authToken");
@@ -70,18 +89,16 @@ export function addExpense() {
         let formData = new FormData(addExpenseFormEle);
         let data = Object.fromEntries(formData.entries());
 
-        // getting max category id from localstorage
-        const nextCategoryId = Number(localStorage.getItem("maxCategoryId")) + 1;
-
-        // sending new category id to expense table
-        if (!addCategoryInput.classList.contains("hide")) {
-            data.categoryId = "" + nextCategoryId;
-        } else {
+        if (addCategoryInput.classList.contains("hide")) {
             delete data.categoryName;
         }
+
         if (data.groupId === "") {
             delete data.groupId;
         }
+
+        console.log(data);
+
         axios
             .post(`${baseUrl}expense/add`, data, { headers: { Authorization: "Bearer " + token } })
             .then(function (response) {

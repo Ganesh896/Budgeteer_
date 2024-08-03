@@ -1,7 +1,7 @@
 import express from "express";
 import { validateReqBody, validateReqQuery } from "../middleware/validator";
 import { authenticate } from "../middleware/auth";
-import { addExpense, updateExpense, deleteExpense, getExpenses, getCategory, getExpenseById } from "../controller/expense";
+import { addExpense, updateExpense, deleteExpense, getExpenses, getCategory, getExpenseById, getExpenseByCategories } from "../controller/expense";
 import { expenseBodySchema, updateExpenseBodySchema } from "../schema/expense";
 import { querySchema } from "../schema/common";
 
@@ -13,5 +13,7 @@ router.get("/", validateReqQuery(querySchema), authenticate, getExpenses);
 router.get("/get/:expenseId", authenticate, getExpenseById);
 router.delete("/delete/:id", authenticate, deleteExpense);
 router.get("/category", authenticate, getCategory);
+
+router.get("/categories/amount", authenticate, getExpenseByCategories);
 
 export default router;

@@ -48,10 +48,16 @@ export async function getExpenses(userId: string, query: GetQuery) {
     return { data, meta };
 }
 
+// getting expense by categories
+export async function getExpenseByCategories(userId: string) {
+    let data = await ExpenseModel.getExpenseByCategories(userId);
+
+    return data;
+}
+
 // getting expenses
 export async function getExpenseById(userId: string, expenseId: string) {
-    
-    let data = await ExpenseModel.getExpenseById(userId, expenseId)
+    let data = await ExpenseModel.getExpenseById(userId, expenseId);
 
     return data;
 }
