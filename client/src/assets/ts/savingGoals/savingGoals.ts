@@ -5,7 +5,7 @@ import { renderUserProfile } from "../utils/renderHeaderProfile";
 import { renderSavingGoal } from "../utils/renderSavingGoal";
 import { toggleSidebarHandler } from "../utils/toggleSidebar";
 import { toggleThemeHandler } from "../utils/toggleTheme";
-import { addSavingGoal } from "./axios";
+import { addSavingAmount, addSavingGoal } from "./axios";
 import { renderSavingGoalsName } from "./helper";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // render saving goal
     renderSavingGoal();
+
+    //add saving amount
+    addSavingAmount();
 
     // add amount
     const addAmountModalContainerEle = document.getElementById("addAmountModal") as HTMLDivElement;

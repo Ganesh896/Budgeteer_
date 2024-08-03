@@ -15,6 +15,15 @@ export const addSavingGoal = asyncHandler(async (req: Request, res: Response) =>
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
 });
 
+// add saving amount
+export const addSavingAmount = asyncHandler(async (req: Request, res: Response) => {
+    const { id } = req.user!;
+    const { savingAmount, goalId } = req.body;
+    const message = await savingGoalService.addSavingAmount(id, goalId, savingAmount);
+
+    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, message));
+});
+
 // get saving goal
 export const getSavingGoal = async (req: Request, res: Response) => {
     const { id } = req.user!;

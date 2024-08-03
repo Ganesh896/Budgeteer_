@@ -16,6 +16,18 @@ export async function addSavingGoal(userId: string, savingGoal: SavingGoal) {
     }
 }
 
+// add saving amount
+export async function addSavingAmount(userId: string, goalId: number, savingAmount: number) {
+    try {
+        await SavingGoalModel.addSavingAmount(userId, goalId, savingAmount);
+
+        return { message: "Saving amount added Successfully!" };
+    } catch (error) {
+        console.log(error);
+        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Updation fail!");
+    }
+}
+
 // getting saving goals
 export async function getSavingGoal(userId: string) {
     if (userId) {

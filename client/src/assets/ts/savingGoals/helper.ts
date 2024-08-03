@@ -5,6 +5,7 @@ export async function renderSavingGoalsName() {
     const savingGoalList = document.getElementById("goalNameSelect")!;
 
     const savingGoal = await getSavingGoal();
+    console.log(savingGoal);
 
     savingGoal.forEach((goal: any) => {
         let optionEle = document.createElement("option");

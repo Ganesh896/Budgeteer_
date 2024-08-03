@@ -21,7 +21,7 @@ export const getSavingGoal = async () => {
 
 // add saving goal
 export const addSavingGoal = () => {
-    // add budget
+    // add saving goal
     const responseMesage = document.getElementById("response__message") as HTMLParagraphElement;
 
     const addSavingGoalFormEle = document.getElementById("addgoal__form") as HTMLFormElement;
@@ -47,6 +47,31 @@ export const addSavingGoal = () => {
                 // showing error message
                 // responseMesage.innerText = error.response.data.message;
                 responseMesage.style.color = "red";
+            });
+    });
+};
+
+// add saving goal
+export const addSavingAmount = () => {
+    const addSavingAmountFormEle = document.getElementById("addamount__form") as HTMLFormElement;
+
+    const token = localStorage.getItem("authToken");
+
+    addSavingAmountFormEle?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(addSavingAmountFormEle);
+        let data = Object.fromEntries(formData.entries());
+        console.log(data);
+
+        axios
+            .put(`${baseUrl}saving-goal/amount`, data, { headers: { Authorization: "Bearer " + token } })
+            .then(function (response) {
+                // showing success message
+                console.log(response);
+                addSavingAmountFormEle.reset();
+            })
+            .catch(function (error) {
+                console.log(error);
             });
     });
 };
