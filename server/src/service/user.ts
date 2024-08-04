@@ -23,9 +23,9 @@ export async function registerUser(user: User) {
         await UserModel.registerUser({ ...user, password: password });
 
         // logger for success
-        logger.info(`User with email ${user.email} created successfully`);
+        logger.info(`User with email ${user.email} registered successfully`);
 
-        return { message: "User created Successfully" };
+        return { message: "User registered successfully!" };
     } catch (error) {
         if (error.stack) {
             logger.error(error.stack);
@@ -53,11 +53,11 @@ export async function loginUser(user: Pick<User, "email" | "password">) {
     }
 
     const { accessToken, refreshToken } = await generateAccessRefreshToken(existingUser);
-    const userDetails = await UserModel.getUserByEmail(user.email);
-    delete userDetails.password;
+
+    delete existingUser.password;
 
     logger.info(`User with email ${user.email} logged in successfully`); // logger
-    return { accessToken, refreshToken, userDetails };
+    return { accessToken, refreshToken, userDetails: existingUser };
 }
 
 // get user by email
@@ -73,14 +73,18 @@ export function getUserByEmail(email: string) {
 }
 
 // get user by Id
-export function getUserById(id: string) {
+export async function getUserById(id: string) {
     try {
-        return UserModel.getUserById(id);
+        const user = await UserModel.getUserById(id);
+        if (!user) {
+            throw new ApiError(HttpStatusCodes.NOT_FOUND, `User with Id: ${id} not found`);
+        }
+        return user;
     } catch (error) {
         if (error.stack) {
             logger.error(error.stack);
         }
-        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database Error!");
+        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, `User with Id: ${id} not found`);
     }
 }
 

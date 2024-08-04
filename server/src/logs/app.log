@@ -7,3 +7,87 @@
 2024-08-04 17:12:17 [info] [ExpenseService]: [object Object],[object Object]
 2024-08-04 17:12:17 [info] [ExpenseService]: [object Object],[object Object]
 2024-08-04 17:12:17 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 21:24:13 [info] [UserService]: User with email ganesh@gmail.com created successfully
+2024-08-04 21:30:30 [info] [UserService]: User with email ganesh@gmail.com created successfully
+2024-08-04 21:32:24 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 21:42:13 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 21:42:13 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 21:42:13 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 21:42:13 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:29:08 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:29:08 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:29:08 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:29:08 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:31:11 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:31:11 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:31:11 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:31:11 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:35:30 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:35:30 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:35:30 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:35:30 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:37:46 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:37:46 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:37:46 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:37:46 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:43:22 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:43:22 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:43:22 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:43:22 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:43:22 [error] [UserService]: Error: User with Id: 100 not found
+    at new ApiError (D:\1.LeapFrog\NODE\Budgeteer_\server\src\utils\ApiErrors.ts:8:14)
+    at D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:80:19
+    at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
+    at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
+    at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+2024-08-04 22:45:08 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:45:08 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:45:08 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:45:08 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:45:08 [error] [UserService]: Error: User with Id: 100 not found
+    at new ApiError (D:\1.LeapFrog\NODE\Budgeteer_\server\src\utils\ApiErrors.ts:8:14)
+    at D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:80:19
+    at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
+    at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
+    at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
+2024-08-04 22:48:33 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:48:33 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:48:33 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:48:33 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:48:33 [error] [UserService]: Error: User with Id: 100 not found
+    at new ApiError (D:\1.LeapFrog\NODE\Budgeteer_\server\src\utils\ApiErrors.ts:8:14)
+    at D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:80:19
+    at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
+    at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
+    at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
+2024-08-04 22:51:43 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:51:43 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:51:43 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:51:43 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:51:43 [error] [UserService]: Error: "User with Id: 100 not found"
+    at new ApiError (D:\1.LeapFrog\NODE\Budgeteer_\server\src\utils\ApiErrors.ts:8:14)
+    at D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:80:19
+    at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
+    at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
+    at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
+2024-08-04 22:52:42 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:52:42 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:52:42 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:52:42 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:52:42 [error] [UserService]: Error: User with Id: 100 not found
+    at new ApiError (D:\1.LeapFrog\NODE\Budgeteer_\server\src\utils\ApiErrors.ts:8:14)
+    at D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:80:19
+    at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
+    at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
+    at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
+2024-08-04 22:56:05 [info] [UserService]: User with email ganesh@gmail.com registered successfully
+2024-08-04 22:56:05 [warn] [UserService]: Login attempt failed for email invalid@example.com: User not found
+2024-08-04 22:56:05 [warn] [UserService]: Login attempt failed for email test@example.com: Invalid password
+2024-08-04 22:56:05 [info] [UserService]: User with email test@example.com logged in successfully
+2024-08-04 22:56:05 [error] [UserService]: Error: User with Id: 100 not found
+    at new ApiError (D:\1.LeapFrog\NODE\Budgeteer_\server\src\utils\ApiErrors.ts:8:14)
+    at D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:80:19
+    at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
+    at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
+    at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
