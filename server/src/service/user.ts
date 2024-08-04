@@ -5,11 +5,16 @@ import { UserModel } from "../model/user";
 import { User } from "../interface/user";
 import { ApiError } from "../utils/ApiErrors";
 import { generateAccessRefreshToken } from "./auth";
+import loggerWithNameSpace from "../utils/logger";
+
+const logger = loggerWithNameSpace("UserService");
 
 // register user
 export async function registerUser(user: User) {
     const existingUser = await UserModel.getUserByEmail(user.email);
     if (existingUser) {
+        logger.warn(`User with email ${user.email} already exists`);
+
         throw new ApiError(HttpStatusCodes.CONFLICT, "User with this email already exist!");
     }
 
@@ -17,8 +22,14 @@ export async function registerUser(user: User) {
         const password = await bcrypt.hash(user.password, 12);
         await UserModel.registerUser({ ...user, password: password });
 
+        // logger for success
+        logger.info(`User with email ${user.email} created successfully`);
+
         return { message: "User created Successfully" };
     } catch (error) {
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "User insertion fail!");
     }
 }
@@ -28,18 +39,24 @@ export async function loginUser(user: Pick<User, "email" | "password">) {
     const existingUser = await UserModel.getUserByEmail(user.email);
 
     if (!existingUser) {
+        logger.warn(`Login attempt failed for email ${user.email}: User not found`); //log message
+
         throw new ApiError(HttpStatusCodes.UNAUTHORIZED, "Invalid email or password");
     }
 
     const isValidPassword = await bcrypt.compare(user.password, existingUser.password);
 
     if (!isValidPassword) {
-        throw new ApiError(HttpStatusCodes.UNAUTHORIZED, "Invalid email or password");
+        logger.warn(`Login attempt failed for email ${user.email}: Invalid password`);
+
+        throw new ApiError(HttpStatusCodes.UNAUTHORIZED, "Invalid email or password"); //log message
     }
 
     const { accessToken, refreshToken } = await generateAccessRefreshToken(existingUser);
     const userDetails = await UserModel.getUserByEmail(user.email);
     delete userDetails.password;
+
+    logger.info(`User with email ${user.email} logged in successfully`); // logger
     return { accessToken, refreshToken, userDetails };
 }
 
@@ -48,6 +65,9 @@ export function getUserByEmail(email: string) {
     try {
         return UserModel.getUserByEmail(email);
     } catch (error) {
+        if (error.stack) {
+            logger.error(error.stack); //logger
+        }
         throw new ApiError(HttpStatusCodes.NOT_FOUND, "User Not Found");
     }
 }
@@ -57,6 +77,9 @@ export function getUserById(id: string) {
     try {
         return UserModel.getUserById(id);
     } catch (error) {
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database Error!");
     }
 }
@@ -73,6 +96,9 @@ export async function updateUser(user: User) {
         return { message: "User updated successfully" };
     } catch (error) {
         console.log(error);
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "User updation fail!");
     }
 }
@@ -84,6 +110,9 @@ export async function updateProfilePicture(userId: string, newProfile: string) {
 
         return { message: "Profile updated successfully" };
     } catch (error) {
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database fail!");
     }
 }
@@ -104,6 +133,9 @@ export async function changePassword(userId: string, oldPassword: string, newPas
 
         return { message: "Password changed successfully" };
     } catch (error) {
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database fail!");
     }
 }

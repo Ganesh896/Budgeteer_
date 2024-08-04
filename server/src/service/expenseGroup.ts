@@ -4,7 +4,9 @@ import { ApiError } from "../utils/ApiErrors";
 import { GroupExpenseModel } from "../model/expenseGroup";
 import { formatDate } from "../utils/dateFormater";
 import { GetQuery } from "../interface/query";
-import { getUserById } from "./user";
+import loggerWithNameSpace from "../utils/logger";
+
+const logger = loggerWithNameSpace("ExpenseGroupService");
 
 // add group
 export async function addGroup(userId: string, groupName: string) {
@@ -14,6 +16,9 @@ export async function addGroup(userId: string, groupName: string) {
         return { message: "Group added Successfully!" };
     } catch (error) {
         console.log(error);
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Insertion fail!");
     }
 }
@@ -26,6 +31,9 @@ export async function addGroupUser(userId: string, groupId: string) {
         return { message: "User added Successfully!" };
     } catch (error) {
         console.log(error);
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Insertion fail!");
     }
 }
@@ -35,6 +43,7 @@ export async function getGroup(userId: string) {
     if (userId) {
         return GroupExpenseModel.getGroup(userId);
     } else {
+        logger.warn(`User with ${userId} does not exist: User not found`);
         throw new ApiError(HttpStatusCodes.NOT_FOUND, "User not found!");
     }
 }
@@ -47,6 +56,9 @@ export async function inviteUser(senderId: string, receiverId: string, groupId: 
         return { message: "Sent invitation Successfully!" };
     } catch (error) {
         console.log(error);
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Insertion fail!");
     }
 }
@@ -56,6 +68,8 @@ export async function getGroupUsers(userId: string, groupId: number) {
     if (groupId) {
         return GroupExpenseModel.getGroupUsers(userId, groupId);
     } else {
+        logger.warn(`Group with ID: ${userId} does not exist in groups table`);
+
         throw new ApiError(HttpStatusCodes.NOT_FOUND, "Group not found!");
     }
 }
@@ -65,6 +79,8 @@ export async function getGroupInvites(userId: string) {
     if (userId) {
         return GroupExpenseModel.getGroupInvites(userId);
     } else {
+        logger.warn(`User with ID:${userId} does not exist in invites table`);
+
         throw new ApiError(HttpStatusCodes.NOT_FOUND, "User not found!");
     }
 }
@@ -76,6 +92,9 @@ export async function deleteGroupInvites(groupId: number, receiverId: string) {
 
         return { message: "Group invite deleted successfully" };
     } catch (error) {
+        if (error.stack) {
+            logger.error(error.stack);
+        }
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Deletion fail!");
     }
 }

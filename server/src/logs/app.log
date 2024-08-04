@@ -1,0 +1,9 @@
+2024-08-04 16:54:40 [warn] [UserService]: Login attempt failed for email gsaud123@gmail.com: User not found
+2024-08-04 17:12:04 [warn] [UserService]: Login attempt failed for email birendra@gmail.com: Invalid password
+2024-08-04 17:12:16 [info] [AuthService]: User payload: [object Object]
+2024-08-04 17:12:16 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjc3MDgzNiwiZXhwIjoxNzIyNzgwODM2fQ.PFauBYk-SS2pTkpinB10agvf3pH8eFsNFXVDuV-rsAw
+2024-08-04 17:12:16 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjc3MDgzNiwiZXhwIjoxNzIyODIwODM2fQ.w4y3Sbm0hKkHKfkCnD4l6sBee28cf0ovfHzNzHeVDe4
+2024-08-04 17:12:16 [info] [UserService]: User with email birendra@gmail.com logged in successfully
+2024-08-04 17:12:17 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 17:12:17 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 17:12:17 [info] [ExpenseService]: [object Object],[object Object],[object Object]

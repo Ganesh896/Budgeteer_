@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { Request } from "../interface/atuth";
+import { Request } from "../interface/auth";
 import HttpStatusCodes from "http-status-codes";
 
 import * as expenseService from "../service/expense";
