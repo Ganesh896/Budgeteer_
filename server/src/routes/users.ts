@@ -1,5 +1,5 @@
 import express from "express";
-import { changePassword, deleteUser, getUser, getUserByEmail, getUserById, loginUser, registerUser, updateProfilePicture, updateUser } from "../controller/user";
+import { changePassword, getUser, getUserByEmail, getUserById, loginUser, registerUser, updateProfilePicture, updateUser } from "../controller/user";
 import { validateReqBody } from "../middleware/validator";
 import { userRegisterSchema, userUpdateSchema } from "../schema/user";
 import { authenticate } from "../middleware/auth";
@@ -20,8 +20,6 @@ router.get("/user-details/id/:userId", authenticate, getUserById);
 router.put("/update", authenticate, validateReqBody(userUpdateSchema), updateUser);
 
 router.put("/update-profile", profileParser, authenticate, updateProfilePicture);
-
-router.delete("/delete", authenticate, deleteUser);
 
 router.put("/change-password", authenticate, changePassword);
 

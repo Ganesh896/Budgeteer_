@@ -102,7 +102,7 @@ export async function sendInvite(groupId: number = 0, inputSelector: string) {
     const userEmail = inviteUserInput.value;
     const senderUser = await getUserDetails();
     const receiverUser = await getUserDetails(userEmail);
-    const receiverId = receiverUser.id;
+    const receiverId = receiverUser?.id;
 
     console.log(senderUser);
     console.log(receiverUser);
@@ -111,7 +111,7 @@ export async function sendInvite(groupId: number = 0, inputSelector: string) {
         responseMesage.innerText = "Email cannot be empty!";
         responseMesage.style.color = "red";
         return;
-    } else if (senderUser.id === receiverId) {
+    } else if (senderUser?.id === receiverId) {
         responseMesage.innerText = "Cannot invite youself!";
         responseMesage.style.color = "red";
         return;
@@ -128,5 +128,7 @@ export async function sendInvite(groupId: number = 0, inputSelector: string) {
         })
         .catch(function (error) {
             console.error(error.response.data);
+            responseMesage.innerText = error.response.data.message;
+            responseMesage.style.color = "green";
         });
 }

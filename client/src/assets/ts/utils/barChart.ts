@@ -25,14 +25,14 @@ export const renderBarChart = () => {
                 labels: data.map((row) => row.month),
                 datasets: [
                     {
-                        label: "Current month",
+                        label: "Income",
                         backgroundColor: "#8370fe",
                         barThickness: 15,
                         borderRadius: 30,
                         data: data.map((row) => row.amount),
                     },
                     {
-                        label: "Previous month",
+                        label: "Expenses",
                         backgroundColor: "#bfb7ff",
                         barThickness: 15,
                         borderRadius: 30,

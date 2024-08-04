@@ -4,8 +4,6 @@ export const logoutHandler = () => {
 
     logoutBtnEle.addEventListener("click", function () {
         localStorage.removeItem("authToken");
-        localStorage.removeItem("userDetails");
-        localStorage.removeItem("maxCategoryId");
         window.location.href = "/";
     });
 };

@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const protectedPaths = ["/pages/dashboard", "/pages/profile", "/pages/expenses", "/pages/analytics", "/pages/budget", "/pages/goals", "/pages/group", "/pages/invites", "/pages/setting"];
-
+    console.log(currentPath);
     if (currentPath === "/" || currentPath === "/login") {
         if (token) {
             // Redirect to dashboard if already logged in

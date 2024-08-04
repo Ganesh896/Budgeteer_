@@ -12,7 +12,7 @@ export const UserDetails = (user: User) => {
         </div>
         <div class="form__groups">
             <div class="form__group">
-                <input type="email" name="email" value="${user.email}" class="update__field" disabled />
+                <input type="email" name="email" value="${user.email}" disabled />
             </div>
             <div class="form__group">
                 <input type="number" name="phone" value="${user.phone}" class="update__field" disabled />

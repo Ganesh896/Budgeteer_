@@ -5,7 +5,7 @@ import { renderNotification } from "../utils/notification";
 import { logoutHandler } from "../utils/logout";
 import { toggleSidebarHandler } from "../utils/toggleSidebar";
 import { toggleThemeHandler } from "../utils/toggleTheme";
-import { renderUserExpenses } from "./helper";
+import { renderUserExpenses, searchExpenses } from "./helper";
 import { getExpenses } from "./axios";
 
 // load all content
@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // open addexpense modal
     OpenAddExpenseModal();
+
+    // searching expense
+    searchExpenses();
 
     // expenses pagination
     const size = 3;

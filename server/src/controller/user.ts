@@ -73,10 +73,3 @@ export const changePassword = asyncHandler(async (req: Request, res: Response) =
     const data = await userService.changePassword(id, oldPassword, newPassword);
     res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
 });
-
-// delete user
-export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
-    const { id } = req.user!;
-    const data = await userService.deleteUser(id);
-    res.status(HttpStatusCodes.OK).json(new ApiResponse(HttpStatusCodes.OK, data));
-});

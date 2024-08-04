@@ -257,6 +257,50 @@ main {
         cursor: pointer;
     }
 
+    // delete modal
+    .deletePopup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: $white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 5;
+
+        &__header {
+            i {
+                font-size: 40px;
+                color: $red;
+            }
+        }
+
+        &__body {
+            margin: 16px 0;
+
+            p {
+                color: $grey;
+                margin-top: 8px;
+            }
+        }
+
+        &__footer {
+            button {
+                padding: 10px 16px;
+                color: $white;
+                border-radius: 5px;
+            }
+            &--cancel {
+                background: $primary;
+            }
+            &--delete {
+                background: $red;
+            }
+        }
+    }
+
     &.open {
         margin-left: 80px;
     }
@@ -570,6 +614,14 @@ main {
         }
     }
 
+    .budget__categories {
+        @include flex-box(flex-start, center, 20px);
+
+        .budget__card {
+            flex-basis: 35%;
+        }
+    }
+
     // budget doughnut chart
     .budget__chart {
         border: 2px solid $grey-light;
@@ -589,49 +641,6 @@ main {
         border-radius: 20px;
         padding: 20px;
         overflow: auto;
-
-        .deletePopup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: $white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            z-index: 5;
-
-            &__header {
-                i {
-                    font-size: 40px;
-                    color: $red;
-                }
-            }
-
-            &__body {
-                margin: 16px 0;
-
-                p {
-                    color: $grey;
-                    margin-top: 8px;
-                }
-            }
-
-            &__footer {
-                button {
-                    padding: 10px 16px;
-                    color: $white;
-                    border-radius: 5px;
-                }
-                &--cancel {
-                    background: $primary;
-                }
-                &--delete {
-                    background: $red;
-                }
-            }
-        }
 
         &__search {
             @include flex-box(space-between, center, 0);
@@ -867,6 +876,34 @@ main {
             &--reject {
                 background: $red-light;
                 color: $black-light;
+            }
+        }
+    }
+
+    //setting
+    &__setting {
+        @include flex-box(center, center, 0);
+        padding-top: 50px;
+
+        .setting {
+            &__changepassword {
+                width: 100%;
+                max-width: 500px;
+                text-align: center;
+
+                form {
+                    margin-top: 20px;
+
+                    .form__group {
+                        @include flex-box(flex-start, flex-start, 10px);
+                        flex-direction: column;
+                    }
+
+                    button {
+                        max-width: fit-content;
+                        font-size: 14px;
+                    }
+                }
             }
         }
     }

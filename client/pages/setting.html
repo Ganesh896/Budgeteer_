@@ -74,7 +74,6 @@
                         <a href="dashboard.html" class="sidebar__header--logo">
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
                         </a>
-                        <h2 class="subtitle"><a href="dashboard.html">Budgetter</a></h2>
                     </div>
                     <div class="header__notification" id="header__notification">
                         <!-- rendering notification -->
@@ -83,41 +82,31 @@
                         <!-- rendering user profile here -->
                     </div>
                 </div>
-                <div class="dashboard-content" id="profile">
-                    <div class="profile">
-                        <div class="profile__picture">
-                            <img src="/images/default__profile.png" id="profile__picture" alt="img" />
-                            <button class="profile__picture--upload"><i class="bx bx-camera"></i></button>
-                        </div>
-                        <div class="update__profile--modal">
-                            <div class="close__modal">
-                                <i class="bx bx-x"></i>
+                <div class="dashboard__setting" id="setting">
+                    <div class="setting__changepassword" id="changePasswordContainer">
+                        <h2>Change Password</h2>
+                        <form id="changePasswrodForm">
+                            <div class="form__group">
+                                <label for="oldPassword">Old Password</label>
+                                <input type="text" name="oldPassword" placeholder="Old password" id="oldPassword" required />
                             </div>
-                            <form id="update__profile--form">
-                                <input type="file" name="profile" />
-                                <button type="submit" class="l__button l__button--primary">Upload</button>
-                            </form>
-                        </div>
-                        <div class="profile__information">
-                            <div class="profile__information--header">
-                                <h3>My information</h3>
-                                <button class="edit__info--button"><i class="bx bx-edit-alt"></i> Edit</button>
+                            <div class="form__group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" name="newPassword" placeholder="New password" id="newPassword" required />
                             </div>
-                            <form id="updatedetail__form">
-                                <div class="updatedetail__form--container"></div>
-
-                                <button type="submit" class="l__button l__button--primary update__info">Update</button>
-                            </form>
-                        </div>
+                            <div class="form__group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="text" name="confirmPassword" placeholder="Confirm password" id="confirmPassword" required />
+                            </div>
+                            <p id="response__message"></p>
+                            <button type="submit" class="l__button l__button--primary">Change Password</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="overlay"></div>
         </main>
-        <!-- 
-        <script src="../src/assets/ts/index.ts" type="module"></script>
-        <script src="../src/assets/ts/dashboard.ts" type="module"></script>
-        <script src="../src/assets/ts/index.ts" type="module"></script> -->
-        <script src="../src/assets/ts/userProfile.ts" type="module"></script>
+
+        <script src="../src/assets/ts/profile-setting/setting.ts" type="module"></script>
     </body>
 </html>

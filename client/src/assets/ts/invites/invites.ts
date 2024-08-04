@@ -1,4 +1,4 @@
-import { addGroup, addGroupUser } from "../group/axios";
+import { addGroupUser } from "../group/axios";
 import { GroupUser } from "../interface/groupUser";
 import { logoutHandler } from "../utils/logout";
 import { renderNotification } from "../utils/notification";

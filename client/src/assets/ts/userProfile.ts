@@ -8,6 +8,7 @@ import { renderNotification } from "./utils/notification";
 import { logoutHandler } from "./utils/logout";
 import { toggleSidebarHandler } from "./utils/toggleSidebar";
 import { toggleThemeHandler } from "./utils/toggleTheme";
+import { openCloseModal } from "./utils/openCloseModal";
 
 // load the content
 document.addEventListener("DOMContentLoaded", async function () {
@@ -91,25 +92,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // update profile picture
     const uploadProfilePictureBtn = document.querySelector(".profile__picture--upload") as HTMLButtonElement;
-    const closeModalBtn = document.querySelector(".close__modal") as HTMLButtonElement;
     const uploadProfilePictureForm = document.getElementById("update__profile--form") as HTMLFormElement;
     const uploadProfilePictureModal = document.querySelector(".update__profile--modal") as HTMLDivElement;
-    const overlay = document.querySelector(".overlay") as HTMLDivElement;
-    const htmlBodyEle = document.querySelector("body") as HTMLBodyElement;
 
-    // open update profile picture modal
-    uploadProfilePictureBtn.addEventListener("click", function () {
-        overlay.classList.add("show");
-        uploadProfilePictureModal.classList.add("show");
-        htmlBodyEle.classList.add("overflowHidden");
-    });
 
-    // close update profile picture modal
-    closeModalBtn.addEventListener("click", function () {
-        overlay.classList.remove("show");
-        uploadProfilePictureModal.classList.remove("show");
-        htmlBodyEle.classList.remove("overflowHidden");
-    });
+    openCloseModal(uploadProfilePictureBtn, uploadProfilePictureModal);
 
     // update user profile picture call
     uploadProfilePictureForm.addEventListener("submit", function (event) {

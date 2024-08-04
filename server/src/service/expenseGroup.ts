@@ -4,6 +4,7 @@ import { ApiError } from "../utils/ApiErrors";
 import { GroupExpenseModel } from "../model/expenseGroup";
 import { formatDate } from "../utils/dateFormater";
 import { GetQuery } from "../interface/query";
+import { getUserById } from "./user";
 
 // add group
 export async function addGroup(userId: string, groupName: string) {

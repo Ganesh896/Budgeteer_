@@ -3,6 +3,7 @@ import { UpdateExpenseForm } from "../card/updateExpenseForm";
 import { deleteExpense, getExpenseById, updateExpense } from "../expenses/axios";
 import { renderCategory, renderGroups } from "../expenses/helper";
 import { Expense } from "../interface/expense";
+import { openCloseModal } from "./openCloseModal";
 
 export const expenseActions = (expenseId: string) => {
     const overlay = document.querySelector(".overlay") as HTMLDivElement;
@@ -39,13 +40,11 @@ export const expenseActions = (expenseId: string) => {
     // delete button
     const deleteExpenseButtonEle = document.getElementById(`expenseDelete${expenseId}`) as HTMLButtonElement;
     const deleteExpenseContianerEle = document.getElementById("deletePopup") as HTMLDivElement;
+    openCloseModal(deleteExpenseButtonEle, deleteExpenseContianerEle);
+
     deleteExpenseButtonEle?.addEventListener("click", () => {
         deleteExpenseContianerEle.innerHTML = DeletePopupCard("expense");
-        overlay.classList.add("show");
-        deleteExpenseContianerEle.classList.add("show");
-        htmlBodyEle.classList.add("overflowHidden");
 
-        // delete/cancel
         const cancelDeleteButtonEle = document.getElementById(`cancelDelete`) as HTMLButtonElement;
         const confirmDeleteButtonEle = document.getElementById(`confirmDelete`) as HTMLButtonElement;
         cancelDeleteButtonEle?.addEventListener("click", () => {

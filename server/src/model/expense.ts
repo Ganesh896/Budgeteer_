@@ -56,7 +56,7 @@ export class ExpenseModel extends BaseModel {
             });
 
         if (q) {
-            query.whereLike("title", `%${q}%`);
+            query.whereILike("title", `%${q}%`);
         }
 
         return query;

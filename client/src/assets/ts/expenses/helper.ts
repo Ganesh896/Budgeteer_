@@ -1,8 +1,9 @@
 import { ExpenseCard } from "../card/expense";
 import { Expense } from "../interface/expense";
-import { getExpenseCategory } from "./axios";
+import { getExpenseCategory, getExpenses } from "./axios";
 import { getGroups } from "../group/axios";
 import { expenseActions } from "../utils/expenseActions";
+import { apiDebounce } from "../utils/debouncing";
 
 // render categories on addexpense form for select
 export async function renderCategory(categoryId: number = 0) {
@@ -50,4 +51,27 @@ export function renderUserExpenses(expenses: Expense[]) {
         //expense actions
         expenseActions(expense.id);
     });
+}
+
+// Expense search function with debouncing
+export function searchExpenses() {
+    const searchExpenseInputEle = document.getElementById("expenses__search") as HTMLInputElement;
+
+    if (searchExpenseInputEle) {
+        console.log(searchExpenseInputEle);
+
+        // Function to handle the search
+        const handleSearch = async (e: Event) => {
+            const target = e.target as HTMLInputElement;
+            const text = target.value;
+            const expense = await getExpenses(4, 1, text.toLocaleLowerCase());
+            renderUserExpenses(expense.data);
+        };
+
+        // Create a debounced version of the handleSearch function
+        const debouncedSearch = apiDebounce(handleSearch, 1000); // Adjust the debounce delay as needed
+
+        // Attach the debounced function to the input event
+        searchExpenseInputEle.addEventListener("input", debouncedSearch);
+    }
 }

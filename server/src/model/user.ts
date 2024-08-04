@@ -42,11 +42,6 @@ export class UserModel extends BaseModel {
         return this.queryBuilder().update({ password }).table("users").where({ id });
     }
 
-    // delete update
-    static deleteUser(id: string) {
-        return this.queryBuilder().delete().table("users").where({ id });
-    }
-
     // get user by email
     static getUserByEmail(email: string) {
         return this.queryBuilder().select("*").table("users").where({ email }).first();

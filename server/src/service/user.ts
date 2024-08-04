@@ -48,7 +48,7 @@ export function getUserByEmail(email: string) {
     try {
         return UserModel.getUserByEmail(email);
     } catch (error) {
-        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database Error!");
+        throw new ApiError(HttpStatusCodes.NOT_FOUND, "User Not Found");
     }
 }
 
@@ -90,6 +90,11 @@ export async function updateProfilePicture(userId: string, newProfile: string) {
 
 // change password
 export async function changePassword(userId: string, oldPassword: string, newPassword: string) {
+    const existingUser = await getUserById(userId);
+    const isValidPassword = await bcrypt.compare(oldPassword, existingUser.password);
+    if (!isValidPassword) {
+        throw new ApiError(HttpStatusCodes.CONFLICT, "Old Password is wrong!");
+    }
     if (oldPassword === newPassword) {
         throw new ApiError(HttpStatusCodes.CONFLICT, "New password should be different from old password!");
     }
@@ -100,16 +105,5 @@ export async function changePassword(userId: string, oldPassword: string, newPas
         return { message: "Password changed successfully" };
     } catch (error) {
         throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "Database fail!");
-    }
-}
-
-// delete user
-export async function deleteUser(userId: string) {
-    try {
-        await UserModel.deleteUser(userId);
-
-        return { message: "User deleted successfully" };
-    } catch (error) {
-        throw new ApiError(HttpStatusCodes.INTERNAL_SERVER_ERROR, "User deletion fail!");
     }
 }

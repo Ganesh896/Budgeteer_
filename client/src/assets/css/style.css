@@ -463,6 +463,40 @@ main {
   font-size: 32px;
   cursor: pointer;
 }
+.dashboard .deletePopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 5;
+}
+.dashboard .deletePopup__header i {
+  font-size: 40px;
+  color: #e72b2b;
+}
+.dashboard .deletePopup__body {
+  margin: 16px 0;
+}
+.dashboard .deletePopup__body p {
+  color: #82828c;
+  margin-top: 8px;
+}
+.dashboard .deletePopup__footer button {
+  padding: 10px 16px;
+  color: #fff;
+  border-radius: 5px;
+}
+.dashboard .deletePopup__footer--cancel {
+  background: #8370fe;
+}
+.dashboard .deletePopup__footer--delete {
+  background: #e72b2b;
+}
 .dashboard.open {
   margin-left: 80px;
 }
@@ -780,6 +814,15 @@ main {
   border: 2px solid #cfced2;
   border-radius: 10px;
 }
+.dashboard .budget__categories {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.dashboard .budget__categories .budget__card {
+  flex-basis: 35%;
+}
 .dashboard .budget__chart {
   border: 2px solid #cfced2;
   border-radius: 10px;
@@ -794,40 +837,6 @@ main {
   border-radius: 20px;
   padding: 20px;
   overflow: auto;
-}
-.dashboard .expenses .deletePopup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  z-index: 5;
-}
-.dashboard .expenses .deletePopup__header i {
-  font-size: 40px;
-  color: #e72b2b;
-}
-.dashboard .expenses .deletePopup__body {
-  margin: 16px 0;
-}
-.dashboard .expenses .deletePopup__body p {
-  color: #82828c;
-  margin-top: 8px;
-}
-.dashboard .expenses .deletePopup__footer button {
-  padding: 10px 16px;
-  color: #fff;
-  border-radius: 5px;
-}
-.dashboard .expenses .deletePopup__footer--cancel {
-  background: #8370fe;
-}
-.dashboard .expenses .deletePopup__footer--delete {
-  background: #e72b2b;
 }
 .dashboard .expenses__search {
   display: flex;
@@ -1055,6 +1064,32 @@ main {
 .dashboard .invite__list .invite__button--reject {
   background: #ffebec;
   color: #46454b;
+}
+.dashboard__setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding-top: 50px;
+}
+.dashboard__setting .setting__changepassword {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+.dashboard__setting .setting__changepassword form {
+  margin-top: 20px;
+}
+.dashboard__setting .setting__changepassword form .form__group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  flex-direction: column;
+}
+.dashboard__setting .setting__changepassword form button {
+  max-width: fit-content;
+  font-size: 14px;
 }
 
 #profile {
