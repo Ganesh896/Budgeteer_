@@ -14,6 +14,7 @@ import { toggleThemeHandler } from "./utils/toggleTheme";
 import { renderUserExpenses } from "./expenses/helper";
 import { getExpenses } from "./expenses/axios";
 import { renderUserProfile } from "./utils/renderHeaderProfile";
+import { getGroupExpenses } from "./group/axios";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // render notification

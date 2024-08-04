@@ -50,10 +50,7 @@ export class ExpenseModel extends BaseModel {
             .join("categories as c", "c.id", "e.category_id")
             .limit(filter.size!)
             .offset((filter.page! - 1) * filter.size!)
-            .where("e.userId", userId)
-            .andWhere(function () {
-                this.whereNull("e.groupId");
-            });
+            .where("e.userId", userId);
 
         if (q) {
             query.whereILike("title", `%${q}%`);

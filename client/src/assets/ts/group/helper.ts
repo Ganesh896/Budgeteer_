@@ -12,7 +12,7 @@ export function renderGroupExpenses(expenses: Expense[]) {
         tableRow.setAttribute("class", "expense__item");
         tableRow.innerHTML = `
                     <td>
-                        <img src="${expense.profile}" alt="img" />
+                        <img src="${expense.profile || "/images/default-profile.png"}" alt="img" />
                     </td>
                     <td>${expense.createdAt}</td>
                     <td>Rs ${expense.amount}</td>

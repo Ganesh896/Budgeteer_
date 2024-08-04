@@ -45,12 +45,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // update user details call
     function updateUserDetails() {
+        const responseMsg = document.getElementById("response__message") as HTMLParagraphElement;
         const userDetailUpdateForm = document.getElementById("updatedetail__form") as HTMLFormElement;
         userDetailUpdateForm?.addEventListener("submit", function (event) {
             event.preventDefault();
 
             let formData = new FormData(userDetailUpdateForm);
             let data = Object.fromEntries(formData.entries());
+
+            console.log(data);
 
             axios
                 .put(`${baseUrl}user/update`, data, {
@@ -61,9 +64,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                 .then(function (response) {
                     // location.reload
                     console.log(response);
+                    responseMsg.innerText = response.data.data.message;
+                    responseMsg.style.color = "green";
+                    location.reload();
                 })
                 .catch(function (error) {
                     console.log(error.response);
+                    responseMsg.innerText = error.response.data.message;
+                    responseMsg.style.color = "red";
                 });
         });
     }
@@ -94,7 +102,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const uploadProfilePictureBtn = document.querySelector(".profile__picture--upload") as HTMLButtonElement;
     const uploadProfilePictureForm = document.getElementById("update__profile--form") as HTMLFormElement;
     const uploadProfilePictureModal = document.querySelector(".update__profile--modal") as HTMLDivElement;
-
 
     openCloseModal(uploadProfilePictureBtn, uploadProfilePictureModal);
 

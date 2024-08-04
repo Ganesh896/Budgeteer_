@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const div = document.createElement("div");
                 div.setAttribute("class", "groups__card--user");
                 div.innerHTML = `
-                            <img src="${user.profile}" alt="img" />
+                            <img src="${user.profile || "/images/default-profile.png"}" alt="img" />
                             <h4>${user.firstName} ${user.lastName}</h4>
                             `;
                 groupUsersContainer.appendChild(div);

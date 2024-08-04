@@ -90,12 +90,7 @@ export async function getUserById(id: string) {
 
 // update user
 export async function updateUser(user: User) {
-    const existingUser = await UserModel.getUserByEmail(user.email);
-    if (existingUser) {
-        throw new ApiError(HttpStatusCodes.CONFLICT, "User with this email already exists!");
-    }
     try {
-        console.log("after update model");
         await UserModel.updateUser(user);
         return { message: "User updated successfully" };
     } catch (error) {

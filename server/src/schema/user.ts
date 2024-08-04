@@ -64,7 +64,6 @@ export const userRegisterSchema = Joi.object({
 export const userUpdateSchema = Joi.object({
     firstName,
     lastName,
-    email,
     phone,
     address,
 }).options({

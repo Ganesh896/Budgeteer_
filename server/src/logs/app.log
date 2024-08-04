@@ -91,3 +91,117 @@
     at step (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:44:23)
     at Object.next (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:25:53)
     at fulfilled (D:\1.LeapFrog\NODE\Budgeteer_\server\src\service\user.ts:16:58)
+2024-08-04 23:00:17 [info] [UserService]: User with email testuser1@gmail.com registered successfully
+2024-08-04 23:01:55 [warn] [UserService]: User with email testuser1@gmail.com already exists
+2024-08-04 23:02:01 [info] [UserService]: User with email testuser2@gmail.com registered successfully
+2024-08-04 23:02:27 [warn] [UserService]: Login attempt failed for email testuser1@gmail.com: Invalid password
+2024-08-04 23:02:34 [info] [AuthService]: User payload: [object Object]
+2024-08-04 23:02:34 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGEzNGZkLTYyZGQtNDlkMS05ZDA2LWRkMGFkMzQ4NGEyMyIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwicGhvbmUiOiI4OTg3ODk4OTg5IiwiaWF0IjoxNzIyNzkxODU0LCJleHAiOjE3MjI4MDE4NTR9.V9oUqzmOkl3KtV1pKFqG4bufiLtlrhRnEXG2CmxvmMs
+2024-08-04 23:02:34 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGEzNGZkLTYyZGQtNDlkMS05ZDA2LWRkMGFkMzQ4NGEyMyIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwicGhvbmUiOiI4OTg3ODk4OTg5IiwiaWF0IjoxNzIyNzkxODU0LCJleHAiOjE3MjI4NDE4NTR9.hIA5quR8BQWAkDvDE5rWi4A4Ze5WaIu8mrFscOTkWbc
+2024-08-04 23:02:34 [info] [UserService]: User with email testuser1@gmail.com logged in successfully
+2024-08-04 23:05:28 [warn] [UserService]: Login attempt failed for email birendra@gmail.com: Invalid password
+2024-08-04 23:05:31 [info] [AuthService]: User payload: [object Object]
+2024-08-04 23:05:31 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjc5MjAzMSwiZXhwIjoxNzIyODAyMDMxfQ.F2v6KKzLLJtAx6WfqhqRZhjnwVsrjcCQLFNUcHkdJT8
+2024-08-04 23:05:31 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjc5MjAzMSwiZXhwIjoxNzIyODQyMDMxfQ.HzbB9FvGf1tvbBfMoLPpS4MY63HC-HKVbQcy4xGRGyE
+2024-08-04 23:05:31 [info] [UserService]: User with email birendra@gmail.com logged in successfully
+2024-08-04 23:07:48 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:07:48 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:07:48 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:07:49 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:07:49 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:07:49 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:08:13 [info] [AuthService]: User payload: [object Object]
+2024-08-04 23:08:13 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGEzNGZkLTYyZGQtNDlkMS05ZDA2LWRkMGFkMzQ4NGEyMyIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwicGhvbmUiOiI4OTg3ODk4OTg5IiwiaWF0IjoxNzIyNzkyMTkzLCJleHAiOjE3MjI4MDIxOTN9.F7NeNoLT4Psxg97pYKX4OGSIjC_TtGq2Yjvt6hzePCU
+2024-08-04 23:08:13 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGEzNGZkLTYyZGQtNDlkMS05ZDA2LWRkMGFkMzQ4NGEyMyIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwicGhvbmUiOiI4OTg3ODk4OTg5IiwiaWF0IjoxNzIyNzkyMTkzLCJleHAiOjE3MjI4NDIxOTN9.qbvSkB7TuHNNULp1EU7QyNfi9oAn-vblHKzKkBARDMo
+2024-08-04 23:08:13 [info] [UserService]: User with email testuser1@gmail.com logged in successfully
+2024-08-04 23:08:13 [info] [ExpenseService]: 
+2024-08-04 23:08:13 [info] [ExpenseService]: 
+2024-08-04 23:08:13 [info] [ExpenseService]: 
+2024-08-04 23:11:49 [info] [ExpenseService]: 
+2024-08-04 23:11:50 [info] [ExpenseService]: 
+2024-08-04 23:11:50 [info] [ExpenseService]: 
+2024-08-04 23:21:13 [info] [ExpenseService]: 
+2024-08-04 23:21:13 [info] [ExpenseService]: 
+2024-08-04 23:21:14 [info] [ExpenseService]: 
+2024-08-04 23:22:03 [info] [ExpenseService]: [object Object]
+2024-08-04 23:22:03 [info] [ExpenseService]: [object Object]
+2024-08-04 23:22:03 [info] [ExpenseService]: [object Object]
+2024-08-04 23:22:39 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:22:39 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:22:40 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:22:59 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:23:04 [info] [ExpenseService]: [object Object]
+2024-08-04 23:23:54 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:23:57 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:24:36 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:24:39 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:24:39 [info] [ExpenseService]: [object Object]
+2024-08-04 23:24:41 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:24:44 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:24:48 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:24:50 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:25:13 [error] [ExpenseGroupService]: error: insert into "invites" ("group_id", "receiver_id", "sender_id") values ($1, DEFAULT, $2) - null value in column "receiver_id" of relation "invites" violates not-null constraint
+    at Parser.parseErrorMessage (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+2024-08-04 23:26:03 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:26:27 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:26:53 [info] [AuthService]: User payload: [object Object]
+2024-08-04 23:26:53 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2JmMGI5LTVlNzctNGQ4MC04ZWM5LWY2YTlhMzM3MjdmNCIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIyIiwiZW1haWwiOiJ0ZXN0dXNlcjJAZ21haWwuY29tIiwicGhvbmUiOiI0NTY3ODk4Nzg2IiwiaWF0IjoxNzIyNzkzMzEzLCJleHAiOjE3MjI4MDMzMTN9.dqoNSaf3utmU-c8ng4yKphoP3_y8gszD_R5o8qFY9uo
+2024-08-04 23:26:53 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2JmMGI5LTVlNzctNGQ4MC04ZWM5LWY2YTlhMzM3MjdmNCIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIyIiwiZW1haWwiOiJ0ZXN0dXNlcjJAZ21haWwuY29tIiwicGhvbmUiOiI0NTY3ODk4Nzg2IiwiaWF0IjoxNzIyNzkzMzEzLCJleHAiOjE3MjI4NDMzMTN9.a96KY9MnfUAQ1c3AyGioiYQCN9mGCgMNiipNEueTsMw
+2024-08-04 23:26:53 [info] [UserService]: User with email testuser2@gmail.com logged in successfully
+2024-08-04 23:26:53 [info] [ExpenseService]: 
+2024-08-04 23:26:53 [info] [ExpenseService]: 
+2024-08-04 23:26:53 [info] [ExpenseService]: 
+2024-08-04 23:27:19 [info] [ExpenseService]: 
+2024-08-04 23:29:08 [info] [AuthService]: User payload: [object Object]
+2024-08-04 23:29:08 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGEzNGZkLTYyZGQtNDlkMS05ZDA2LWRkMGFkMzQ4NGEyMyIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwicGhvbmUiOiI4OTg3ODk4OTc3IiwiaWF0IjoxNzIyNzkzNDQ4LCJleHAiOjE3MjI4MDM0NDh9.VE5NSymy6pg_QH0WwIf9kkIuMI2wUK-VwVv9DKIFNCs
+2024-08-04 23:29:08 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGEzNGZkLTYyZGQtNDlkMS05ZDA2LWRkMGFkMzQ4NGEyMyIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwicGhvbmUiOiI4OTg3ODk4OTc3IiwiaWF0IjoxNzIyNzkzNDQ4LCJleHAiOjE3MjI4NDM0NDh9.FC4ixRjFYqBTyFXfLx0u5PJnUhwdEC4KNM6skJbaBlc
+2024-08-04 23:29:08 [info] [UserService]: User with email testuser1@gmail.com logged in successfully
+2024-08-04 23:29:08 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:29:08 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-04 23:29:09 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-04 23:31:02 [info] [AuthService]: User payload: [object Object]
+2024-08-04 23:31:02 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2JmMGI5LTVlNzctNGQ4MC04ZWM5LWY2YTlhMzM3MjdmNCIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIyIiwiZW1haWwiOiJ0ZXN0dXNlcjJAZ21haWwuY29tIiwicGhvbmUiOiI0NTY3ODk4Nzg2IiwiaWF0IjoxNzIyNzkzNTYyLCJleHAiOjE3MjI4MDM1NjJ9.eItRZiiS5CwuDFtnS_AfwNQD3clf5doP4wywFILQP34
+2024-08-04 23:31:02 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2JmMGI5LTVlNzctNGQ4MC04ZWM5LWY2YTlhMzM3MjdmNCIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIyIiwiZW1haWwiOiJ0ZXN0dXNlcjJAZ21haWwuY29tIiwicGhvbmUiOiI0NTY3ODk4Nzg2IiwiaWF0IjoxNzIyNzkzNTYyLCJleHAiOjE3MjI4NDM1NjJ9.7pccuNj4U0p13mfVm7ezIsq7nJcme-43fHCghDr2wY8
+2024-08-04 23:31:02 [info] [UserService]: User with email testuser2@gmail.com logged in successfully
+2024-08-04 23:31:02 [info] [ExpenseService]: 
+2024-08-04 23:31:03 [info] [ExpenseService]: 
+2024-08-04 23:31:03 [info] [ExpenseService]: [object Object]
+2024-08-04 23:31:18 [info] [ExpenseService]: [object Object]
+2024-08-04 23:31:28 [info] [ExpenseService]: [object Object]
+2024-08-04 23:31:36 [info] [ExpenseService]: 
+2024-08-04 23:31:52 [info] [ExpenseService]: 
+2024-08-04 23:31:52 [info] [ExpenseService]: 
+2024-08-04 23:31:52 [info] [ExpenseService]: [object Object]
+2024-08-04 23:32:33 [info] [ExpenseService]: [object Object]
+2024-08-04 23:32:33 [info] [ExpenseService]: [object Object]
+2024-08-04 23:32:33 [info] [ExpenseService]: [object Object]
+2024-08-04 23:35:38 [info] [ExpenseService]: [object Object]
+2024-08-04 23:35:38 [info] [ExpenseService]: [object Object]
+2024-08-04 23:35:58 [info] [ExpenseService]: [object Object]
+2024-08-04 23:35:58 [info] [ExpenseService]: [object Object]
+2024-08-04 23:35:58 [info] [ExpenseService]: [object Object]
+2024-08-04 23:36:52 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:36:52 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:36:53 [info] [ExpenseService]: [object Object]
+2024-08-04 23:37:42 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:37:42 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:37:42 [info] [ExpenseService]: [object Object]
+2024-08-04 23:38:22 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:38:22 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:38:22 [info] [ExpenseService]: [object Object]
+2024-08-04 23:38:33 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:38:42 [info] [ExpenseService]: 
+2024-08-04 23:38:45 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:38:50 [info] [ExpenseService]: [object Object]
+2024-08-04 23:38:53 [info] [ExpenseService]: [object Object]
+2024-08-04 23:38:55 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-04 23:38:58 [info] [ExpenseService]: [object Object]

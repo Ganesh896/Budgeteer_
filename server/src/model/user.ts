@@ -21,11 +21,10 @@ export class UserModel extends BaseModel {
 
     // user update
     static updateUser(user: User) {
-        const { id, firstName, lastName, email, phone, address } = user;
+        const { id, firstName, lastName, phone, address } = user;
         const userToUpdate = {
             firstName,
             lastName,
-            email,
             phone,
             address,
         };

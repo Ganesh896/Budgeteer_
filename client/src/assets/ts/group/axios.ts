@@ -1,6 +1,7 @@
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import { getUserDetails } from "../utils/getUser";
+// import { getUserDetails } from "../utils/getUser";
 
 // add groups
 export function addGroup(receiverId: string = "", groupName: string) {

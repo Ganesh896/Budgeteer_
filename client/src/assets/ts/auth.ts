@@ -35,7 +35,7 @@ signupFormEle.addEventListener("submit", (event) => {
     axios
         .post(`${baseUrl}user/register`, data)
         .then(function (response) {
-            signupErrorEle.innerText = response.data.message;
+            signupErrorEle.innerText = response.data.data.message;
             signupErrorEle.style.color = "green";
             signupFormEle.reset();
         })
