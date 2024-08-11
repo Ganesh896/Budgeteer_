@@ -4,7 +4,7 @@ Budgeteer is a comprehensive personal expense tracker designed to help users mon
 
 ## Database schema
 
-![logo](/public/database schema.png)
+![logo](public/database schema.png)
 
 ## Features
 
