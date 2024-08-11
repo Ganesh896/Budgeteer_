@@ -40,6 +40,11 @@ export const addBudget = () => {
 
                 console.log(response.data);
                 budgetAmountInputEle.value = "";
+
+                // refresh the page after 1 second
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             })
             .catch(function (error) {
                 console.error(error.response.data.message);

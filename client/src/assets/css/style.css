@@ -609,6 +609,12 @@ main {
   gap: 10px;
   display: none;
 }
+.dashboard__header--right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+}
 .dashboard .amount__cards {
   display: flex;
   justify-content: flex-start;

@@ -16,6 +16,9 @@ export function addGroup(receiverId: string = "", groupName: string) {
             console.log(response.data);
             responseMesage.innerText = response.data.data.message;
             responseMesage.style.color = "green";
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
         })
         .catch(function (error) {
             console.log(error.response);
@@ -51,6 +54,10 @@ export function addGroupUser(userId: string, groupId: string) {
         .then(function (response) {
             // showing success message
             console.log(response.data);
+
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
         })
         .catch(function (error) {
             console.error(error.response.data);
@@ -126,6 +133,9 @@ export async function sendInvite(groupId: number = 0, inputSelector: string) {
             responseMesage.innerText = response.data.data.message;
             responseMesage.style.color = "green";
             inviteUserInput.value = "";
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
         })
         .catch(function (error) {
             console.error(error.response.data);

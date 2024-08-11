@@ -28,6 +28,11 @@ export function changePassword() {
                 console.log(response.data);
                 responseMesage.innerText = response.data.data.message;
                 responseMesage.style.color = "green";
+                
+                // refresh the page after 1 second
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             })
             .catch(function (error) {
                 console.log(error.response);

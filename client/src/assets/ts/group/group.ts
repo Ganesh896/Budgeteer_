@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const nextButton = document.querySelector(".expenses__next--btn") as HTMLButtonElement;
             const currentPageEle = document.querySelector(".current__page") as HTMLSpanElement;
             const totalPageEle = document.querySelector(".total__pages") as HTMLSpanElement;
+            const paginationContainerEle = document.getElementById("expensePagination") as HTMLDivElement;
 
             const size = 3;
             let page = 1;
@@ -123,6 +124,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             async function initPagination() {
                 const total = await loadExpenses(page, size);
+                if (total < 1) {
+                    paginationContainerEle.classList.add("hide");
+                } else {
+                    paginationContainerEle.classList.remove("hide");
+                }
                 const totalPages = Math.ceil(total / size);
 
                 totalPageEle.innerText = totalPages + "";

@@ -37,9 +37,6 @@
                             <li class="sidebar__item">
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
-                            <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
-                            </li>
                             <li class="sidebar__item active">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
                             </li>
@@ -75,11 +72,13 @@
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
                         </a>
                     </div>
-                    <a href="invites.html" class="header__notification" id="header__notification">
-                        <!-- rendering notification -->
-                    </a>
-                    <div class="header__profile">
-                        <!-- rendering user profile here -->
+                    <div class="dashboard__header--right">
+                        <a href="invites.html" class="header__notification" id="header__notification">
+                            <!-- rendering notification -->
+                        </a>
+                        <div class="header__profile">
+                            <!-- rendering user profile here -->
+                        </div>
                     </div>
                 </div>
                 <div class="addexpense">
@@ -120,7 +119,7 @@
                                 <!-- group expenses here -->
                             </tbody>
                         </table>
-                        <div class="expenses__pagination">
+                        <div class="expenses__pagination hide" id="expensePagination">
                             <div class="expenses__pagination--buttons">
                                 <button class="expenses__prev--btn">Prev</button>
                                 <p><span class="current__page">0</span> of <span class="total__pages">0</span></p>
@@ -133,8 +132,6 @@
             <div class="overlay"></div>
         </main>
 
-        <!-- <script src="../src/assets/ts/dashboard.ts" type="module"></script> -->
-        <!-- <script src="../src//assets/ts/expenses/expenses.ts" type="module"></script> -->
         <script src="../src/assets/ts/group/group.ts" type="module"></script>
     </body>
 </html>

@@ -41,6 +41,11 @@ export const addSavingGoal = () => {
                 responseMesage.style.color = "green";
 
                 addSavingGoalFormEle.reset();
+
+                // refresh the page after 1 second
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             })
             .catch(function (error) {
                 console.log(error);
@@ -55,13 +60,26 @@ export const addSavingGoal = () => {
 export const addSavingAmount = () => {
     const addSavingAmountFormEle = document.getElementById("addamount__form") as HTMLFormElement;
 
+    const responseMsgEle = document.querySelector(".response__msg") as HTMLParagraphElement;
     const token = localStorage.getItem("authToken");
 
     addSavingAmountFormEle?.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const goalAmountEle = document.getElementById("savingGoalAmount") as HTMLSpanElement;
+        const currentSavingAmtEle = document.getElementById("currentSavingAmount") as HTMLSpanElement;
+        console.log(currentSavingAmtEle);
+
+        const goalAmount = +goalAmountEle.innerText;
+        const currentSavingAmt = +currentSavingAmtEle.innerText;
+
         const formData = new FormData(addSavingAmountFormEle);
         let data = Object.fromEntries(formData.entries());
-        console.log(data);
+        const addingAmount = +data.savingAmount;
+
+        if (addingAmount + currentSavingAmt > goalAmount) {
+            responseMsgEle.innerText = `Only need Rs. ${goalAmount - currentSavingAmt} to reach saving goal`;
+            return;
+        }
 
         axios
             .put(`${baseUrl}saving-goal/amount`, data, { headers: { Authorization: "Bearer " + token } })
@@ -69,6 +87,11 @@ export const addSavingAmount = () => {
                 // showing success message
                 console.log(response);
                 addSavingAmountFormEle.reset();
+
+                // refresh the page after 1 second
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             })
             .catch(function (error) {
                 console.log(error);

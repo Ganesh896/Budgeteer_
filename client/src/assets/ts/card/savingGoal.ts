@@ -4,8 +4,8 @@ export const SavingGoal = (goalName: string, goalAmount: number, currentAmount: 
     return `
         <div class="saving__items--title">
             <p>${goalName}</p>
-            <p>Rs ${currentAmount}</p>
-            <p>Rs <span>${goalAmount}</span></p>
+            <p>Rs <span id="currentSavingAmount">${currentAmount}</span></p>
+            <p>Rs <span id="savingGoalAmount">${goalAmount}</span></p>
         </div>
         <div class="progress">
             <div class="progress__bar">

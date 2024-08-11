@@ -108,6 +108,9 @@ export function addExpense() {
 
                 console.log(response.data);
                 addExpenseFormEle.reset(); // resetting form
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             })
             .catch(function (error) {
                 console.error(error.response.data);
@@ -143,6 +146,9 @@ export function updateExpense(expenseId: string) {
                 responseMsg.style.color = "green";
 
                 console.log(response.data);
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             })
             .catch(function (error) {
                 console.error(error.response.data);

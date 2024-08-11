@@ -1,7 +1,6 @@
 import { OpenAddExpenseModal } from "./utils/openAddExpenseModal";
 import { renderAmountCard } from "./utils/renderAmountCardt";
 import { renderDoughnutChart } from "./utils/doughnutChart";
-import { renderBarChart } from "./utils/barChart";
 import { renderSavingGoal } from "./utils/renderSavingGoal";
 import { getBudget } from "./budget/axios";
 import { Expense } from "./interface/expense";
@@ -14,7 +13,7 @@ import { toggleThemeHandler } from "./utils/toggleTheme";
 import { renderUserExpenses } from "./expenses/helper";
 import { getExpenses } from "./expenses/axios";
 import { renderUserProfile } from "./utils/renderHeaderProfile";
-import { getGroupExpenses } from "./group/axios";
+import { isUserLoggedIn } from "./utils/isLoggedIn";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // render notification
@@ -72,9 +71,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // expense budget doughnut chart
     renderDoughnutChart();
 
-    // render bar chart
-    renderBarChart();
-
     // logout
     logoutHandler();
 });
+
+await isUserLoggedIn();

@@ -38,9 +38,6 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
-                            </li>
-                            <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
                             </li>
                             <li class="sidebar__item">
@@ -75,11 +72,13 @@
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
                         </a>
                     </div>
-                    <a href="invites.html" class="header__notification" id="header__notification">
-                        <!-- rendering notification -->
-                    </a>
-                    <div class="header__profile">
-                        <!-- rendering user profile here -->
+                    <div class="dashboard__header--right">
+                        <a href="invites.html" class="header__notification" id="header__notification">
+                            <!-- rendering notification -->
+                        </a>
+                        <div class="header__profile">
+                            <!-- rendering user profile here -->
+                        </div>
                     </div>
                 </div>
 
@@ -103,7 +102,7 @@
 
                 <div class="savingbudgets">
                     <div class="budget">
-                        <h3 class="small__title">Budget</h3>
+                        <h3 class="small__title">Budget Expenses</h3>
                         <div class="budget__content">
                             <!-- <ul class="categories"></ul> -->
                             <canvas id="categories__chart"></canvas>
@@ -139,9 +138,6 @@
                             </thead>
                             <tbody id="expenses__list"></tbody>
                         </table>
-                    </div>
-                    <div class="money__flow">
-                        <canvas id="money__flow"></canvas>
                     </div>
                 </div>
             </div>

@@ -406,6 +406,10 @@ main {
     &__header {
         @include flex-box(center, center, 10px);
         display: none;
+
+        &--right {
+            @include flex-box(flex-start, center, 24px);
+        }
     }
 
     .amount__cards {

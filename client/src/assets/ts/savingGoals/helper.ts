@@ -3,6 +3,7 @@ import { getSavingGoal } from "./axios";
 // render saving Goal on addexpense form for select
 export async function renderSavingGoalsName() {
     const savingGoalList = document.getElementById("goalNameSelect")!;
+    savingGoalList.innerHTML = "";
 
     const savingGoal = await getSavingGoal();
     console.log(savingGoal);

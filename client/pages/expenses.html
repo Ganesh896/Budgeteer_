@@ -38,9 +38,6 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
-                            </li>
-                            <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
                             </li>
                             <li class="sidebar__item">
@@ -75,11 +72,13 @@
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
                         </a>
                     </div>
-                    <a href="invites.html" class="header__notification" id="header__notification">
-                        <!-- rendering notification -->
-                    </a>
-                    <div class="header__profile">
-                        <!-- rendering user profile here -->
+                    <div class="dashboard__header--right">
+                        <a href="invites.html" class="header__notification" id="header__notification">
+                            <!-- rendering notification -->
+                        </a>
+                        <div class="header__profile">
+                            <!-- rendering user profile here -->
+                        </div>
                     </div>
                 </div>
                 <div class="addexpense">
@@ -113,7 +112,7 @@
                         </thead>
                         <tbody id="expenses__list"></tbody>
                     </table>
-                    <div class="expenses__pagination">
+                    <div class="expenses__pagination" id="expensePagination">
                         <div class="expenses__pagination--buttons">
                             <button class="expenses__prev--btn">Prev</button>
                             <p><span class="current__page">0</span> of <span class="total__pages">10</span></p>

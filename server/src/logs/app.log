@@ -205,3 +205,305 @@
 2024-08-04 23:38:53 [info] [ExpenseService]: [object Object]
 2024-08-04 23:38:55 [info] [ExpenseService]: [object Object],[object Object]
 2024-08-04 23:38:58 [info] [ExpenseService]: [object Object]
+2024-08-05 10:42:36 [warn] [UserService]: Login attempt failed for email birendra@gmail.com: Invalid password
+2024-08-05 10:42:40 [info] [AuthService]: User payload: [object Object]
+2024-08-05 10:42:40 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjgzMzg2MCwiZXhwIjoxNzIyODQzODYwfQ.TP760h-QXXPULZ3csik6gGteGX5B-Ssjj1JQwGFdOfY
+2024-08-05 10:42:40 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjgzMzg2MCwiZXhwIjoxNzIyODgzODYwfQ.L6zv3nH-o-vsFrrGQJX665IYieaNPZltip8sUzTP5hQ
+2024-08-05 10:42:40 [info] [UserService]: User with email birendra@gmail.com logged in successfully
+2024-08-05 10:42:42 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 10:42:42 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 10:42:42 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 10:44:39 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 10:44:39 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 10:44:39 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 10:45:05 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 10:45:21 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 10:58:01 [info] [AuthService]: User payload: [object Object]
+2024-08-05 10:58:01 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2JmMGI5LTVlNzctNGQ4MC04ZWM5LWY2YTlhMzM3MjdmNCIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIyIiwiZW1haWwiOiJ0ZXN0dXNlcjJAZ21haWwuY29tIiwicGhvbmUiOiI0NTY3ODk4Nzg2IiwiaWF0IjoxNzIyODM0NzgxLCJleHAiOjE3MjI4NDQ3ODF9.9PNg47FbtN5GHro-eMlFOzjNbTUWofiOLvLL-kCovMQ
+2024-08-05 10:58:01 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY1M2JmMGI5LTVlNzctNGQ4MC04ZWM5LWY2YTlhMzM3MjdmNCIsImZpcnN0TmFtZSI6IlRlc3QiLCJsYXN0TmFtZSI6IlVzZXIyIiwiZW1haWwiOiJ0ZXN0dXNlcjJAZ21haWwuY29tIiwicGhvbmUiOiI0NTY3ODk4Nzg2IiwiaWF0IjoxNzIyODM0NzgxLCJleHAiOjE3MjI4ODQ3ODF9.Zq5Q_6KDrYLHgnYBOTolb1ZegoRhN5EIvBbiB486g5c
+2024-08-05 10:58:01 [info] [UserService]: User with email testuser2@gmail.com logged in successfully
+2024-08-05 10:58:02 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:02 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:02 [info] [ExpenseService]: [object Object]
+2024-08-05 10:58:10 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:12 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:12 [info] [ExpenseService]: [object Object]
+2024-08-05 10:58:13 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:18 [info] [ExpenseService]: [object Object]
+2024-08-05 10:58:42 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:52 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:58:55 [info] [ExpenseService]: [object Object]
+2024-08-05 10:59:06 [info] [ExpenseService]: [object Object]
+2024-08-05 10:59:10 [info] [ExpenseService]: [object Object]
+2024-08-05 10:59:13 [info] [ExpenseService]: 
+2024-08-05 10:59:20 [info] [ExpenseService]: 
+2024-08-05 10:59:31 [info] [ExpenseService]: [object Object]
+2024-08-05 10:59:45 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 10:59:48 [info] [ExpenseService]: [object Object]
+2024-08-05 10:59:50 [info] [ExpenseService]: 
+2024-08-05 11:02:51 [info] [ExpenseService]: 
+2024-08-05 11:02:51 [info] [ExpenseService]: 
+2024-08-05 11:02:51 [info] [ExpenseService]: 
+2024-08-05 11:03:10 [info] [ExpenseService]: [object Object]
+2024-08-05 11:03:10 [info] [ExpenseService]: [object Object]
+2024-08-05 11:03:10 [info] [ExpenseService]: [object Object]
+2024-08-05 11:03:18 [info] [ExpenseService]: [object Object]
+2024-08-05 11:06:16 [info] [ExpenseService]: [object Object]
+2024-08-05 11:06:26 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:06:33 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:06:40 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 11:07:15 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 11:07:51 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:08:19 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:08:30 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:08:37 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:09:04 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:09:09 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:09:23 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:09:25 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:09:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:09:57 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:10:01 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:10:15 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:10:25 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:10:26 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:12:32 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:12:32 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:12:32 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:00 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:00 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:00 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:16 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:16 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:16 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:39 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:39 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:13:39 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:21 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:23 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:27 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:27 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:27 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:28 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:54 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:54 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:54 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:57 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:57 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:57 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:14:58 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:15:02 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:15:04 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:19:22 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:19:22 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:19:22 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:20:54 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:20:54 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:20:54 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:20:56 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:20:56 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:20:56 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:03 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:03 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:03 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:05 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:10 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:40 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:40 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:40 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:46 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:53 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:53 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:23:53 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 11:46:29 [warn] [UserService]: Login attempt failed for email birendra@gmail.com: Invalid password
+2024-08-05 11:46:31 [info] [AuthService]: User payload: [object Object]
+2024-08-05 11:46:31 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjgzNzY5MSwiZXhwIjoxNzIyODQ3NjkxfQ.3gE4CqyXK3J0GSD85JUWyuuvP7KIP_LgdLjZdYy2hvg
+2024-08-05 11:46:31 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjgzNzY5MSwiZXhwIjoxNzIyODg3NjkxfQ.X1mF7nKWKwDdECR17FYccvUXt_NF6n-xF1QgPhdRs6Y
+2024-08-05 11:46:31 [info] [UserService]: User with email birendra@gmail.com logged in successfully
+2024-08-05 11:46:31 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 11:46:31 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 11:46:31 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 11:54:57 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 11:54:57 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 11:54:57 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 11:56:13 [info] [UserService]: User with email sabnit@gmail.com registered successfully
+2024-08-05 11:56:43 [warn] [UserService]: Login attempt failed for email sabnit@gmail.com: Invalid password
+2024-08-05 11:56:48 [info] [AuthService]: User payload: [object Object]
+2024-08-05 11:56:48 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNDEwY2E2LTQwNmQtNDI5YS04Yzg0LTgwNzBjM2E5ZDY3ZSIsImZpcnN0TmFtZSI6IlNhYm5pdCIsImxhc3ROYW1lIjoiUHJhc2FpIiwiZW1haWwiOiJzYWJuaXRAZ21haWwuY29tIiwicGhvbmUiOiI5ODk4OTg3Njc4IiwiaWF0IjoxNzIyODM4MzA4LCJleHAiOjE3MjI4NDgzMDh9.nTVDvQFjUfk2z_Yq_ML3qPOndgVM13pVL2OZJI8Ra7k
+2024-08-05 11:56:48 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViNDEwY2E2LTQwNmQtNDI5YS04Yzg0LTgwNzBjM2E5ZDY3ZSIsImZpcnN0TmFtZSI6IlNhYm5pdCIsImxhc3ROYW1lIjoiUHJhc2FpIiwiZW1haWwiOiJzYWJuaXRAZ21haWwuY29tIiwicGhvbmUiOiI5ODk4OTg3Njc4IiwiaWF0IjoxNzIyODM4MzA4LCJleHAiOjE3MjI4ODgzMDh9.IFl6g9g8T2zZxLh3OLB4Y3uVuURtvdpNrV6k_hg9Y40
+2024-08-05 11:56:48 [info] [UserService]: User with email sabnit@gmail.com logged in successfully
+2024-08-05 11:56:49 [info] [ExpenseService]: 
+2024-08-05 11:56:49 [info] [ExpenseService]: 
+2024-08-05 11:56:49 [info] [ExpenseService]: 
+2024-08-05 11:57:07 [info] [ExpenseService]: 
+2024-08-05 11:57:07 [info] [ExpenseService]: 
+2024-08-05 11:58:43 [info] [ExpenseService]: 
+2024-08-05 11:58:43 [info] [ExpenseService]: 
+2024-08-05 11:58:43 [info] [ExpenseService]: 
+2024-08-05 12:04:02 [info] [ExpenseService]: [object Object]
+2024-08-05 12:04:03 [info] [ExpenseService]: [object Object]
+2024-08-05 12:04:03 [info] [ExpenseService]: [object Object]
+2024-08-05 12:04:16 [info] [ExpenseService]: [object Object]
+2024-08-05 12:05:37 [info] [ExpenseService]: [object Object]
+2024-08-05 12:06:10 [info] [ExpenseService]: [object Object]
+2024-08-05 12:06:18 [info] [ExpenseService]: [object Object]
+2024-08-05 12:06:18 [info] [ExpenseService]: [object Object]
+2024-08-05 12:06:18 [info] [ExpenseService]: [object Object]
+2024-08-05 12:07:10 [error] [ExpenseGroupService]: error: insert into "invites" ("group_id", "receiver_id", "sender_id") values ($1, DEFAULT, $2) - null value in column "receiver_id" of relation "invites" violates not-null constraint
+    at Parser.parseErrorMessage (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+2024-08-05 12:07:29 [error] [ExpenseGroupService]: error: insert into "invites" ("group_id", "receiver_id", "sender_id") values ($1, DEFAULT, $2) - null value in column "receiver_id" of relation "invites" violates not-null constraint
+    at Parser.parseErrorMessage (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+2024-08-05 12:07:46 [error] [ExpenseGroupService]: error: insert into "invites" ("group_id", "receiver_id", "sender_id") values ($1, DEFAULT, $2) - null value in column "receiver_id" of relation "invites" violates not-null constraint
+    at Parser.parseErrorMessage (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+2024-08-05 12:07:47 [error] [ExpenseGroupService]: error: insert into "invites" ("group_id", "receiver_id", "sender_id") values ($1, DEFAULT, $2) - null value in column "receiver_id" of relation "invites" violates not-null constraint
+    at Parser.parseErrorMessage (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:369:69)
+    at Parser.handlePacket (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:188:21)
+    at Parser.parse (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\parser.ts:103:30)
+    at Socket.<anonymous> (D:\1.LeapFrog\NODE\Budgeteer_\server\node_modules\pg-protocol\src\index.ts:7:48)
+    at Socket.emit (node:events:518:28)
+    at Socket.emit (node:domain:488:12)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Socket.Readable.push (node:internal/streams/readable:390:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+2024-08-05 12:08:21 [info] [ExpenseService]: [object Object]
+2024-08-05 12:08:21 [info] [ExpenseService]: [object Object]
+2024-08-05 12:08:21 [info] [ExpenseService]: [object Object]
+2024-08-05 12:33:13 [info] [AuthService]: User payload: [object Object]
+2024-08-05 12:33:13 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjg0MDQ5MywiZXhwIjoxNzIyODUwNDkzfQ.ProflqKU3oaqrQiND6Gxw5yZfn0F0pCnVBXIosze0Sk
+2024-08-05 12:33:13 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjg0MDQ5MywiZXhwIjoxNzIyODkwNDkzfQ.EkYRHOjSzL8HYvnkp7S7a4JZRw-MvJK2G6CvZLwIOjE
+2024-08-05 12:33:13 [info] [UserService]: User with email birendra@gmail.com logged in successfully
+2024-08-05 12:33:13 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:33:13 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:33:13 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:33:18 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:33:18 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:33:18 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:35:13 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:35:17 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:35:17 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:35:17 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:35:49 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:35:49 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:35:49 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:37:14 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:37:15 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:37:15 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:37:20 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:37:20 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:37:20 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:22 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:38:22 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:38:22 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:32 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:38 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:42 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:44 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:48 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:38:50 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:39:03 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:39:07 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:39:14 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:39:22 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:39:27 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:42:51 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:42:51 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:42:51 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:42:53 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:42:55 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:43:03 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:43:07 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:53:14 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:53:14 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:53:14 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:53:28 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:53:29 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:53:29 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 12:53:33 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:53:33 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 12:53:34 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 13:39:37 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 13:39:50 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 13:40:47 [info] [UserService]: User with email newuser@gmail.com registered successfully
+2024-08-05 13:55:09 [info] [AuthService]: User payload: [object Object]
+2024-08-05 13:55:09 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjg0NTQwOSwiZXhwIjoxNzIyODU1NDA5fQ.0yNq7EvS8JPNy4wG8U2nGdR5-B-B99DW0_zXOaaAdEM
+2024-08-05 13:55:09 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2Nzg0ZGYyLWE0ZjUtNGVmYi1iNmEyLTUwZjgwOTI1OGUzNCIsImZpcnN0TmFtZSI6IkJpcmVuZHJhIiwibGFzdE5hbWUiOiJCb2hhcmEiLCJlbWFpbCI6ImJpcmVuZHJhQGdtYWlsLmNvbSIsInBob25lIjoiODk4OTg3ODk4NyIsImlhdCI6MTcyMjg0NTQwOSwiZXhwIjoxNzIyODk1NDA5fQ.aG9iofFMfrzye2PTgrKgH6bEugON9wSBdlwZ_4vOeQU
+2024-08-05 13:55:09 [info] [UserService]: User with email birendra@gmail.com logged in successfully
+2024-08-05 13:55:10 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 13:55:10 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 13:55:10 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 14:05:41 [info] [UserService]: User with email tony@gmail.com registered successfully
+2024-08-05 14:05:54 [warn] [UserService]: Login attempt failed for email tony@gmail.com: Invalid password
+2024-08-05 14:06:04 [warn] [UserService]: Login attempt failed for email tony@gmail.com: Invalid password
+2024-08-05 14:06:08 [warn] [UserService]: Login attempt failed for email tony@gmail.com: Invalid password
+2024-08-05 14:07:05 [warn] [UserService]: User with email tony@gmail.com already exists
+2024-08-05 14:07:13 [info] [UserService]: User with email tony123@gmail.com registered successfully
+2024-08-05 14:07:29 [info] [AuthService]: User payload: [object Object]
+2024-08-05 14:07:29 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiNmJlYTYxLTJkYWMtNDA4Ny1hYmUyLTM5MGNjNGY3OWY3YSIsImZpcnN0TmFtZSI6IlRvbnkiLCJsYXN0TmFtZSI6IlN0YXJrIiwiZW1haWwiOiJ0b255MTIzQGdtYWlsLmNvbSIsInBob25lIjoiOTg5ODk4OTg5OCIsImlhdCI6MTcyMjg0NjE0OSwiZXhwIjoxNzIyODU2MTQ5fQ.NUD6uIZ5GnxIxY4jKMMvNUrbIr8ll9Y4xLLzWN7RU2w
+2024-08-05 14:07:29 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBiNmJlYTYxLTJkYWMtNDA4Ny1hYmUyLTM5MGNjNGY3OWY3YSIsImZpcnN0TmFtZSI6IlRvbnkiLCJsYXN0TmFtZSI6IlN0YXJrIiwiZW1haWwiOiJ0b255MTIzQGdtYWlsLmNvbSIsInBob25lIjoiOTg5ODk4OTg5OCIsImlhdCI6MTcyMjg0NjE0OSwiZXhwIjoxNzIyODk2MTQ5fQ.3t8xr2hIn9tc22VejXkJs6qHnOP0jn5i2Fn4YixYv40
+2024-08-05 14:07:29 [info] [UserService]: User with email tony123@gmail.com logged in successfully
+2024-08-05 14:07:29 [info] [ExpenseService]: 
+2024-08-05 14:07:29 [info] [ExpenseService]: 
+2024-08-05 14:07:29 [info] [ExpenseService]: 
+2024-08-05 14:08:55 [info] [ExpenseService]: 
+2024-08-05 14:08:56 [info] [ExpenseService]: 
+2024-08-05 14:08:56 [info] [ExpenseService]: 
+2024-08-05 14:09:35 [info] [ExpenseService]: 
+2024-08-05 14:09:38 [info] [ExpenseService]: 
+2024-08-05 14:09:38 [info] [ExpenseService]: 
+2024-08-05 14:09:38 [info] [ExpenseService]: 
+2024-08-05 14:10:23 [info] [ExpenseService]: [object Object]
+2024-08-05 14:10:23 [info] [ExpenseService]: [object Object]
+2024-08-05 14:10:23 [info] [ExpenseService]: [object Object]
+2024-08-05 14:11:27 [info] [ExpenseService]: [object Object]
+2024-08-05 14:11:50 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 14:12:09 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 14:12:17 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 14:12:19 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 14:12:19 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 14:12:19 [info] [ExpenseService]: [object Object],[object Object]
+2024-08-05 14:13:09 [info] [AuthService]: User payload: [object Object]
+2024-08-05 14:13:09 [info] [AuthService]: Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjNzJlNmU0LTBkN2QtNGE3Yi1iYThmLTg3ZjM0MjRjYjYzNCIsImZpcnN0TmFtZSI6IlJvYmluIiwibGFzdE5hbWUiOiJTaW5naCIsImVtYWlsIjoicm9iaW5AZ21haWwuY29tIiwicGhvbmUiOiI4OTg3Njc4NzY3IiwiaWF0IjoxNzIyODQ2NDg5LCJleHAiOjE3MjI4NTY0ODl9.3kylA-uzudyjarGQn8FVvDM5LlKHYlXDBTdQ4OYcNgE
+2024-08-05 14:13:09 [info] [AuthService]: Refresh Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjNzJlNmU0LTBkN2QtNGE3Yi1iYThmLTg3ZjM0MjRjYjYzNCIsImZpcnN0TmFtZSI6IlJvYmluIiwibGFzdE5hbWUiOiJTaW5naCIsImVtYWlsIjoicm9iaW5AZ21haWwuY29tIiwicGhvbmUiOiI4OTg3Njc4NzY3IiwiaWF0IjoxNzIyODQ2NDg5LCJleHAiOjE3MjI4OTY0ODl9.JRKS6rpqkA-cThqygowIdGe822dpnL8dwsIJ2sF1iKY
+2024-08-05 14:13:09 [info] [UserService]: User with email robin@gmail.com logged in successfully
+2024-08-05 14:13:09 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 14:13:09 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 14:13:09 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 14:29:00 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 14:29:00 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 14:29:00 [info] [ExpenseService]: [object Object],[object Object],[object Object]
+2024-08-05 14:30:26 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object]
+2024-08-05 14:30:26 [info] [ExpenseService]: [object Object],[object Object],[object Object],[object Object],[object Object]
+2024-08-05 14:30:26 [info] [ExpenseService]: [object Object],[object Object],[object Object]

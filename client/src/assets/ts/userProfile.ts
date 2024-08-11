@@ -66,7 +66,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                     console.log(response);
                     responseMsg.innerText = response.data.data.message;
                     responseMsg.style.color = "green";
-                    location.reload();
+                    
+                    // refresh the page after 1 second
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
                 })
                 .catch(function (error) {
                     console.log(error.response);

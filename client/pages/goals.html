@@ -38,9 +38,6 @@
                                 <a href="budget.html"><i class="bx bx-money"></i> <span>Budget</span></a>
                             </li>
                             <li class="sidebar__item">
-                                <a href="analytics.html"><i class="bx bx-line-chart"></i> <span>Analytics</span></a>
-                            </li>
-                            <li class="sidebar__item">
                                 <a href="group.html"><i class="bx bx-group"></i> <span>Groups</span></a>
                             </li>
                             <li class="sidebar__item">
@@ -75,11 +72,13 @@
                             <img src="/images/budgetter-logo-light.png" alt="logo" />
                         </a>
                     </div>
-                    <a href="invites.html" class="header__notification" id="header__notification">
-                        <!-- rendering notification -->
-                    </a>
-                    <div class="header__profile">
-                        <!-- rendering user profile here -->
+                    <div class="dashboard__header--right">
+                        <a href="invites.html" class="header__notification" id="header__notification">
+                            <!-- rendering notification -->
+                        </a>
+                        <div class="header__profile">
+                            <!-- rendering user profile here -->
+                        </div>
                     </div>
                 </div>
                 <div class="addgoal">
@@ -125,6 +124,7 @@
                                 <label for="savingAmount">Amount</label>
                                 <input type="number" name="savingAmount" placeholder="Amount" id="savingAmount" required />
                             </div>
+                            <p class="response__msg"></p>
 
                             <button type="submit" class="l__button l__button--primary">Add</button>
                         </form>
